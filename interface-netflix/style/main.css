@@ -1,0 +1,144 @@
+:root {
+    --vermelho: #e50914;
+    --preto: #030202;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/*elementos base*/
+body {
+    background: var(--preto);
+    font-family: 'Arial', Times, serif;
+    color: white;
+}
+
+header .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+header .logo {
+    margin-left: 3px;
+    color: var(--vermelho);
+    font-family: 'Arial Black', Times;
+    font-size: 43px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #AAA;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+header nav i {
+    font-size: 14x;
+    margin-right: 3px;
+}
+
+header nav a:hover {
+    color: #efff;
+}
+
+
+
+/*documentário principal*/
+.documentario-principal {
+    font-size: 16px;
+    background: linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.50)100%), url("../img/fundo1.jpg");
+    height: 450px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.documentario-principal .descricao {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.titulo {
+    margin-top: 25%;
+    font-size: 35px;
+    font-family: 'Arial Black', Times;
+}
+
+.botao {
+    background-color: rgba(0,0,0.50);
+    border: none;
+    color: white;
+    padding: 18px 5px;
+    margin-right: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .2s ease all;
+}
+.botao:hover {
+    background-color: white;
+    color: black;
+}
+.botao i {
+    margin-right: 10px;
+}
+
+.container {
+    margin-left: 30px;
+}
+.documentario-principal .container {
+    width: 45%;
+}
+
+
+
+/*carrosel*/
+.tema {
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.box-serie {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.carrosel-series {
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.box-filme {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.carrosel-filmes {
+    margin-top: 7px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.box-doc {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.carrosel-doc {
+    margin-top: 7px;
+    margin-left: 8px;
+    margin-right: 8px;
+}

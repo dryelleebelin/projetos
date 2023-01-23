@@ -1,0 +1,109 @@
+* {   /*seleciona todos os elementos do html*/
+    margin: 0;
+    padding: 0;
+}
+
+#titulo {
+    font-family: "arial black";
+    color: #0d1b2a;
+    font-size: 40px;
+}
+
+#subtitulo {
+    font-family: sans-serif;
+    color: #0d1b2a;
+    margin-left: center;
+    margin-top: 25px;
+    font-size: 18px;
+}
+
+#check {
+    display: inline-block;
+}
+
+fieldset {
+    border: 0;
+}
+
+body {
+    background-color: #415a77;
+    font-family: sans-serif;
+    font-size: 1em;
+    color: #0d1b2a;
+    margin-left: 36%;
+    margin-top: 2%;
+    justify-content: center;
+    margin-bottom: 7%;
+}
+
+input, select, textarea, button {
+    border-radius: 5px;
+    font-size: 1em;
+    color: #0d1b2a;
+    border-radius: 10px;
+}
+
+.grupo:before, .grupo:after {
+    display: table;
+}
+
+.grupo:after {
+    clear: both;
+}
+
+.campo {
+    margin-bottom: 1em;
+}
+
+.campo label {
+    margin-bottom: 0.2em;
+    color: #0d1b2a;
+    display: block;
+}
+
+fieldset .grupo .campo {
+    float: left;
+    margin-right: 1em;
+}
+
+.campo input[type="text"], .campo input[type="email"], .campo select, .campo textarea {
+    padding: 0.2em;
+    border: 2px solid #1b263b;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+    display: block;
+    padding-right: 50px;
+}
+
+.campo select option {
+    padding-right: 1em;
+}
+
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+    background: #778da9;
+}
+
+.botao {
+    font-size: 1.3em;
+    background: #778da9;
+    border: 0;
+    margin-bottom: 1em;
+    color: #0d1b2a;
+    padding: 0.2em 0.6em;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 112%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.botao:hover {   /*acontece quando passa o mouser por cima do botão*/
+    background: #ffffff;
+    box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: none;
+}
+
+.botao, select {
+    cursor: pointer;
+}
