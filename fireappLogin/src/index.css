@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #15171a;
+    color: #fff;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+button{
+    cursor: pointer;
+}

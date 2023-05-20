@@ -1,0 +1,129 @@
+.new{
+    float: right;
+    margin-bottom: 1.5em;
+    background-color: #83bf02;
+    padding: 0.5em;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    font-weight: 600;
+    color: #fff;
+    transition: ease-in-out 0.3s;
+}
+.new:hover{
+    background-color: #5fd204;
+    transform: scale(1.1);
+}
+
+.new svg{
+    margin-right: 5px;
+}
+
+.dashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+table{
+    border: 1px solid #ccc;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+table caption{
+    font-size: 1.5em;
+    margin: 0.5em 0 0.75em;
+}
+
+table tr{
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 0.35em;
+}
+
+table th, table td{
+    padding: 0.60em;
+    text-align: center;
+}
+
+table th{
+    font-size: 0.85em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+table td .action{
+    border: 0;
+    padding: 5px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 3px;
+}
+
+table td .action svg{
+    vertical-align: middle;
+}
+
+table td .badge{
+    padding: 3px;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.dashboard span{
+    margin: 2em 0;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.btn-more{
+    margin: 1.5em 0;
+    padding: 0.5em 1em;
+    background-color: #181c2e;
+    border: 0;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: #fff;
+}
+
+@media screen and (max-width: 600px){
+    table{
+        border: 0;
+    }
+    table caption{
+        font-size: 1.3em;
+    }
+    table thead{
+        border: none;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    table tr{
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: 0.60em;
+    }
+    table td{
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: 0.8em;
+        text-align: right;
+    }
+    table td::before{
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
