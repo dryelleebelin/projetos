@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./img/icon.svg">
+    <title>Histórico</title>
+
+    <style>
+        body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #table_pessoas {
+            width: 60%;
+            border-radius: 10px;
+        }
+        button {
+            background-color: #001e45;
+            border-radius: 10px;
+            height: 42px;
+            margin: 0 0 0 25px;
+            font-size: 16px;
+            width: 80%;
+            transition: all 0.5s ease-in;
+        }
+        button:hover {
+            background-color: #002657;
+        }
+        .botao-historico {
+            display: flex;
+            width: 90%;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+
+<body style="overflow-x: hidden;">
+    <h1>Histórico dos cálculos das pessoas</h1>
+
+    <table id="table_pessoas">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </table>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+<script>
+    $(document).ready(function() {
+    var token = window.localStorage.getItem('token');
+    preencherHistorico(token);
+    });
+
+    function preencherHistorico(token)  {
+    $("#table_pessoas").not(':first').remove();
+    var html = '';
+
+    $.ajax(
+        { 
+        url: "http://localhost:5438/Pessoa",
+        type: "GET", 
+        contentType: "application/json",
+        dataType: "json",
+        headers: { 'Authorization': 'Bearer ' + token },
+        success: function (response) { 
+            for (var i = 0; i < response.length; i ++) {
+                html += '<tr class="table-row">' + 
+                    '<td>' + response[i].id + '<td>' +
+                    '<td">' + response[i].nome + '<td>' +
+                    '<td" class="botao-historico"><button onClick="verDetalhes(' + response[i].id + ')">Ver detalhes</button><button onClick="deletarPessoa(' + response[i].id + ')" style="background-color: red;">Deletar</button></td>' +
+                    '</tr>';
+            }
+            $("#table_pessoas tr").first().after(html);
+        },
+        error: function (request, message, error) {
+            alert("Erro ao obter histórico!")
+        }
+    })
+}
+
+function verDetalhes(id) {
+    window.location.href = "./detalhes.html?id=" + id
+}
+
+function deletarPessoa(id, token) {
+    $.ajax(
+        { 
+        url: "http://localhost:5438/Pessoa/" + id,
+        type: "DELETE", 
+        contentType: "application/json",
+        dataType: "json",
+        headers: { 'Authorization': 'Bearer ' + token },
+        success: function (response) { 
+            window.location.href = "./historico.html" 
+        },
+        error: function (request, message, error) {
+            alert("Erro ao deletar pessoa!")
+        }
+    })
+
+}
+</script>

@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@700&family=Eczar:wght@600;800&family=Noto+Sans:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    font-family: 'poppins', sans-serif;
+    color: #fff;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #232323;
+}
+
+input {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid gray;
+    font-size: 20px;
+    padding: 7px;
+    background: transparent;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+label {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+button {
+    background-color: blue;
+    border-radius: 6px;
+    border-width: 0;
+    color: white;
+    cursor: pointer;
+    height: 44px;
+    margin: 12px 0 0 0;
+    padding: 0 25px;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    
+    border: 1px solid gray
+}
+
+th, td {
+    padding: 10px;
+}
+
+.table-row {
+    background-color: #343434;
+    border-radius: 50px;
+}

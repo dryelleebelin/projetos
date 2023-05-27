@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./img/icon.svg">
+    <title>Detalhes</title>
+
+    <style>
+        body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #table_pessoas {
+            width: 90%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body style="overflow-x: hidden;">
+    <h1>Detalhe do cálculo da pessoa</h1>
+
+    <table id="table_pessoas">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Data de nascimento</th>
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>Salário</th>
+            <th>Saldo</th>
+            <th>Idade</th>
+            <th>IMC</th>
+            <th>Classificação</th>
+            <th>INSS</th>
+            <th>Aliquota</th>
+            <th>Salário líquido</th>
+            <th>Saldo dólar</th>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function() {
+    var token = window.localStorage.getItem('token');
+    preencherDetalhes(token);
+    });
+
+    function preencherDetalhes(token) {
+        $("#table_pessoas").not(':first').remove();
+        var html = '';
+        var params = new URLSearchParams(window.location.search);
+        var id = params.get('id');
+
+        $.ajax({ 
+        url: "http://localhost:5438/Pessoa/" + id,
+        type: "GET", 
+        contentType: "application/json",
+        dataType: "json",
+        headers: { 'Authorization': 'Bearer ' + token },
+        success: function (response) { 
+            html += '<tr class="table-row">' + 
+                '<td>' + response.id + '</td>' +
+                '<td>' + response.nome + '</td>' +
+                '<td>' + response.dataNascimento + '</td>' +
+                '<td>' + response.altura + '</td>' +
+                '<td>' + response.peso + '</td>' +
+                '<td>' + response.salario + '</td>' +
+                '<td>' + response.saldo + '</td>' +
+                '<td>' + response.idade + '</td>' +
+                '<td>' + response.imc + '</td>' +
+                '<td>' + response.classificacao + '</td>' +
+                '<td>' + response.inss + '</td>' +
+                '<td>' + response.aliquota + '</td>' +
+                '<td>' + response.salarioLiquido + '</td>' +
+                '<td>' + response.saldoDolar + '</td>' +
+                '</tr>';
+
+            $("#table_pessoas tr").first().after(html);
+        },
+        error: function (request, message, error) {
+            alert("Erro ao obter detalhes!")
+        }
+    })
+    }
+</script>

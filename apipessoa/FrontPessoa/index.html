@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./img/icon.svg">
+    <title>Informações pessoais</title>
+
+    <style>
+        body {
+            width: 100%;
+            height: 135vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        input {
+            width: 87%;
+            border: none;
+            font-size: 15px;
+            padding: 9px;
+            background: #464646;
+            border-radius: 8px;
+            margin-top: 7px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+        .container-index {
+            width: 46vw;
+            height: 100vh;
+            border-radius: 20px;
+            padding-left: 65px; 
+        }
+        button {
+            background-color: #001e45;
+            border-radius: 8px;
+            height: 42px;
+            margin: 0 0 0 0;
+            font-size: 16px;
+            width: 35%;
+            transition: all 0.5s ease-in;
+        }
+        button:hover {
+            background-color: #002657;
+        }
+        .botao-salvar {
+            background-color: #006400;
+        }
+        .botao-salvar:hover {
+            background-color: #007200;
+        }
+    </style>
+</head>
+
+<body style="overflow-x: hidden;">
+    <h1>Adicione as informações pessoais</h1>
+
+    <button onclick="verHistorico()">Ver histórico</button><br><br>
+
+    <div class="container-index">
+        <label for="txt_nome">Nome:</label>
+        <input type="text" id="txt_nome" placeholder="Digite o nome" required><br>
+        <label for="txt_data">Data de nascimento:</label>
+        <input type="date" id="txt_data" required>
+        <label for="txt_altura">Altura:</label>
+        <input type="number" id="txt_altura" placeholder="Digite a altura" required><br>
+        <label for="txt_peso">Peso:</label><br>
+        <input type="number" id="txt_peso" placeholder="Digite o peso" required>
+        <label for="txt_salario">Salário:</label>
+        <input type="number" id="txt_salario" placeholder="Digite o salário" required>
+        <label for="txt_saldo">Saldo:</label>
+        <input type="number" id="txt_saldo" placeholder="Digite o saldo" required>
+    </div>
+
+    <button onclick="processar()" class="botao-salvar">Salvar</button><br><br>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
