@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', 'Courier New', Courier, monospace;
+    color: #fff;
+}
+
+header{
+    height: 9vh;
+    background-color: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2%;
+    padding: 0 5%;
+}
+
+header a{
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+header a:hover{
+    color: #ffff27;
+}
+
+.main-conteudo{
+    background-image: url(./img/andre-fernandes.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 91vh;
+}
+
+.main-contribue{
+    background-image: url(./img/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 91vh;
+}
+
+.main-sobre{
+    background-image: url(./img/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 91vh;
+}
+
+.conteudo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 91vh;
+}
+
+.contribue{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 4%;
+    height: 91vh;
+}
+
+.sobre{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 4%;
+    height: 91vh;
+}
+
+.contribue p{
+    width: 60%;
+    text-align: center;
+}
+
+.contribue .box{
+    display: flex;
+    padding: 6% 0;
+    align-items: center;
+    gap: 5%;
+    width: 100%;
+}
+
+.contribue h1{
+    color: #ffff27;
+    text-shadow: 2px 2px 7px rgb(17, 17, 17);
+}
+
+.sobre h1{
+    color: #ffff27;
+    text-shadow: 2px 2px 7px rgb(17, 17, 17);
+}
+
+.sobre p{
+    margin-top: 4%;
+    width: 75%;
+}
+
+.img-2{
+    margin-bottom: 50px !important;
+}
+
+.contribue .box div img{
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.box div:first-child img{
+    margin-bottom: 40px;
+}
+
+.contribue .box div img:last-child{
+    width: 160px;
+}
+
+.contribue .box div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contribue .box div h3{
+    font-size: 15px;
+}
+
+.conteudo h1{
+    font-size: 3.3rem;
+}
+
+.botoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    margin-top: 2%;
+}
+
+.botoes button{
+    background-color: transparent;
+    border: 2px solid #ffff27;
+    padding: 3% 50%;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.4s ease-in-out;
+}
+
+.botoes button:hover{
+    background-color: #ffff27;
+    color: #111111;
+}
+
+footer{
+    height: 53vh;
+    background-color: #111111;
+    padding: 4% 3% 6% 3%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.redes img{
+    width: 30px;
+    margin: 15px 5px 15px 0;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.redes img:hover{
+    transform: translateY(-4px);
+}
+
+footer p{
+    width: 15vw;
+    font-size: 14px;
+    text-align: center;
+}
+
+.endereco{
+    height: 100%;
+}
+
+footer span{
+    font-size: 10px;
+    position: absolute;
+    bottom: -50%;
+}

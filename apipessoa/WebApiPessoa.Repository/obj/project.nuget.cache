@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1iwioVzzL3UaFi2oPuQFbM5J/eUGXtjR9DzpEpCfqPFDXnzUtMkv1rBz3q850zncnj8jdJrLdAG3iikBUZfNEQ==",
+  "dgSpecHash": "esf1MmooTtTulF7rytsZogf9lW4HPWzChFskm36N/afDyzJhcdGFeTbS+a7uW5VHuX++8l27yl7E791AJeQmqA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dryelle Ebelin\\Documents\\projects\\apipessoa\\WebApiPessoa.Repository\\WebApiPessoa.Repository.csproj",
+  "projectFilePath": "C:\\Users\\Dryelle Ebelin\\Documents\\projetos\\apipessoa\\WebApiPessoa.Repository\\WebApiPessoa.Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",

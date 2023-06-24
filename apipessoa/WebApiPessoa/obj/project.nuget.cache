@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ga3K98JJZ/xQszk7DYUcnM10gIAgpeW3KIdAhptMxcotBHohmTFtY04KU+UXODFr38+i0MHWoV6KiYd5e0wgDA==",
+  "dgSpecHash": "Q0zFtKfOz/Vg05Kni9UZTdwCIRiYIAmS40jNZy2d8fNJJJ4YKeFHAaYqWYqfywBUvMIRlMokoPb/oYT64TqHeA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dryelle Ebelin\\Documents\\projects\\apipessoa\\WebApiPessoa\\WebApiPessoa.csproj",
+  "projectFilePath": "C:\\Users\\Dryelle Ebelin\\Documents\\projetos\\apipessoa\\WebApiPessoa\\WebApiPessoa.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.31\\microsoft.aspnetcore.authentication.jwtbearer.3.1.31.nupkg.sha512",
     "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
