@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+:root{
+    --background-color: #fff;
+    --gray-color: #b0b5b98e;
+    --yellow-color: #f6c900;
+    --black-color: #000000;
+
+    --h1-font-size: 1.6rem; /* 24px titulos*/
+    --h3-font-size: 1.1rem; /* 18px texto destaque*/
+    --p-font-size: 1rem; /* 16px textos geral*/
+    --h6-font-size: .8rem; /* 14px textos pequenos*/
+}
+.body-home{
+    background-color: var(--background-color);
+    color: var(--black-color);
+}
+.body-home p{
+    font-size: var(--p-font-size);
+}
+.body-home a{
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+
+.body-home header{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+}
+.body-home header article{
+    display: flex;
+    align-items: center;
+    padding: 0.8% 3vw;
+    justify-content: space-between;
+}
+.body-home header article img{
+    width: 100px;
+    height: 100px;
+}
+.body-home header article form{
+    background-color: var(--gray-color);
+    width: 25%;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    padding: 0 0.7vw;
+    border-radius: 4px;
+}
+.body-home header article form input{
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border: none;
+    color: var(--black-color);
+    outline: none;
+    font-size: var(--p-font-size);
+}
+.body-home header article form input::placeholder{
+    color: var(--black-color);
+}
+.body-home header article form button{
+    background-color: transparent;
+    height: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+.body-home header article form button svg{
+    width: 25px;
+    height: auto;
+}
+.body-home header article section{
+    display: flex;
+    align-items: center;
+}
+.body-home header article section svg{
+    font-size: 32px;
+    color: var(--yellow-color);
+    margin-right: 1vw;
+}
+.body-home header article section div h6{
+    margin: 0;
+    color: var(--yellow-color);
+    font-size: var(--h6-font-size);
+}
+.body-home header article section div p{
+    margin: 0;
+    font-size: var(--h6-font-size);
+}
+
+
+.body-home header nav{
+    background-color: var(--yellow-color);
+    padding: 0.6% 3vw;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
