@@ -4,7 +4,6 @@ import logo from '../../imagens/logo.png';
 import {BiSearch} from 'react-icons/bi';
 import {FaMapMarkerAlt} from 'react-icons/fa';
 import {AiOutlineClockCircle} from 'react-icons/ai';
-import {BsWhatsapp} from 'react-icons/bs';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -12,7 +11,8 @@ import bebida1 from '../../imagens/bebida1.webp';
 import bebida2 from '../../imagens/bebida2.webp';
 import bebida3 from '../../imagens/bebida3.webp';
 import bebida4 from '../../imagens/bebida4.webp';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import whatsapp from '../../imagens/whatsapp.png';
 
 export default function Home(){
     const [showTodos, setShowTodos] = useState(false);
@@ -84,7 +84,7 @@ export default function Home(){
         <div className="body-home">
             <header>
                 <article>
-                    <img src={logo}/>
+                    <Link to={`/`}><img src={logo}/></Link>
                     <form action="https://www.instagram.com/adega_gordao131/">
                         <input type="text"  placeholder="Buscar"/>
                         <button type="submit"><BiSearch/></button>
@@ -121,6 +121,10 @@ export default function Home(){
             </header>
 
             <main>
+                <a href="https://api.whatsapp.com/send/?phone=5511940165069&text=kaualindo&type=phone_number&app_absent=0" className="whatsapp" target="_blank">
+                    <img src={whatsapp}/>
+                    <p>Faça seu pedido</p>
+                </a>
                 <section className="section-destaques">
                     <h2>Produtos em destaque<p>a</p></h2>
                     <Slider {...settingsCarossel} className="slider-carossel">

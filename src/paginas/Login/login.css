@@ -1,0 +1,59 @@
+:root{
+    --background-color: #fff;
+    --gray-color: #b0b5b98e;
+    --yellow-color: #f6c900;
+    --black-color: #000000;
+
+    --big-font: 2.3rem;
+    --h1-font-size: 1.6rem; /* 24px titulos*/
+    --h3-font-size: 1.2rem; /* 19px texto destaque*/
+    --p-font-size: 1rem; /* 16px textos geral*/
+    --h6-font-size: .8rem; /* 14px textos pequenos*/
+}
+
+.body-login main{
+    padding-top: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    gap: 8%;
+}
+.body-login main h2{
+    font-size: var(--big-font);
+}
+.body-login main form{
+    display: flex;
+    flex-direction: column;
+}
+.body-login main form label{
+    font-size: var(--p-font-size);
+    font-weight: 600;
+}
+.body-login main form input{
+    font-size: var(--p-font-size);
+    background-color: transparent;
+    border: 1px solid var(--black-color);
+    border-radius: 4px;
+    outline: none;
+    height: 5vh;
+    width: 30vw;
+    margin-bottom: 4%;
+}
+.body-login main form button{
+    margin-top: 2%;
+    background-color: var(--yellow-color);
+    border: none;
+    width: 50%;
+    font-size: var(--p-font-size);
+    font-weight: 600;
+    padding: 1% 2%;
+    border-radius: 6px;
+    margin: 2% 0 4% 25%;
+    box-shadow: 1px 1px 6px #00000082;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}
+.body-login main form button:hover{
+    background-color: #e7bc01;
+}
