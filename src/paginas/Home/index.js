@@ -1,18 +1,91 @@
-import React from "react"
+import React, { useState } from "react";
 import './home.css';
 import logo from '../../imagens/logo.png';
 import {BiSearch} from 'react-icons/bi';
 import {FaMapMarkerAlt} from 'react-icons/fa';
 import {AiOutlineClockCircle} from 'react-icons/ai';
 import {BsWhatsapp} from 'react-icons/bs';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import bebida1 from '../../imagens/bebida1.webp';
+import bebida2 from '../../imagens/bebida2.webp';
+import bebida3 from '../../imagens/bebida3.webp';
+import bebida4 from '../../imagens/bebida4.webp';
+import { Link } from "react-router-dom";
 
 export default function Home(){
+    const [showTodos, setShowTodos] = useState(false);
+
+    const handleVerTodosClick = () => {
+        setShowTodos(true);
+    };
+
+    const contentCarossel = [
+        <div key={1} className="item">
+            <img src={bebida1}/>
+            <p>Vinho Esporão Monte Velho Branco 750ml</p>
+            <p>R$68,50</p>
+        </div>,
+        <div key={2} className="item">
+            <img src={bebida2}/>
+            <p>Vinho Montes Alpha Malbec 750ml</p>
+            <p>R$175,00</p>
+        </div>,
+        <div key={3} className="item">
+            <img src={bebida3}/>
+            <p>Cachaça Santo Grau Paraty Reserva 750ml</p>
+            <p>R$82,00</p>
+        </div>,
+        <div key={4} className="item">
+            <img src={bebida4}/>
+            <p>Whisky Johnnie Walker Red Label 1l</p>
+            <p>R$87,00</p>
+        </div>,
+        <div key={5} className="item">
+            <img src={bebida1}/>
+            <p>Vinho Esporão Monte Velho Branco 750ml</p>
+            <p>R$68,50</p>
+        </div>,
+        <div key={6} className="item">
+            <img src={bebida2}/>
+            <p>Vinho Montes Alpha Malbec 750ml</p>
+            <p>R$175,00</p>
+        </div>,
+        <div key={7} className="item">
+            <img src={bebida3}/>
+            <p>Cachaça Santo Grau Paraty Reserva 750ml</p>
+            <p>R$82,00</p>
+        </div>,
+        <div key={8} className="item">
+            <img src={bebida4}/>
+            <p>Whisky Johnnie Walker Red Label 1l</p>
+            <p>R$87,00</p>
+        </div>,
+        <div key={9} className="item">
+            <img src={bebida1}/>
+            <p>Vinho Esporão Monte Velho Branco 750ml</p>
+            <p>R$68,50</p>
+        </div>,
+        <div key={10} className="item">
+            <img src={bebida2}/>
+            <p>Vinho Montes Alpha Malbec 750ml</p>
+            <p>R$175,00</p>
+        </div>
+    ];
+
+    const settingsCarossel = {
+        infinite: false,
+        slidesToShow: 4,
+        slidesToScroll: 1
+      };
+
     return(
         <div className="body-home">
             <header>
                 <article>
                     <img src={logo}/>
-                    <form>
+                    <form action="https://www.instagram.com/adega_gordao131/">
                         <input type="text"  placeholder="Buscar"/>
                         <button type="submit"><BiSearch/></button>
                     </form>
@@ -20,48 +93,161 @@ export default function Home(){
                         <FaMapMarkerAlt/>
                         <div>
                             <h6>Endereço</h6>
-                            <p>R. Faustolo, 1.493 - Lapa</p>
-                            <p>São Paulo - SP, 05041-001</p>
+                            <p>R. Antônio Carlos, 131 - Vila Ceres</p>
+                            <p>Barueri- SP, 06406120</p>
                         </div>
                     </section>
                     <section>
                         <AiOutlineClockCircle/>
                         <div>
                             <h6>Funcionamento</h6>
-                            <p>Seg. a Sex. das 08h as 18h</p>
-                            <p>Sábado das 08h as 17h</p>
+                            <p>Seg. a Dom. das 12h as 22h</p>
                         </div>
                     </section>
-                    <section>
-                        <BsWhatsapp/>
-                        <div>
-                            <h6>Whatsapp</h6>
-                            <p>11 94710-5521</p>
-                        </div>
-                    </section>
+                    <Link to={`/login`}><button>LOGIN</button></Link>
                 </article>
                 <nav>
                     <a href="#">Todos</a>
-                    <a href="#">Promoções</a>
                     <a href="#">Cervejas</a>
                     <a href="#">Whisky</a>
                     <a href="#">Vinhos</a>
                     <a href="#">Gin</a>
                     <a href="#">Cachaças</a>
                     <a href="#">Vodkas</a>
-                    <a href="#">Conhaques</a>
-                    <a href="#">Espumantes</a>
-                    <a href="#">Licores</a>
+                    <a href="#">Energéticos</a>
+                    <a href="#">Refrigerantes</a>
                     <a href="#">Outros</a>
                 </nav>
             </header>
 
             <main>
-                
+                <section className="section-destaques">
+                    <h2>Produtos em destaque<p>a</p></h2>
+                    <Slider {...settingsCarossel} className="slider-carossel">
+                        {contentCarossel.map((item) => (
+                            <div key={item.key}>
+                                {item}
+                            </div>
+                        ))}
+                    </Slider>
+                    <button className="btn-ver-todos" onClick={handleVerTodosClick}>Ver todos os produtos</button>
+                </section>
+                {showTodos && (
+                    <section className="section-destaques">
+                        <h2>Cervejas<p>a</p></h2>
+                        <Slider {...settingsCarossel} className="slider-carossel">
+                            {contentCarossel.map((item) => (
+                                <div key={item.key}>
+                                    {item}
+                                </div>
+                            ))}
+                        </Slider>
+                    </section>
+                )}
+                {showTodos && (
+                    <section className="section-destaques">
+                        <h2>Whisky<p>a</p></h2>
+                        <Slider {...settingsCarossel} className="slider-carossel">
+                            {contentCarossel.map((item) => (
+                                <div key={item.key}>
+                                    {item}
+                                </div>
+                            ))}
+                        </Slider>
+                    </section>
+                )}
+                {showTodos && (
+                    <section className="section-destaques">
+                        <h2>Vinhos<p>a</p></h2>
+                        <Slider {...settingsCarossel} className="slider-carossel">
+                            {contentCarossel.map((item) => (
+                                <div key={item.key}>
+                                    {item}
+                                </div>
+                            ))}
+                        </Slider>
+                    </section>
+                )}
+                {showTodos && (
+                    <section className="section-destaques">
+                        <h2>Gin<p>a</p></h2>
+                        <Slider {...settingsCarossel} className="slider-carossel">
+                            {contentCarossel.map((item) => (
+                                <div key={item.key}>
+                                    {item}
+                                </div>
+                            ))}
+                        </Slider>
+                    </section>
+                )}
+                {showTodos && (
+                    <section className="section-destaques">
+                        <h2>Cachaças<p>a</p></h2>
+                        <Slider {...settingsCarossel} className="slider-carossel">
+                            {contentCarossel.map((item) => (
+                                <div key={item.key}>
+                                    {item}
+                                </div>
+                            ))}
+                        </Slider>
+                    </section>
+                )}
+                {showTodos && (
+                    <section className="section-destaques">
+                        <h2>Vodkas<p>a</p></h2>
+                        <Slider {...settingsCarossel} className="slider-carossel">
+                            {contentCarossel.map((item) => (
+                                <div key={item.key}>
+                                    {item}
+                                </div>
+                            ))}
+                        </Slider>
+                    </section>
+                )}
+                {showTodos && (
+                    <section className="section-destaques">
+                        <h2>Energéticos<p>a</p></h2>
+                        <Slider {...settingsCarossel} className="slider-carossel">
+                            {contentCarossel.map((item) => (
+                                <div key={item.key}>
+                                    {item}
+                                </div>
+                            ))}
+                        </Slider>
+                    </section>
+                )}
+                {showTodos && (
+                    <section className="section-destaques">
+                        <h2>Refrigerantes<p>a</p></h2>
+                        <Slider {...settingsCarossel} className="slider-carossel">
+                            {contentCarossel.map((item) => (
+                                <div key={item.key}>
+                                    {item}
+                                </div>
+                            ))}
+                        </Slider>
+                    </section>
+                )}
+                {showTodos && (
+                    <section className="section-destaques">
+                        <h2>Outros<p>a</p></h2>
+                        <Slider {...settingsCarossel} className="slider-carossel">
+                            {contentCarossel.map((item) => (
+                                <div key={item.key}>
+                                    {item}
+                                </div>
+                            ))}
+                        </Slider>
+                    </section>
+                )}
             </main>
 
             <footer>
-
+                <h2>Contato</h2>
+                <p>(11) 94710-5521</p>
+                <p>kaua.kfm@icloud.com.br</p>
+                <a href="https://www.instagram.com/adega_gordao131/" target="_blank">Instagram</a>
+                <h6>Copyright Adega do Gordão - 2023. Todos os direitos reservados.</h6>
             </footer>
         </div>
     )

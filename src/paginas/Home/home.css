@@ -13,7 +13,7 @@ body{
     --black-color: #000000;
 
     --h1-font-size: 1.6rem; /* 24px titulos*/
-    --h3-font-size: 1.1rem; /* 18px texto destaque*/
+    --h3-font-size: 1.2rem; /* 19px texto destaque*/
     --p-font-size: 1rem; /* 16px textos geral*/
     --h6-font-size: .8rem; /* 14px textos pequenos*/
 }
@@ -28,6 +28,16 @@ body{
     text-decoration: none;
     color: var(--black-color);
 }
+::-webkit-scrollbar{
+    width: 7px;
+    background-color: var(--background-color);
+    border: none;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #000000b7;
+    border-radius: 50px;
+    height: 10vh;
+}
 
 
 .body-home header{
@@ -36,6 +46,7 @@ body{
     position: fixed;
     z-index: 5;
     width: 100%;
+    background-color: var(--background-color);
 }
 .body-home header article{
     display: flex;
@@ -49,7 +60,7 @@ body{
 }
 .body-home header article form{
     background-color: var(--gray-color);
-    width: 25%;
+    width: 30%;
     height: 6vh;
     display: flex;
     align-items: center;
@@ -97,6 +108,14 @@ body{
     margin: 0;
     font-size: var(--h6-font-size);
 }
+.body-home header article button{
+    background-color: transparent;
+    border: 2px solid var(--black-color);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-weight: 500;
+    cursor: pointer;
+}
 
 
 .body-home header nav{
@@ -105,4 +124,105 @@ body{
     display: flex;
     justify-content: space-between;
     font-weight: 500;
+}
+.body-home header a{
+    transition: 0.3s ease-in-out;
+}
+.body-home header a:hover{
+    color: #000000ab;
+}
+
+
+.body-home main{
+    display: flex;
+    flex-direction: column;
+    padding-top: 25vh;
+}
+main .section-destaques{
+    display: flex;
+    flex-direction: column;
+    padding: 0% 5vw;
+}
+main .section-destaques h2{
+    font-size: var(--h3-font-size);
+    display: flex;
+    align-items: center;
+}
+main .section-destaques h2 p{
+    color: transparent;
+    border-bottom: 1px solid var(--gray-color);
+    width: 80%;
+    font-size: 1px;
+    margin-left: 1vw;
+}
+.slick-prev:before {
+    color: var(--black-color) !important;
+    font-size: 30px !important;
+  }
+.slick-next:before {
+    color: var(--black-color) !important;
+    font-size: 30px !important;
+}
+.slider-carossel .item{
+    display: flex;
+    flex-direction: column;
+    height: 370px;
+    margin-left: 1vw;
+}
+.item img{
+    width: 250px !important;
+    margin-bottom: 6%;
+}
+.item p{
+    width: 83%;
+    margin: 0;
+}
+.item p:last-child{
+    font-weight: 600;
+}
+
+.section-destaques .btn-ver-todos{
+    background-color: var(--yellow-color);
+    border: none;
+    width: 20%;
+    font-size: var(--p-font-size);
+    font-weight: 600;
+    padding: 1% 2%;
+    border-radius: 6px;
+    margin: 2% 0 4% 39%;
+    box-shadow: 1px 1px 6px #00000082;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}
+.section-destaques .btn-ver-todos:hover{
+    background-color: #e7bc01;
+}
+
+
+footer{
+    background-color: #000000e0;
+    color: var(--background-color);
+    height: 30vh;
+    padding: 2% 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+}
+footer h2{
+    font-size: var(--h3-font-size);
+}
+footer a{
+    color: var(--background-color) !important;
+    text-decoration: underline !important;
+}
+footer p{
+    margin-bottom: 0.5% !important;
+    margin: 0;
+}
+footer h6{
+    font-size: var(--h6-font-size);
+    color: #bab8b8;
+    font-weight: 400;
 }
