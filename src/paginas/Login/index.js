@@ -1,23 +1,63 @@
 import './login.css';
 import logo from '../../imagens/logo.png';
-import {BiSearch} from 'react-icons/bi';
-import {FaMapMarkerAlt} from 'react-icons/fa';
-import {AiOutlineClockCircle} from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { BiSearch } from 'react-icons/bi';
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { AiOutlineClockCircle } from 'react-icons/ai';
+import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
 import '../Home/home.css';
 
-export default function Login(){
-    return(
+export default function Login() {
+    const [email, setEmail] = useState('');
+    const [senha, setsenha] = useState('');
+    const [loadingAuth, setLoadingAuth] = useState(false);
+    const navigate = useNavigate();
+    const handleChange = (event) => {
+        setEmail(event.target.value);
+    };
+
+    const handleChange2 = (event) => {
+        setsenha(event.target.value);
+    };
+    const handleLogin = async () => {
+        setLoadingAuth(true);
+
+        try {
+            if (email == "11940165069" && senha == "11940165069") {
+                const response = { email, senha };
+                window.localStorage.setItem('num',email)
+                console.log(response);
+                navigate('/');
+            }
+            else {
+                alert("Este login não existe")
+            }
+        }
+
+        catch (error) {
+            console.log('deu merda')
+        }
+
+    }
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        handleLogin();
+    };
+
+
+
+
+    return (
         <div className='body-login'>
             <header>
                 <article>
-                    <img src={logo}/>
-                    <form action="https://www.instagram.com/adega_gordao131/">
-                        <input type="text"  placeholder="Buscar"/>
-                        <button type="submit"><BiSearch/></button>
+                    <img src={logo} />
+                    <form >
+                        <input type="text" placeholder="Buscar" />
+                        <button type="submit"><BiSearch /></button>
                     </form>
                     <section>
-                        <FaMapMarkerAlt/>
+                        <FaMapMarkerAlt />
                         <div>
                             <h6>Endereço</h6>
                             <p>R. Antônio Carlos, 131 - Vila Ceres</p>
@@ -25,7 +65,7 @@ export default function Login(){
                         </div>
                     </section>
                     <section>
-                        <AiOutlineClockCircle/>
+                        <AiOutlineClockCircle />
                         <div>
                             <h6>Funcionamento</h6>
                             <p>Seg. a Dom. das 12h as 22h</p>
@@ -47,13 +87,17 @@ export default function Login(){
                 </nav>
             </header>
             <main>
-                <h2>Digite seu<br/>usuário<br/>e senha</h2>
-                <form>
+                <h2>Digite seu<br />usuário<br />e senha</h2>
+                <form onSubmit={handleFormSubmit}>
                     <label>Usuário</label>
-                    <input type='text' autoComplete='none'/>
+                    <input type='text' value={email} onChange={handleChange} autoComplete='none' />
                     <label>Senha</label>
-                    <input type='password' autoComplete='none'/>
-                    <button type='submit'>Login</button>
+                    <input type='password' value={senha} onChange={handleChange2} autoComplete='none' />
+                    <div className='botoes-login'>
+                        <button type="submit" className="botao-azul" disabled={loadingAuth}>
+                            {loadingAuth ? <div className="spinner-border-sm spinner-border" role="status"></div> : "Entrar"}
+                        </button>
+                    </div>
                 </form>
             </main>
         </div>
