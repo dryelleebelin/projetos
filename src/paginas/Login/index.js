@@ -68,26 +68,27 @@ export default function Login() {
                         <AiOutlineClockCircle />
                         <div>
                             <h6>Funcionamento</h6>
-                            <p>Seg. a Dom. das 12h as 22h</p>
+                            <p>Todos os dias das 12h as 22h</p>
                         </div>
                     </section>
-                    <Link to={`/login`}><button>LOGIN</button></Link>
+                    <Link to={`/`}><button>HOME</button></Link>
                 </article>
                 <nav>
-                    <a href="#">Todos</a>
-                    <a href="#">Cervejas</a>
-                    <a href="#">Whisky</a>
-                    <a href="#">Vinhos</a>
-                    <a href="#">Gin</a>
-                    <a href="#">Cachaças</a>
-                    <a href="#">Vodkas</a>
-                    <a href="#">Energéticos</a>
-                    <a href="#">Refrigerantes</a>
-                    <a href="#">Outros</a>
+                    <Link to={`/`}>Todos</Link>
+                    <Link to={`/`}>Cervejas</Link>
+                    <Link to={`/`}>Whisky</Link>
+                    <Link to={`/`}>Vinhos</Link>
+                    <Link to={`/`}>Gin</Link>
+                    <Link to={`/`}>Cachaças</Link>
+                    <Link to={`/`}>Vodkas</Link>
+                    <Link to={`/`}>Energéticos</Link>
+                    <Link to={`/`}>Refrigerantes</Link>
+                    <Link to={`/`}>Outros</Link>
                 </nav>
             </header>
+
             <main>
-                <h2>Digite seu<br />usuário<br />e senha</h2>
+                <h2>Digite seu<br />usuário e senha</h2>
                 <form onSubmit={handleFormSubmit}>
                     <label>Usuário</label>
                     <input type='text' value={email} onChange={handleChange} autoComplete='none' />
@@ -100,6 +101,14 @@ export default function Login() {
                     </div>
                 </form>
             </main>
+
+            <footer>
+                <h2>Contato</h2>
+                <p>(11) 94710-5521</p>
+                <p>kaua.kfm@icloud.com.br</p>
+                <a href="https://www.instagram.com/adega_gordao131/" target="_blank">Instagram</a>
+                <h6>Copyright Adega do Gordão - 2023. Todos os direitos reservados.</h6>
+            </footer>
         </div>
     )
 }

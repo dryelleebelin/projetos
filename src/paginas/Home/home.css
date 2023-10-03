@@ -4,7 +4,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
 }
 :root{
     --background-color: #fff;
@@ -13,7 +13,7 @@ body{
     --black-color: #000000;
 
     --h1-font-size: 1.6rem; /* 24px titulos*/
-    --h3-font-size: 1.2rem; /* 19px texto destaque*/
+    --h3-font-size: 1.3rem; /* 19px texto destaque*/
     --p-font-size: 1rem; /* 16px textos geral*/
     --h6-font-size: .8rem; /* 14px textos pequenos*/
 }
@@ -47,6 +47,7 @@ header{
     z-index: 5;
     width: 100%;
     background-color: var(--background-color);
+    font-family: 'Poppins';
 }
 header article{
     display: flex;
@@ -60,7 +61,7 @@ header article img{
 }
 header article form{
     background-color: var(--gray-color);
-    width: 30%;
+    width: 25%;
     height: 6vh;
     display: flex;
     align-items: center;
@@ -85,6 +86,7 @@ header article form button{
     border: none;
     display: flex;
     align-items: center;
+    padding-right: 0;
 }
 header article form button svg{
     width: 25px;
@@ -108,13 +110,19 @@ header article section div p{
     margin: 0;
     font-size: var(--h6-font-size);
 }
+header .botoes{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
 header article button{
     background-color: transparent;
     border: 2px solid var(--black-color);
     border-radius: 6px;
-    padding: 6px 10px;
+    padding: 3px 20px;
     font-weight: 500;
     cursor: pointer;
+    transition: 0.2s ease-in;
 }
 
 
@@ -127,9 +135,12 @@ header nav{
 }
 header a{
     transition: 0.3s ease-in-out;
+    font-size: var(--p-font-size);
+    color: var(--black-color);
+    text-decoration: none;
 }
 header a:hover{
-    color: #000000ab;
+    color: #000000a0;
 }
 
 
@@ -137,30 +148,34 @@ header a:hover{
     position: fixed;
     bottom: 30px;
     right: 30px;
+    z-index: 5;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-decoration: none;
 }
 .whatsapp img{
-    width: 50px;
+    width: 60px;
     transition: 0.3s ease-out;
 }
 .whatsapp img:hover{
-    background-color: #1e1e21eb;
     transform: scale(1.05);
 }
 .whatsapp p{
     font-size: var(--h6-font-size);
     font-weight: 600;
-    color: #0bb60b;
+    color: #01b801;
+    margin-top: 1.3vh;
+    font-family: 'Poppins';
 }
 
 
 .body-home main{
     display: flex;
     flex-direction: column;
-    padding-top: 25vh;
+    padding-top: 26vh;
+    font-family: 'Poppins';
 }
 main .section-destaques{
     display: flex;
@@ -176,7 +191,7 @@ main .section-destaques h2 p{
     color: transparent;
     border-bottom: 1px solid var(--gray-color);
     width: 80%;
-    font-size: 1px;
+    font-size: 20px;
     margin-left: 1vw;
 }
 .slick-prev:before {
@@ -195,10 +210,12 @@ main .section-destaques h2 p{
 }
 .item img{
     width: 250px !important;
+    max-width: 250px;
+    min-width: 250px;
     margin-bottom: 6%;
 }
 .item p{
-    width: 83%;
+    width: 75%;
     margin: 0;
 }
 .item p:last-child{
@@ -211,12 +228,13 @@ main .section-destaques h2 p{
     width: 20%;
     font-size: var(--p-font-size);
     font-weight: 600;
-    padding: 1% 2%;
+    padding: 0.8% 2%;
     border-radius: 6px;
-    margin: 2% 0 4% 39%;
+    margin: 3% 0 4% 39%;
     box-shadow: 1px 1px 6px #00000082;
     transition: 0.4s ease-in-out;
     cursor: pointer;
+    color: var(--black-color);
 }
 .section-destaques .btn-ver-todos:hover{
     background-color: #e7bc01;
@@ -226,13 +244,13 @@ main .section-destaques h2 p{
 footer{
     background-color: #000000e0;
     color: var(--background-color);
-    height: 30vh;
+    height: 34vh;
     padding: 2% 5vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2vh;
+    margin-top: 4vh;
 }
 footer h2{
     font-size: var(--h3-font-size);
@@ -246,6 +264,7 @@ footer p{
     margin: 0;
 }
 footer h6{
+    margin-top: 2%;
     font-size: var(--h6-font-size);
     color: #bab8b8;
     font-weight: 400;

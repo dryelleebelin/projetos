@@ -8,23 +8,23 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import bebida1 from '../../imagens/bebida1.webp';
-import bebida2 from '../../imagens/bebida2.webp';
-import bebida3 from '../../imagens/bebida3.webp';
-import bebida4 from '../../imagens/bebida4.webp';
 import { Link } from 'react-router-dom';
 import whatsapp from '../../imagens/whatsapp.png';
 import api from '../../services/api';
-import { FiUpload } from 'react-icons/fi';
 
 export default function Home() {
     const [showTodos, setShowTodos] = useState(false);
     const [produtos, setPodutos] = useState([])
     const [selectedFiles, setSelectedFiles] = useState([]);
     const fileInputRef = useRef('');
-    const [viado, isViado] = useState(window.localStorage.getItem("num") != null)
+    const [adm, isAdm] = useState(window.localStorage.getItem("num") != null)
 
     const handleVerTodosClick = () => {
         setShowTodos(true);
+        const button = document.getElementById('ver-todos-button');
+        if (button) {
+            button.style.display = 'none';
+        }
     };
 
     const handleFileChange = (e) => {
@@ -96,27 +96,30 @@ export default function Home() {
                         <AiOutlineClockCircle />
                         <div>
                             <h6>Funcionamento</h6>
-                            <p>Seg. a Dom. das 12h as 22h</p>
+                            <p>Todos os dias das 12h as 22h</p>
                         </div>
                     </section>
-                    <Link to={`/login`}><button>LOGIN</button></Link>
+                    <div className="botoes">
+                        <Link to={`/login`}><button>LOGIN</button></Link>
+                        {adm ? <Link to={`/fiado`}><button>FIADO</button></Link> : ""}
+                    </div>
                 </article>
                 <nav>
-                    <a href="#">Todos</a>
-                    <a href="#">Cervejas</a>
-                    <a href="#">Whisky</a>
-                    <a href="#">Vinhos</a>
-                    <a href="#">Gin</a>
-                    <a href="#">Cachaças</a>
-                    <a href="#">Vodkas</a>
-                    <a href="#">Energéticos</a>
-                    <a href="#">Refrigerantes</a>
-                    <a href="#">Outros</a>
+                    <a href="#" onClick={handleVerTodosClick}>Todos</a>
+                    <a href="#cervejas" onClick={handleVerTodosClick}>Cervejas</a>
+                    <a href="#whisky" onClick={handleVerTodosClick}>Whisky</a>
+                    <a href="#vinhos" onClick={handleVerTodosClick}>Vinhos</a>
+                    <a href="#gin" onClick={handleVerTodosClick}>Gin</a>
+                    <a href="#" onClick={handleVerTodosClick}>Cachaças</a>
+                    <a href="#" onClick={handleVerTodosClick}>Vodkas</a>
+                    <a href="#" onClick={handleVerTodosClick}>Energéticos</a>
+                    <a href="#" onClick={handleVerTodosClick}>Refrigerantes</a>
+                    <a href="#" onClick={handleVerTodosClick}>Outros</a>
                 </nav>
             </header>
 
             <main>
-                <a href="https://api.whatsapp.com/send/?phone=5511940165069&text=kaualindo&type=phone_number&app_absent=0" className="whatsapp" target="_blank">
+                <a href="https://api.whatsapp.com/send/?phone=5511940165069&text=Olá! Gostaria de fazer um pedido. Fico no aguardo do seu retorno.&type=phone_number&app_absent=0" className="whatsapp" target="_blank">
                     <img src={whatsapp} />
                     <p>Faça seu pedido</p>
                 </a>
@@ -127,9 +130,9 @@ export default function Home() {
                     .map((produto) => (
                                     <div key={produto.numeroProduto} className="item">
                                         <div className="label-avatar">
-                                            {viado ? <FiUpload onClick={handleImageClick} color="black" size={25} /> : ""}
-                                            <img src={produto.foto == null ? bebida1 : `http://localhost/images/${produto.foto}`} />
-                                            {viado ? <><button className='botao-upload' onClick={() => {
+                                            {/* {adm ? <FiUpload onClick={handleImageClick} color="black" size={25} /> : ""} */}
+                                            <img src={produto.foto == null ? bebida1 : `http://localhost/images/${produto.foto}`} id="cervejas"/>
+                                            {/* {adm ? <><button className='botao-upload' onClick={() => {
                                                 handleFormSubmit(produto.numeroProduto)
                                             }} type="button">Carregar foto</button>
                                                 <input
@@ -138,14 +141,14 @@ export default function Home() {
                                                     accept="image/*"
                                                     multiple
                                                     onChange={handleFileChange}
-                                                    style={{ display: 'none' }} /> </> : ""}
+                                                    style={{ display: 'none' }} /> </> : ""} */}
                                         </div>
                                         <p>{produto.nome}</p>
-                                        <p>R${produto.valor.toFixed(2)}</p>
+                                        <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
                                     </div>
                                 ))}
                     </Slider>
-                    <button className="btn-ver-todos" onClick={handleVerTodosClick}>Ver todos os produtos</button>
+                    <button id="ver-todos-button" className="btn-ver-todos" onClick={handleVerTodosClick} style={{ display: showTodos ? 'none' : 'block' }}>Ver todos os produtos</button>
                 </section>
 
                 {showTodos && (
@@ -157,9 +160,9 @@ export default function Home() {
                                 .map((produto) => (
                                     <div key={produto.numeroProduto} className="item">
                                         <div className="label-avatar">
-                                            {viado ? <FiUpload onClick={handleImageClick} color="black" size={25} /> : ""}
-                                            <img src={produto.foto == null ? bebida1 : `http://localhost/images/${produto.foto}`} />
-                                            {viado ? <><button className='botao-upload' onClick={() => {
+                                            {/* {adm ? <FiUpload onClick={handleImageClick} color="black" size={25} /> : ""} */}
+                                            <img src={produto.foto == null ? bebida1 : `http://localhost/images/${produto.foto}`} id="whisky"/>
+                                            {/* {adm ? <><button className='botao-upload' onClick={() => {
                                                 handleFormSubmit(produto.numeroProduto)
                                             }} type="button">Carregar foto</button>
                                                 <input
@@ -168,10 +171,10 @@ export default function Home() {
                                                     accept="image/*"
                                                     multiple
                                                     onChange={handleFileChange}
-                                                    style={{ display: 'none' }} /> </> : ""}
+                                                    style={{ display: 'none' }} /> </> : ""} */}
                                         </div>
                                         <p>{produto.nome}</p>
-                                        <p>R${produto.valor.toFixed(2)}</p>
+                                        <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
                                     </div>
                                 ))}
                         </Slider>
@@ -187,9 +190,9 @@ export default function Home() {
                                 .map((produto) => (
                                     <div key={produto.numeroProduto} className="item">
                                         <div className="label-avatar">
-                                            {viado ? <FiUpload onClick={handleImageClick} color="black" size={25} /> : ""}
-                                            <img src={produto.foto == null ? bebida1 : `http://localhost/images/${produto.foto}`} />
-                                            {viado ? <><button className='botao-upload' onClick={() => {
+                                            {/* {adm ? <FiUpload onClick={handleImageClick} color="black" size={25} /> : ""} */}
+                                            <img src={produto.foto == null ? bebida1 : `http://localhost/images/${produto.foto}`} id="vinhos"/>
+                                            {/* {adm ? <><button className='botao-upload' onClick={() => {
                                                 handleFormSubmit(produto.numeroProduto)
                                             }} type="button">Carregar foto</button>
                                                 <input
@@ -198,10 +201,10 @@ export default function Home() {
                                                     accept="image/*"
                                                     multiple
                                                     onChange={handleFileChange}
-                                                    style={{ display: 'none' }} /> </> : ""}
+                                                    style={{ display: 'none' }} /> </> : ""} */}
                                         </div>
                                         <p>{produto.nome}</p>
-                                        <p>R${produto.valor.toFixed(2)}</p>
+                                        <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
                                     </div>
                                 ))}
                         </Slider>
@@ -217,9 +220,9 @@ export default function Home() {
                                 .map((produto) => (
                                     <div key={produto.numeroProduto} className="item">
                                         <div className="label-avatar">
-                                            {viado ? <FiUpload onClick={handleImageClick} color="black" size={25} /> : ""}
-                                            <img src={produto.foto == null ? bebida1 : `http://localhost/images/${produto.foto}`} />
-                                            {viado ? <><button className='botao-upload' onClick={() => {
+                                            {/* {adm ? <FiUpload onClick={handleImageClick} color="black" size={25} /> : ""} */}
+                                            <img src={produto.foto == null ? bebida1 : `http://localhost/images/${produto.foto}`} id="gin"/>
+                                            {/* {adm ? <><button className='botao-upload' onClick={() => {
                                                 handleFormSubmit(produto.numeroProduto)
                                             }} type="button">Carregar foto</button>
                                                 <input
@@ -228,10 +231,10 @@ export default function Home() {
                                                     accept="image/*"
                                                     multiple
                                                     onChange={handleFileChange}
-                                                    style={{ display: 'none' }} /> </> : ""}
+                                                    style={{ display: 'none' }} /> </> : ""} */}
                                         </div>
                                         <p>{produto.nome}</p>
-                                        <p>R${produto.valor.toFixed(2)}</p>
+                                        <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
                                     </div>
                                 ))}
                         </Slider>
@@ -247,9 +250,9 @@ export default function Home() {
                                 .map((produto) => (
                                     <div key={produto.numeroProduto} className="item">
                                         <div className="label-avatar">
-                                            {viado ? <FiUpload onClick={handleImageClick} color="black" size={25} /> : ""}
-                                            <img src={produto.foto == null ? bebida1 : `http://localhost/images/${produto.foto}`} />
-                                            {viado ? <><button className='botao-upload' onClick={() => {
+                                            {/* {adm ? <FiUpload onClick={handleImageClick} color="black" size={25} /> : ""} */}
+                                            <img src={produto.foto == null ? bebida1 : `http://localhost/images/${produto.foto}`}/>
+                                            {/* {adm ? <><button className='botao-upload' onClick={() => {
                                                 handleFormSubmit(produto.numeroProduto)
                                             }} type="button">Carregar foto</button>
                                                 <input
@@ -258,10 +261,10 @@ export default function Home() {
                                                     accept="image/*"
                                                     multiple
                                                     onChange={handleFileChange}
-                                                    style={{ display: 'none' }} /> </> : ""}
+                                                    style={{ display: 'none' }} /> </> : ""} */}
                                         </div>
                                         <p>{produto.nome}</p>
-                                        <p>R${produto.valor.toFixed(2)}</p>
+                                        <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
                                     </div>
                                 ))}
                         </Slider>

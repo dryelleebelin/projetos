@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
+}
+
 :root{
     --background-color: #fff;
     --gray-color: #b0b5b98e;
@@ -6,21 +15,35 @@
 
     --big-font: 2.3rem;
     --h1-font-size: 1.6rem; /* 24px titulos*/
-    --h3-font-size: 1.2rem; /* 19px texto destaque*/
+    --h3-font-size: 1.3rem; /* 19px texto destaque*/
     --p-font-size: 1rem; /* 16px textos geral*/
     --h6-font-size: .8rem; /* 14px textos pequenos*/
 }
 
+.body-login{
+    background-color: var(--background-color);
+    color: var(--black-color);
+}
+.body-login p{
+    font-size: var(--p-font-size);
+}
+a{
+    text-decoration: none;
+    color: var(--black-color);
+}
+
 .body-login main{
-    padding-top: 25vh;
+    padding-top: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60vh;
+    height: 100vh;
     gap: 8%;
+    font-family: 'Poppins';
 }
 .body-login main h2{
     font-size: var(--big-font);
+    margin-top: -3vh;
 }
 .body-login main form{
     display: flex;
@@ -36,9 +59,10 @@
     border: 1px solid var(--black-color);
     border-radius: 4px;
     outline: none;
-    height: 5vh;
-    width: 30vw;
+    height: 6vh;
+    width: 20vw;
     margin-bottom: 4%;
+    padding-left: 3%;
 }
 .body-login main form button{
     margin-top: 2%;
@@ -47,7 +71,7 @@
     width: 50%;
     font-size: var(--p-font-size);
     font-weight: 600;
-    padding: 1% 2%;
+    padding: 2% 2%;
     border-radius: 6px;
     margin: 2% 0 4% 25%;
     box-shadow: 1px 1px 6px #00000082;
