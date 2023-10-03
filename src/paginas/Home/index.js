@@ -16,7 +16,6 @@ import whatsapp from '../../imagens/whatsapp.png';
 import api from '../../services/api';
 import { FiUpload } from 'react-icons/fi';
 
-
 export default function Home() {
     const [showTodos, setShowTodos] = useState(false);
     const [produtos, setPodutos] = useState([])
@@ -66,7 +65,7 @@ export default function Home() {
             console.log("Erro ao enviar a foto")
         }
     };
-
+    
     useEffect(() => {
         handleRede()
     }, [])
