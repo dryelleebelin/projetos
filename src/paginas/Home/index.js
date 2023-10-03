@@ -96,7 +96,7 @@ export default function Home() {
                         <AiOutlineClockCircle />
                         <div>
                             <h6>Funcionamento</h6>
-                            <p>Seg. a Dom. das 12h as 22h</p>
+                            <p>Todos os dias das 12h as 22h</p>
                         </div>
                     </section>
                     <div className="botoes">
