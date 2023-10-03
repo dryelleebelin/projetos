@@ -96,7 +96,7 @@ export default function Home() {
                         <AiOutlineClockCircle />
                         <div>
                             <h6>Funcionamento</h6>
-                            <p>Todos os dias das 12h as 22h</p>
+                            <p>Todos os dias das 12h às 22h</p>
                         </div>
                     </section>
                     <div className="botoes">
@@ -145,6 +145,7 @@ export default function Home() {
                                         </div>
                                         <p>{produto.nome}</p>
                                         <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
+                                        {adm ? <Link to={`/editar`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
                                     </div>
                                 ))}
                     </Slider>
@@ -175,6 +176,7 @@ export default function Home() {
                                         </div>
                                         <p>{produto.nome}</p>
                                         <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
+                                        {adm ? <Link to={`/editar`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
                                     </div>
                                 ))}
                         </Slider>
@@ -205,6 +207,7 @@ export default function Home() {
                                         </div>
                                         <p>{produto.nome}</p>
                                         <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
+                                        {adm ? <Link to={`/editar`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
                                     </div>
                                 ))}
                         </Slider>
@@ -235,6 +238,7 @@ export default function Home() {
                                         </div>
                                         <p>{produto.nome}</p>
                                         <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
+                                        {adm ? <Link to={`/editar`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
                                     </div>
                                 ))}
                         </Slider>
@@ -265,6 +269,7 @@ export default function Home() {
                                         </div>
                                         <p>{produto.nome}</p>
                                         <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
+                                        {adm ? <Link to={`/editar`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
                                     </div>
                                 ))}
                         </Slider>

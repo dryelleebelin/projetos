@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
+}
+:root{
+    --background-color: #fff;
+    --gray-color: #b0b5b98e;
+    --yellow-color: #f6c900;
+    --black-color: #000000;
+
+    --h1-font-size: 1.6rem; /* 24px titulos*/
+    --h3-font-size: 1.3rem; /* 19px texto destaque*/
+    --p-font-size: 1rem; /* 16px textos geral*/
+    --h6-font-size: .8rem; /* 14px textos pequenos*/
+}
+.body-editar{
+    background-color: var(--background-color);
+    color: var(--black-color);
+}
+.body-editar p{
+    font-size: var(--p-font-size);
+}
+.body-editar h2{
+    font-size: var(--h1-font-size);
+    font-weight: 600;
+    margin-bottom: 2%;
+}
+a{
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+
+.body-editar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vh 0;
+    width: 80%;
+    margin-left: 10%;
+}
+.body-editar div{
+    display: flex;
+    flex-direction: column;
+}
+.body-editar div input{
+    width: 20vw;
+    height: 5vh;
+    margin-bottom: 1.5vh;
+    border: 1px solid var(--black-color);
+    border-radius: 4px;
+    padding-left: 3%;
+    font-size: var(--p-font-size);
+    outline: none;
+}
+.body-editar .botoes{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    margin-top: 1%;
+}

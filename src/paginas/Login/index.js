@@ -68,7 +68,7 @@ export default function Login() {
                         <AiOutlineClockCircle />
                         <div>
                             <h6>Funcionamento</h6>
-                            <p>Todos os dias das 12h as 22h</p>
+                            <p>Todos os dias das 12h às 22h</p>
                         </div>
                     </section>
                     <Link to={`/`}><button>HOME</button></Link>

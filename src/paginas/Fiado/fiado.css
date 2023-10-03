@@ -46,30 +46,76 @@ a{
 }
 
 
-.body-fiado main{
+.body-fiado{
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 26vh;
+    padding-top: 7vh;
 }
-main h2{
+.body-fiado h2{
     font-size: var(--h1-font-size);
     font-weight: 600;
 }
-main a{
+.body-fiado a{
     text-decoration: none;
     color: var(--background-color);
 }
-main a .btn-success{
-    margin-top: 2vh;
+
+
+.body-fiado .div-buscar{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+}
+.body-fiado .div-buscar div{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2%;
+}
+.body-fiado form{
+    background-color: var(--gray-color);
+    width: 60%;
+    height: 5.6vh;
+    display: flex;
+    align-items: center;
+    padding: 0 0.7vw;
+    border-radius: 4px;
+}
+.body-fiado form input{
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border: none;
+    color: var(--black-color);
+    outline: none;
+    font-size: var(--p-font-size);
+}
+.body-fiado form input::placeholder{
+    color: var(--black-color);
+}
+.body-fiado form button{
+    background-color: transparent;
+    height: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding-right: 0;
+}
+.body-fiado form button svg{
+    width: 25px;
+    height: auto;
+}
+.body-fiado .div-buscar .btn-success{
+    white-space: nowrap;
 }
 
 
-.body-fiado main table{
+.body-fiado table{
     width: 80%;
     margin-top: 2%;
 }
-.body-fiado main table tbody button{
+.body-fiado table tbody button{
     border: none;
     padding: 0.6vh 1vw;
     transition: 0.4s ease-in-out;

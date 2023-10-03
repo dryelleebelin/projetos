@@ -174,7 +174,7 @@ header a:hover{
 .body-home main{
     display: flex;
     flex-direction: column;
-    padding-top: 26vh;
+    padding-top: 27vh;
     font-family: 'Poppins';
 }
 main .section-destaques{
@@ -190,7 +190,7 @@ main .section-destaques h2{
 main .section-destaques h2 p{
     color: transparent;
     border-bottom: 1px solid var(--gray-color);
-    width: 80%;
+    width: 75%;
     font-size: 20px;
     margin-left: 1vw;
 }
@@ -205,14 +205,14 @@ main .section-destaques h2 p{
 .slider-carossel .item{
     display: flex;
     flex-direction: column;
-    height: 370px;
+    height: 380px;
     margin-left: 1vw;
 }
 .item img{
-    width: 250px !important;
-    max-width: 250px;
-    min-width: 250px;
-    margin-bottom: 6%;
+    width: 230px !important;
+    max-width: 230px;
+    min-width: 230px;
+    margin-bottom: 4%;
 }
 .item p{
     width: 75%;
@@ -220,6 +220,10 @@ main .section-destaques h2 p{
 }
 .item p:last-child{
     font-weight: 600;
+}
+.item .btn-dark{
+    margin-top: 4%;
+    font-size: var(--h6-font-size);
 }
 
 .section-destaques .btn-ver-todos{
@@ -230,7 +234,7 @@ main .section-destaques h2 p{
     font-weight: 600;
     padding: 0.8% 2%;
     border-radius: 6px;
-    margin: 3% 0 4% 39%;
+    margin: 1% 0 4% 42%;
     box-shadow: 1px 1px 6px #00000082;
     transition: 0.4s ease-in-out;
     cursor: pointer;
