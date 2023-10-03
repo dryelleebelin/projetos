@@ -41,7 +41,7 @@ export default function Fiado(){
 
             <main>
                 <h2>Controle de Fiados</h2>
-                <button className='btn btn-success'><Link to={`/fiado/add-usuario`}>Adicionar usuário</Link></button>
+                <Link to={`/fiado/add-usuario`}><button className='btn btn-success'>Adicionar usuário</button></Link>
 
                 <table className='table table-dark table-striped table-bordered'>
                     <thead>
@@ -65,7 +65,7 @@ export default function Fiado(){
                             <td>Centro</td>
                             <td>Rua A</td>
                             <td>123</td>
-                            <td><button>Ver fiados</button></td>
+                            <td><button className='btn btn-primary'>Ver fiados</button></td>
                         </tr>
                         <tr>
                             <td>Maria Oliveira</td>
@@ -75,7 +75,7 @@ export default function Fiado(){
                             <td>Ipanema</td>
                             <td>Rua B</td>
                             <td>456</td>
-                            <td><button>Ver fiados</button></td>
+                            <td><button className='btn btn-primary'>Ver fiados</button></td>
                         </tr>
                         <tr>
                             <td>Ana Rodrigues</td>
@@ -85,7 +85,7 @@ export default function Fiado(){
                             <td>Copacabana</td>
                             <td>Rua D</td>
                             <td>987</td>
-                            <td><button>Ver fiados</button></td>
+                            <td><button className='btn btn-primary'>Ver fiados</button></td>
                         </tr>
                     </tbody>
                 </table>

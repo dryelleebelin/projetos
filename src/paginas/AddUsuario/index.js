@@ -3,44 +3,49 @@ import './addusuario.css';
 
 export default function AddUsuario(){
     return(
-        <div className="row">
-            <div className="col-md-3">
+        <div className="body-add">
+            <div>
                 <label>Nome completo:</label>
-                <input type="text" placeholder='Digite seu nome'/>
+                <input type="text" placeholder='Digite o nome completo'/>
             </div>
-            <div className="col-md-2">
+            <div>
                 <label>Telefone:</label>
-                <input type="email" placeholder='Digite seu e-mail'/>
+                <input type="tel" placeholder='(**) *****-****'/>
             </div>
-            <div className="col-md-2">
+            <div>
                 <label>Data de nascimento:</label>
-                <input type="email" placeholder='Digite seu e-mail'/>
+                <input type="date" placeholder='Digite a data de nascimento'/>
             </div>
-            <div className="col-md-2">
+            <div>
                 <label>Sexo:</label>
-                <input type="email" placeholder='Digite seu e-mail'/>
+                <select>
+                    <option>Selecionar</option>
+                    <option>Feminino</option>
+                    <option>Masculino</option>
+                    <option>Outro</option>
+                </select>
             </div>
-            <div className="col-md-2">
+            <div>
                 <label>CEP:</label>
-                <input type="email" placeholder='Digite seu e-mail'/>
+                <input type="email" placeholder='Digite o CEP'/>
             </div>
-            <div className="col-md-2">
+            <div>
                 <label>Cidade:</label>
-                <input type="email" placeholder='Digite seu e-mail'/>
+                <input type="email" placeholder='Digite a cidade'/>
             </div>
-            <div className="col-md-2">
+            <div>
                 <label>Bairro:</label>
-                <input type="email" placeholder='Digite seu e-mail'/>
+                <input type="email" placeholder='Digite o bairro'/>
             </div>
-            <div className="col-md-2">
+            <div>
                 <label>Rua:</label>
-                <input type="email" placeholder='Digite seu e-mail'/>
+                <input type="email" placeholder='Digite a rua'/>
             </div>
-            <div className="col-md-2">
+            <div>
                 <label>Número residêncial:</label>
-                <input type="email" placeholder='Digite seu e-mail'/>
+                <input type="email" placeholder='Digite o número residêncial'/>
             </div>
-            <div><button className="btn btn-success">Salvar</button></div>
+            <button className="btn btn-success">Salvar</button>
         </div>
     )
 }
