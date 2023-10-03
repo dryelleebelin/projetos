@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
+}
+:root{
+    --background-color: #fff;
+    --gray-color: #b0b5b98e;
+    --yellow-color: #f6c900;
+    --black-color: #000000;
+
+    --h1-font-size: 1.6rem; /* 24px titulos*/
+    --h3-font-size: 1.3rem; /* 19px texto destaque*/
+    --p-font-size: 1rem; /* 16px textos geral*/
+    --h6-font-size: .8rem; /* 14px textos pequenos*/
+}
+.body-fiado{
+    background-color: var(--background-color);
+    color: var(--black-color);
+}
+.body-fiado p{
+    font-size: var(--p-font-size);
+}
+a{
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+
+.body-fiado nav p {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee 25s linear infinite;
+}
+  
+@keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+}
+  
+
+
+.body-fiado main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 26vh;
+}
+main h2{
+    font-size: var(--h3-font-size);
+}

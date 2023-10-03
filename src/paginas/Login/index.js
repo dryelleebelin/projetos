@@ -71,23 +71,23 @@ export default function Login() {
                             <p>Seg. a Dom. das 12h as 22h</p>
                         </div>
                     </section>
-                    <Link to={`/login`}><button>LOGIN</button></Link>
+                    <Link to={`/`}><button>HOME</button></Link>
                 </article>
                 <nav>
-                    <a href="#">Todos</a>
-                    <a href="#">Cervejas</a>
-                    <a href="#">Whisky</a>
-                    <a href="#">Vinhos</a>
-                    <a href="#">Gin</a>
-                    <a href="#">Cachaças</a>
-                    <a href="#">Vodkas</a>
-                    <a href="#">Energéticos</a>
-                    <a href="#">Refrigerantes</a>
-                    <a href="#">Outros</a>
+                    <Link to={`/`}>Todos</Link>
+                    <Link to={`/`}>Cervejas</Link>
+                    <Link to={`/`}>Whisky</Link>
+                    <Link to={`/`}>Vinhos</Link>
+                    <Link to={`/`}>Gin</Link>
+                    <Link to={`/`}>Cachaças</Link>
+                    <Link to={`/`}>Vodkas</Link>
+                    <Link to={`/`}>Energéticos</Link>
+                    <Link to={`/`}>Refrigerantes</Link>
+                    <Link to={`/`}>Outros</Link>
                 </nav>
             </header>
             <main>
-                <h2>Digite seu<br />usuário<br />e senha</h2>
+                <h2>Digite seu<br />usuário e senha</h2>
                 <form onSubmit={handleFormSubmit}>
                     <label>Usuário</label>
                     <input type='text' value={email} onChange={handleChange} autoComplete='none' />
