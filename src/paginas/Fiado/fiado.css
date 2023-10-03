@@ -36,7 +36,6 @@ a{
     overflow: hidden;
     animation: marquee 25s linear infinite;
 }
-  
 @keyframes marquee {
     0% {
       transform: translateX(100%);
@@ -45,7 +44,6 @@ a{
       transform: translateX(-100%);
     }
 }
-  
 
 
 .body-fiado main{
@@ -55,5 +53,25 @@ a{
     padding-top: 26vh;
 }
 main h2{
-    font-size: var(--h3-font-size);
+    font-size: var(--h1-font-size);
+    font-weight: 600;
+}
+
+
+.body-fiado main table{
+    width: 80%;
+    margin-top: 2%;
+}
+.body-fiado main table tbody button{
+    background-color: blue;
+    color: var(--background-color);
+    border: none;
+    font-size: var(--p-font-size);
+    font-weight: 600;
+    padding: 0.6vh 1vw;
+    border-radius: 6px;
+    box-shadow: 1px 1px 4px #00000082;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+    margin-top: 2vh;
 }

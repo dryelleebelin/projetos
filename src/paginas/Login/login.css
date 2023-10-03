@@ -33,12 +33,13 @@ a{
 }
 
 .body-login main{
-    padding-top: 25vh;
+    padding-top: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60vh;
+    height: 100vh;
     gap: 8%;
+    font-family: 'Poppins';
 }
 .body-login main h2{
     font-size: var(--big-font);
@@ -58,8 +59,8 @@ a{
     border: 1px solid var(--black-color);
     border-radius: 4px;
     outline: none;
-    height: 5vh;
-    width: 25vw;
+    height: 6vh;
+    width: 20vw;
     margin-bottom: 4%;
     padding-left: 3%;
 }

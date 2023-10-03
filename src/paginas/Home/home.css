@@ -47,6 +47,7 @@ header{
     z-index: 5;
     width: 100%;
     background-color: var(--background-color);
+    font-family: 'Poppins';
 }
 header article{
     display: flex;
@@ -118,7 +119,7 @@ header article button{
     background-color: transparent;
     border: 2px solid var(--black-color);
     border-radius: 6px;
-    padding: 6px 24px;
+    padding: 3px 20px;
     font-weight: 500;
     cursor: pointer;
     transition: 0.2s ease-in;
@@ -165,7 +166,8 @@ header a:hover{
     font-size: var(--h6-font-size);
     font-weight: 600;
     color: #0bb60b;
-    margin-top: 1 vh;
+    margin-top: 1.3vh;
+    font-family: 'Poppins';
 }
 
 
@@ -173,6 +175,7 @@ header a:hover{
     display: flex;
     flex-direction: column;
     padding-top: 26vh;
+    font-family: 'Poppins';
 }
 main .section-destaques{
     display: flex;
@@ -241,7 +244,7 @@ main .section-destaques h2 p{
 footer{
     background-color: #000000e0;
     color: var(--background-color);
-    height: 30vh;
+    height: 34vh;
     padding: 2% 5vw;
     display: flex;
     flex-direction: column;
@@ -261,6 +264,7 @@ footer p{
     margin: 0;
 }
 footer h6{
+    margin-top: 2%;
     font-size: var(--h6-font-size);
     color: #bab8b8;
     font-weight: 400;

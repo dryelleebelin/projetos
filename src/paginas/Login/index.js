@@ -86,6 +86,7 @@ export default function Login() {
                     <Link to={`/`}>Outros</Link>
                 </nav>
             </header>
+
             <main>
                 <h2>Digite seu<br />usuário e senha</h2>
                 <form onSubmit={handleFormSubmit}>
@@ -100,6 +101,14 @@ export default function Login() {
                     </div>
                 </form>
             </main>
+
+            <footer>
+                <h2>Contato</h2>
+                <p>(11) 94710-5521</p>
+                <p>kaua.kfm@icloud.com.br</p>
+                <a href="https://www.instagram.com/adega_gordao131/" target="_blank">Instagram</a>
+                <h6>Copyright Adega do Gordão - 2023. Todos os direitos reservados.</h6>
+            </footer>
         </div>
     )
 }
