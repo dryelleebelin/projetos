@@ -11,6 +11,7 @@ import bebida1 from '../../imagens/bebida1.webp';
 import { Link } from 'react-router-dom';
 import whatsapp from '../../imagens/whatsapp.png';
 import api from '../../services/api';
+import oid from '../../paginas/Fiado/index';
 
 export default function Home() {
     const [showTodos, setShowTodos] = useState(false);
@@ -25,20 +26,20 @@ export default function Home() {
         if (button) {
             button.style.display = 'none';
         }
-    };
-
+    };  
+    
     const handleFileChange = (e) => {
         setSelectedFiles(e.target.files);
     };
 
-    const handleRede = async () => {
-        try {
-            await api.get('/Produtos').then((response) => {
-                setPodutos(response.data)
-            })
-        } catch (error) {
+        const handleRede = async () => {
+            try {
+                await api.get('/Produtos').then((response) => {
+                    setPodutos(response.data)
+                })
+            } catch (error) {
+            }
         }
-    }
     const handleImageClick = () => {
         fileInputRef.current.click();
     };
