@@ -10,7 +10,7 @@ export default function RoutesApp(){
         <Routes>
             <Route path="*" element={<Home/>} />
             <Route path="/login" element={<Login/>} />
-            <Route path="/editar" element={<EditarProduto/>} />
+            <Route path="/editar/:id" element={<EditarProduto/>} />
             <Route path="/fiado" element={<Fiado/>}/>
             <Route path="/fiado/add-usuario" element={<AddUsuario/>}/>
         </Routes >
