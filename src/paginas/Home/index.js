@@ -20,6 +20,7 @@ export default function Home() {
     const fileInputRef = useRef('');
     const [adm, isAdm] = useState(window.localStorage.getItem("num") != null)
 
+
     const handleVerTodosClick = () => {
         setShowTodos(true);
         const button = document.getElementById('ver-todos-button');
@@ -36,7 +37,7 @@ export default function Home() {
             try {
                 await api.get('/Produtos').then((response) => {
                     setPodutos(response.data)
-                })
+                })  
             } catch (error) {
             }
         }
@@ -146,7 +147,7 @@ export default function Home() {
                                         </div>
                                         <p>{produto.nome}</p>
                                         <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
-                                        {adm ? <Link to={`/editar`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
+                                        {adm ? <Link to={`/editar/${produto.numeroProduto}`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
                                     </div>
                                 ))}
                     </Slider>
@@ -177,7 +178,7 @@ export default function Home() {
                                         </div>
                                         <p>{produto.nome}</p>
                                         <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
-                                        {adm ? <Link to={`/editar`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
+                                        {adm ? <Link to={`/editar/${produto.numeroProduto}`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
                                     </div>
                                 ))}
                         </Slider>
@@ -208,7 +209,7 @@ export default function Home() {
                                         </div>
                                         <p>{produto.nome}</p>
                                         <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
-                                        {adm ? <Link to={`/editar`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
+                                        {adm ? <Link to={`/editar/${produto.numeroProduto}`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
                                     </div>
                                 ))}
                         </Slider>
@@ -239,7 +240,7 @@ export default function Home() {
                                         </div>
                                         <p>{produto.nome}</p>
                                         <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
-                                        {adm ? <Link to={`/editar`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
+                                        {adm ? <Link to={`/editar/${produto.numeroProduto}`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
                                     </div>
                                 ))}
                         </Slider>
@@ -270,7 +271,7 @@ export default function Home() {
                                         </div>
                                         <p>{produto.nome}</p>
                                         <p>R${produto.valor.toFixed(2).replace(".", ",")}</p>
-                                        {adm ? <Link to={`/editar`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
+                                        {adm ? <Link to={`/editar/${produto.numeroProduto}`}><button className="btn btn-dark">Editar produto</button></Link> : ""}
                                     </div>
                                 ))}
                         </Slider>
