@@ -1,0 +1,32 @@
+.header{
+    background-color: var(--1-blue-color);
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    width: 90vw;
+}
+.header div{
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+}
+.header div img{
+    width: 45px;
+}
+.header div a{
+    font-size: var(--h5-font-size);
+}
+.header button{
+    background-color: var(--orange-color);
+    color: var(--1-blue-color);
+    border: none;
+    border-radius: 8px;
+    padding: 0.8vh 2.5vw;
+    font-weight: 700;
+    font-size: var(--p-font-size);
+}
