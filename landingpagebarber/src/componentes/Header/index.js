@@ -8,8 +8,9 @@ export default function Header(){
             <div>
                 <img src={logo} alt='logo'/>
                 <a href='#sobre'>Sobre</a>
-                <a href='#sobre'>Serviços</a>
-                <a href='#sobre'>Contatos</a>
+                <a href='#servicos'>Serviços</a>
+                <a href='#equipe'>Equipe</a>
+                <a href='#unidades'>Unidades</a>
             </div>
             <button>Agendar horário</button>
         </div>

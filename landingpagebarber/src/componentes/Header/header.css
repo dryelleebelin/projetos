@@ -29,4 +29,25 @@
     padding: 0.8vh 2.5vw;
     font-weight: 700;
     font-size: var(--p-font-size);
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+.header button:hover{
+    background-color: var(--1-orange-color);
+}
+
+
+
+@media screen and (max-width: 1080px) {
+    .header{
+        padding: 0 8vw;
+        width: 84vw;
+    }
+    .header div a{
+        display: none;
+    }
+    .header button{
+        font-size: var(--p-font-size);
+        padding: 0.8vh 3vw;
+    }
 }

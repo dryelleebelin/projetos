@@ -18,9 +18,9 @@
 }
 .cta div h1{
     font-size: var(--h1-font-size);
-    width: 60%;
+    width: 50%;
     margin-bottom: 0;
-    margin-top: -10vh;
+    margin-top: -5vh;
 }
 .cta div p{
     font-size: var(--h5-font-size);
@@ -31,17 +31,22 @@
     color: var(--1-blue-color);
     border: none;
     border-radius: 8px;
-    padding: 0.8vh 2.5vw;
+    padding: 1vh 4vw;
     font-weight: 700;
     font-size: var(--p-font-size);
     margin: 1% 0;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+.cta div button:hover{
+    background-color: var(--1-orange-color);
 }
 
 .sobre{
     background-color: var(--blue-color);
     height: 90vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 5%;
 }
@@ -65,11 +70,11 @@
     font-size: var(--p-font-size);
 }
 .sobre .right h5{
-    font-size: var(--p-font-size);
+    font-size: var(--h5-font-size);
 }
 
 .servicos{
-    height: 90vh;
+    height: 95vh;
     color: var(--blue-color);
     display: flex;
     flex-direction: column;
@@ -79,7 +84,7 @@
 .servicos h1{
     font-size: var(--h1-font-size);
     margin-bottom: 0;
-    margin-top: -4%;
+    margin-top: -2%;
 }
 .servicos .text{
     font-size: var(--p-font-size);
@@ -90,7 +95,8 @@
 .servicos .cards{
     display: flex;
     justify-content: space-between;
-    width: 65%;
+    width: 60%;
+    gap: 3%;
 }
 .servicos .cards .card{
     display: flex;
@@ -168,6 +174,11 @@
 }
 .time .cards .card div svg{
     font-size: 25px;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+.time .cards .card div svg:hover{
+    transform: scale(1.1);
 }
 
 .unidades{
@@ -234,12 +245,17 @@ footer{
 footer div{
     display: flex;
     align-items: center;
-    gap: 5%;
+    gap: 8%;
     margin-bottom: 1%;
 }
 footer div svg{
     color: var(--blue-color);
-    font-size: 30px;
+    font-size: 33px;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+footer div svg:hover{
+    transform: scale(1.1);
 }
 footer img{
     width: 100px;
@@ -252,4 +268,119 @@ footer img{
     z-index: 3;
     cursor: pointer;
     width: 60px;
+    transition: 0.4s ease-in-out;
+}
+.whatsapp:hover{
+    transform: translateY(-12%);
+}
+
+
+
+@media screen and (max-width: 1080px) {
+    .cta div h1{
+        font-size: var(--h2-font-size);
+        width: 75%;
+        margin-top: -3vh;
+        margin-bottom: 2%;
+    }
+    .cta div button{
+        padding: 1vh 6.5vw;
+    }
+
+    .sobre{
+        height: 100%;
+        padding: 10% 0;
+        align-items: center;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+    .sobre .left{
+        margin-top: 4%;
+        width: 50%;
+    }
+    .sobre .left img{
+        width: 100%;
+    }
+    .sobre .right{
+        width: 80vw;
+        text-align: center;
+    }
+    .sobre .right h1{
+        margin-top: 0%;
+    }
+    .sobre .right p{
+        width: 100%;
+    }
+    .sobre .right h5{
+        font-size: var(--p-font-size);
+    }
+    
+    .servicos{
+        height: 100%;
+        padding: 10% 0 15% 0;
+    }
+    .servicos h1{
+        font-size: var(--h2-font-size);
+        margin-top: 0%;
+    }
+    .servicos .text{
+        width: 80%;
+        margin-bottom: 8%;
+    }
+    .servicos .cards{
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        gap: 5vh;
+    }
+
+    .time{
+        height: 100%;
+        flex-direction: column;
+        padding: 10% 0 15% 0;
+    }
+    .time h1{
+        font-size: var(--h2-font-size);
+        transform: rotate(0deg);
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .time .cards{
+        gap: 5vh;
+        flex-direction: column;
+    }
+    .time .cards .card div svg{
+        font-size: 26px;
+    }
+
+    .unidades{
+        height: 100%;
+        padding: 10% 0;
+    }
+    .unidades h1{
+        font-size: var(--h2-font-size);
+        margin-top: 0%;
+    }
+    .unidades .cards{
+        flex-direction: column;
+        gap: 5vh;
+    }
+    .unidades .cards .card{
+        width: 54vw;
+        height: 50vh;
+        border-radius: 8px;
+    }
+
+    footer{
+        padding-bottom: 5%;
+    }
+    footer div{
+        margin-bottom: 3%;
+    }
+    footer div svg{
+        font-size: 35px;
+    }
+    footer img{
+        width: 110px;
+    }
 }

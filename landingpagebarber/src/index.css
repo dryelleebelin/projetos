@@ -3,9 +3,10 @@
 :root {
   --white-color: #fff;
   --black-color: #000000f7;
-  --blue-color: #0d121e;
-  --1-blue-color: #0b0f1e;
+  --blue-color: #101625;
+  --1-blue-color: #0a0e1f;
   --orange-color: #f7a42c;
+  --1-orange-color: hsl(40, 100%, 59%);
   --gray-color: #4f4f4f;
 
   --small-font-size: 12px;

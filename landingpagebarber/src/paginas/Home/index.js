@@ -21,7 +21,7 @@ export default function Home(){
                     <div>
                         <h1>ESTILO É UM REFLEXO DA SUA ATITUDE E SUA PERSONALIDADE</h1>
                         <p>Horário de funcionamento: 09:00 ás 18:00</p>
-                        <button>Agendar horário</button>
+                        <button id='sobre'>Agendar horário</button>
                     </div>
                 </section>
                 <section className='sobre'>
@@ -35,7 +35,7 @@ export default function Home(){
                         <h5>Horário de funcionamento: 09:00 ás 18:00</h5>
                     </div>
                 </section>
-                <section className='servicos'>
+                <section className='servicos' id='servicos'>
                     <h1>Serviços</h1>
                     <p className='text'>Lorem ipsum dolor sit amet consectetur. Iaculis eget sem magnis non turpis venenatis tellus varius. Viverra gravida eget ullamcorper pharetra vestibulum amet arcu ipsum. Nibh molestie eu amet quis potenti.</p>
                     <div className='cards'>
@@ -62,7 +62,7 @@ export default function Home(){
                         </div>
                     </div>
                 </section>
-                <section className='time'>
+                <section className='time' id='equipe'>
                     <h1>NOSSA EQUIPE</h1>
                     <div className='cards'>
                         <div className='card'>
@@ -94,7 +94,7 @@ export default function Home(){
                         </div>
                     </div>
                 </section>
-                <section className='unidades'>
+                <section className='unidades' id='unidades'>
                     <h1>Nossa unidades</h1>
                     <div className='cards'>
                         <div className='card unidade1'>
