@@ -296,7 +296,7 @@ footer img{
     }
     .sobre .left{
         margin-top: 4%;
-        width: 50%;
+        width: 60%;
     }
     .sobre .left img{
         width: 100%;
@@ -366,8 +366,8 @@ footer img{
         gap: 5vh;
     }
     .unidades .cards .card{
-        width: 54vw;
-        height: 50vh;
+        width: 64vw;
+        height: 45vh;
         border-radius: 8px;
     }
 

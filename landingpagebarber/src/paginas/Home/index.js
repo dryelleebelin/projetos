@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './home.css';
 import Header from '../../componentes/Header';
 import images from '../../imagens/images.png';
@@ -11,8 +11,18 @@ import barber3 from '../../imagens/barber3.jpg';
 import { FiFacebook, FiInstagram, FiTwitter } from "react-icons/fi";
 import logoAzul from '../../imagens/logo-azul.png';
 import whatsapp from '../../imagens/whatsapp.png';
+import ModalAgendar from '../../componentes/ModalAgendar';
 
 export default function Home(){
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openModal = () => {
+        setModalIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalIsOpen(false);
+    };
     return(
         <>
             <Header/>
@@ -21,7 +31,7 @@ export default function Home(){
                     <div>
                         <h1>ESTILO É UM REFLEXO DA SUA ATITUDE E SUA PERSONALIDADE</h1>
                         <p>Horário de funcionamento: 09:00 ás 18:00</p>
-                        <button id='sobre'>Agendar horário</button>
+                        <button id='sobre' onClick={openModal}>Agendar horário</button>
                     </div>
                 </section>
                 <section className='sobre'>
@@ -120,6 +130,7 @@ export default function Home(){
                     <img src={logoAzul}/>
                 </footer>
                 <img src={whatsapp} className='whatsapp'/>
+                <ModalAgendar isOpen={modalIsOpen} onRequestClose={closeModal} />
             </div>
         </>
     )

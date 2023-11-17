@@ -1,0 +1,161 @@
+.ReactModal__Overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.671) !important;
+}
+.ReactModal__Content {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: auto;
+    width: 32%;
+    height: 64%;
+    background-color: var(--1-blue-color) !important;
+    border-radius: 10px !important;
+    color: var(--white-color);
+    border: none !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ReactModal__Content .modal-close{
+    font-size: 32px;
+    position: absolute;
+    top: 4%;
+    right: 5%;
+    cursor: pointer;
+}
+.ReactModal__Content h2{
+    font-size: var(--h3-font-size);
+    margin-top: 0;
+    text-align: center;
+}
+.ReactModal__Content form{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+}
+.ReactModal__Content form div{
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+}
+.ReactModal__Content form div label{
+    font-size: var(--p-font-size);
+    margin-bottom: 1%;
+}
+.ReactModal__Content form div input, .ReactModal__Content form div select{
+    background-color: var(--white-color);
+    font-size: var(--p-font-size);
+    border: none;
+    border-radius: 6px;
+    padding: 2.4% 3.5%;
+}
+
+.select-hora section {
+    display: flex;
+    overflow-x: auto;
+    gap: 3%;
+    padding-bottom: 1vh;
+}
+.select-hora section::-webkit-scrollbar{
+    background-color: transparent;
+    height: 1.5vh;
+}
+.select-hora section label {
+    position: relative;
+    padding: 1% 6%;
+    border: 1px solid var(--gray-color);
+    cursor: pointer;
+    user-select: none;
+    background-color: var(--blue-color);
+    border-radius: 4px;
+    font-size: var(--small-font-size);
+    transition: 0.2s ease-in-out;
+}
+.select-hora section label.selected {
+    background-color: #6c2f12b2;
+    border: 1px solid var(--orange-color);
+}
+
+.ReactModal__Content form button{
+    background-color: var(--orange-color);
+    color: var(--1-blue-color);
+    border: none;
+    border-radius: 8px;
+    padding: 0.8vh 2.5vw;
+    font-weight: 700;
+    font-size: var(--p-font-size);
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+.ReactModal__Content form button:hover{
+    background-color: var(--1-orange-color);
+}
+
+.ReactModal__Content .agendamento-ok{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.ReactModal__Content .agendamento-ok img{
+    width: 20%;
+    margin-bottom: 5%;
+}
+.ReactModal__Content .agendamento-ok h2{
+    width: 80%;
+}
+.ReactModal__Content .agendamento-ok button{
+    background-color: var(--orange-color);
+    color: var(--1-blue-color);
+    border: none;
+    border-radius: 8px;
+    padding: 0.8vh 2.5vw;
+    font-weight: 700;
+    font-size: var(--p-font-size);
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+.ReactModal__Content .agendamento-ok button:hover{
+    background-color: var(--1-orange-color);
+}
+
+
+@media screen and (max-width: 1080px) {
+    .ReactModal__Content {
+        width: 65%;
+        height: 60%;
+    }
+    .ReactModal__Content .modal-close{
+        font-size: 28px;
+        top: 4%;
+        right: 8%;
+    }
+    .ReactModal__Content h2{
+        font-size: var(--h5-font-size);
+    }
+    .ReactModal__Content form{
+        gap: 3vh;
+    }
+    .ReactModal__Content form div{
+        width: 65vw;
+    }
+    .ReactModal__Content form button{
+        padding: 0.6vh 2.5vw;
+    }
+
+    .ReactModal__Content .agendamento-ok img{
+        width: 28%;
+        margin-bottom: 10%;
+    }
+    .ReactModal__Content .agendamento-ok h2{
+        width: 100%;
+    }
+    .ReactModal__Content .agendamento-ok button{
+        padding: 0.6vh 7vw;
+        margin-top: 3%;
+    }
+}
