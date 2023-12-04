@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
+}
+:root{
+    --background-color: #fff;
+    --gray-color: #b0b5b98e;
+    --yellow-color: #f6c900;
+    --black-color: #000000;
+
+    --h1-font-size: 1.6rem; /* 24px titulos*/
+    --h3-font-size: 1.3rem; /* 19px texto destaque*/
+    --p-font-size: 1rem; /* 16px textos geral*/
+    --h6-font-size: .8rem; /* 14px textos pequenos*/
+}
+.body-fiado{
+    background-color: var(--background-color);
+    color: var(--black-color);
+}
+.body-fiado p{
+    font-size: var(--p-font-size);
+}
+a{
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+
+.body-fiado nav p {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee 25s linear infinite;
+}
+@keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+}
+
+
+.body-fiado{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 7vh;
+}
+.body-fiado h2{
+    font-size: var(--h1-font-size);
+    font-weight: 600;
+}
+.body-fiado a{
+    text-decoration: none;
+    color: var(--background-color);
+}
+
+
+.body-fiado .div-buscar{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+}
+.body-fiado .div-buscar div{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2%;
+}
+.body-fiado form{
+    background-color: var(--gray-color);
+    width: 60%;
+    height: 5.6vh;
+    display: flex;
+    align-items: center;
+    padding: 0 0.7vw;
+    border-radius: 4px;
+}
+.body-fiado form input{
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border: none;
+    color: var(--black-color);
+    outline: none;
+    font-size: var(--p-font-size);
+}
+.body-fiado form input::placeholder{
+    color: var(--black-color);
+}
+.body-fiado form button{
+    background-color: transparent;
+    height: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding-right: 0;
+}
+.body-fiado form button svg{
+    width: 25px;
+    height: auto;
+}
+.body-fiado .div-buscar .btn-success{
+    white-space: nowrap;
+}
+
+
+.body-fiado table{
+    width: 80%;
+    margin-top: 2%;
+}
+.body-fiado table tbody button{
+    border: none;
+    padding: 0.6vh 1vw;
+    transition: 0.4s ease-in-out;
+}

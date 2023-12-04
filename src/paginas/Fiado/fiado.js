@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './fiado.css';
+import logo from '../../imagens/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
+import { BiSearch } from 'react-icons/bi';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import api from '../../services/api';
 
