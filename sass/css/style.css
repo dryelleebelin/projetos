@@ -1,0 +1,91 @@
+body {
+  background-color: #ccc;
+  height: 100%;
+}
+
+.container {
+  background: lightblue;
+}
+.container h1, .container h2 {
+  color: #000;
+  text-align: center;
+  background-color: red;
+}
+
+li {
+  color: purple;
+}
+
+ol > li {
+  color: blue;
+}
+
+a {
+  text-decoration: none;
+  color: green;
+  transition: 0.5s ease-in-out;
+  padding: 10px;
+  border: 1px solid green;
+  display: block;
+  width: 150px;
+  text-align: center;
+}
+a:hover {
+  background-color: green;
+  color: white;
+}
+
+.box {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  margin: 20px;
+}
+.box-content {
+  color: red;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: 1px solid blue;
+  border-radius: 5px;
+  color: white;
+  background-color: blue;
+  cursor: pointer;
+  margin: 5px;
+}
+.btn:hover {
+  background-color: transparent;
+  color: blue;
+}
+.btn-success {
+  border: 1px solid green;
+  background-color: green;
+}
+.btn-success:hover {
+  color: green;
+}
+.btn-danger {
+  border: 1px solid red;
+  background-color: red;
+}
+.btn-danger:hover {
+  color: red;
+}
+
+.subtitle, .title {
+  border-bottom: 2px dotted red;
+  padding: 10px;
+  background-color: yellow;
+  text-align: center;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.subtitle {
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */

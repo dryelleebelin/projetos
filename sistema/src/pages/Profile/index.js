@@ -11,7 +11,6 @@ import {toast} from 'react-toastify';
 import {db, storage} from '../../services/firebaseConnection';
 import {doc, updateDoc} from 'firebase/firestore'; 
 import {ref, uploadBytes, getDownloadURL} from 'firebase/storage';
-import { async } from '@firebase/util';
 
 export default function Profile(){
     const {user, storageUser, setUser, logout} = useContext(AuthContext);

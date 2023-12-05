@@ -1,0 +1,92 @@
+//váriavel
+
+$bg-color: #ccc
+$font-color: #000
+$teste: red
+
+//seletor
+
+body
+    background-color: $bg-color
+    height: 100%
+
+.container
+    background: lightblue
+    
+    h1, h2
+        color: $font-color
+        text-align: center
+        background-color: $teste
+
+li
+    color: purple
+
+//selector de descendência
+ol
+    > li
+        color: blue
+
+a
+    text-decoration: none
+    color: green
+    transition: .5s ease-in-out
+    padding: 10px
+    border: 1px solid green
+    display: block
+    width: 150px
+    text-align: center
+
+    &:hover
+        background-color: green
+        color: white
+
+.box
+    background-color: black
+    color: white
+    padding: 20px
+    margin: 20px
+
+    &-content //= .box-content
+        color: red
+
+.btn 
+    padding: 10px 20px
+    border: 1px solid blue
+    border-radius: 5px
+    color: white
+    background-color: blue
+    cursor: pointer
+    margin: 5px
+
+    &:hover
+        background-color: transparent
+        color: blue
+
+    &-success
+        border: 1px solid green
+        background-color: green
+
+        &:hover
+            color: green
+
+    &-danger
+        border: 1px solid red
+        background-color: red
+
+        &:hover
+            color: red
+
+//regra padrão
+%base-title-style
+    border-bottom: 2px dotted red
+    padding: 10px
+    background-color: yellow
+    text-align: center
+
+.title
+    font-size: 30px
+    @extend %base-title-style
+
+.subtitle
+    font-size: 20px
+    @extend %base-title-style

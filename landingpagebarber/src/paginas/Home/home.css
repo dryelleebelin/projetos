@@ -383,4 +383,10 @@ footer img{
     footer img{
         width: 110px;
     }
+
+    .whatsapp{
+        bottom: 50px;
+        right: 30px;
+        width: 50px;
+    }
 }
