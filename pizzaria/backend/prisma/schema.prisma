@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//tabela
+//criar uma migration: yarn prisma migrate dev
+model User {
+  id String @id @default(uuid())  //é autoincrement pro padrão
+  name String
+  email String
+  password String
+  created_at DateTime? @default(now())  //por padrão pega a data atual
+  updated_at DateTime? @default(now())
+
+  @@map("users")  //nome da tabela
+}
+
+model Category {
+  id String @id @default(uuid())
+  name String
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("categories")
+  //relacionamento
+  products Product[]
+}
+
+model Product {
+  id String @id @default(uuid())
+  name String
+  price String
+  description String
+  banner String
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+  //referência
+  category Category @relation(fields: [category_id], references: [id])
+
+  @@map("products")
+  category_id String
+  items Item[]
+}
+
+model Order {
+  id String @id @default(uuid())
+  table Int
+  status Boolean @default(false)  //começa o status/pedido como falso
+  draft Boolean @default(true)  //o pedido começa sempre em rascunho
+  name String?  //opicional
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("orders")
+  items Item[]
+}
+
+model Item {
+  id String @id @default(uuid())
+  amount Int
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  order Order @relation(fields: [order_id], references: [id])
+  product Product @relation(fields: [product_id], references: [id])
+
+  @@map("items")
+  order_id String
+  product_id String
+}
