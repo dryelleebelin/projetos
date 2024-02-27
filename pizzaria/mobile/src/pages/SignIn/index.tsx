@@ -6,7 +6,7 @@ export default function SignIn(){
     const {signIn, loadingAuth} = useContext(AuthContext)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
+*
     async function handleLogin(){
         if(email === '' || password === ''){
             return
