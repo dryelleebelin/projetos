@@ -6,8 +6,10 @@ import { Input } from "../components/ui/Input";
 import { Button } from "../components/ui/Button";
 import Link from "next/link";
 import { AuthContext } from "../contexts/AuthContext";
-import { useContext, FormEvent, useState, use } from "react";
+import { useContext, FormEvent, useState } from "react";
 import { toast } from "react-toastify";
+import { GetServerSideProps } from "next";
+import { canSSRGuest } from "../utils/canSSRGuest";
 
 export default function Home(){
   const {signIn} = useContext(AuthContext)
@@ -58,3 +60,10 @@ export default function Home(){
     </>
   );
 }
+
+//estrutura do server side
+export const getServerSideProps = canSSRGuest(async (ctx) => {
+  return{
+    props: {}
+  }
+})

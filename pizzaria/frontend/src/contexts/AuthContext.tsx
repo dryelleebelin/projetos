@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useState, useEffect } from "react";
 import { destroyCookie, setCookie, parseCookies } from "nookies";  //limpar cookies
 import Router from "next/router";  //mandar o usuário para uma rota de forma indireta
 import { api } from "../services/apiClient";
@@ -47,6 +47,24 @@ export function signOut(){
 export function AuthProvider({children}: AuthPoviderProps){ 
     const [user, setUser] = useState<UserProps>()  //vai respeitar a tipagem
     const isAuthenticated = !!user  //com base no user  //converter a variável em boolean
+
+    useEffect(() => {
+        //validar se os dados estão corretos
+        const {'@nextauth.token': token} = parseCookies()
+        if(token){
+            api.get('/me').then(response => {
+                const {id, name, email} = response.data
+                setUser({
+                    id,
+                    name,
+                    email
+                })
+            })
+            .catch(() => {
+                signOut()
+            })
+        }
+    }, [])
 
     async function signIn({email, password}: SignInProps) {  //async -> promise
         try{
