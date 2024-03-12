@@ -1,0 +1,35 @@
+header{
+    background-color: var(--blue-100);
+    display: flex;
+    align-items: center;
+    padding: 0 5vw;
+    height: 10vh;
+    width: 100%;
+    gap: 4%;
+    position: fixed;
+    z-index: 9999;
+
+    div{
+        display: flex;
+        align-items: center;
+        gap: 3%;
+    }
+
+    nav{
+        display: flex;
+        gap: 5%;
+        width: 100%;
+
+        a{
+            font-weight: 600;
+        }
+    }
+}
+
+.logo2{
+    width: 8vh;
+}
+
+.logo{
+    width: 22vh;
+}
