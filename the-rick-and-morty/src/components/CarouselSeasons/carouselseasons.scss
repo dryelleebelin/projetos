@@ -1,0 +1,30 @@
+.swiper-container2{
+    width: 80%;
+    height: auto;
+    margin-top: 5%;
+    cursor: grab;
+
+    .slide2{
+        display: flex;
+        flex-direction: column;
+
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 310px;
+            margin-bottom: 5%;
+        }
+    
+        p{
+            text-align: start;
+            font-weight: 600;
+        }
+    
+        span{
+            color: var(--white);
+            opacity: 0.5;
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+    }
+}

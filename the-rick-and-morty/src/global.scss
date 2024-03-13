@@ -27,6 +27,7 @@ button{
 a{
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 body, input, textarea, select, button{
@@ -43,4 +44,15 @@ body, input, textarea, select, button{
   html{
     font-size: 93.75%
   }
+}
+
+::-webkit-scrollbar{
+  width: 7px;
+  background-color: var(--gray);
+  border: none;
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--white);
+  border-radius: 50px;
+  height: 10vh;
 }

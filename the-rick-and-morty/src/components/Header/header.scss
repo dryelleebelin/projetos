@@ -7,12 +7,16 @@ header{
     width: 100%;
     gap: 4%;
     position: fixed;
-    z-index: 9999;
+    z-index: 9;
 
     div{
         display: flex;
         align-items: center;
         gap: 3%;
+
+        img{
+            cursor: pointer;
+        }
     }
 
     nav{
@@ -22,6 +26,11 @@ header{
 
         a{
             font-weight: 600;
+            transition: 0.2s ease-in;
+        }
+
+        a:hover{
+            opacity: 0.6;
         }
     }
 }
