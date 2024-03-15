@@ -58,6 +58,7 @@ main{
             margin-top: 5vh;
             opacity: 0.8;
             transition: 0.4s ease-in-out;
+            box-shadow: 0px 2px 8px var(--black);
         }
         button:hover {
             opacity: 1;
@@ -120,6 +121,59 @@ main{
         @include pDescription
     }
 
+    .filter{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3%;
+        color: var(--green-100);
+
+        input{
+            width: 30%;
+            border: 1px solid var(--green-100);
+            background-color: transparent;
+            padding: 1vh 1vw;
+            border-radius: 7px;
+            color: var(--green-100);
+            box-shadow: 0px 2px 8px var(--green-100);
+
+            &::placeholder{
+                color: white;
+                opacity: 0.6;
+            }
+        }
+
+        select{
+            width: 18%;
+            background-color: transparent;
+            padding: 1vh 0.6vw;
+            border-radius: 7px;
+            color: var(--green-100);
+            border: 1px solid var(--green-100);
+            box-shadow: 0px 2px 8px var(--green-100);
+            cursor: pointer;
+
+            option{
+                background-color: var(--gray);
+            }
+        }
+
+        button{
+            width: 8%;
+            border: none;
+            background-color: var(--green-100);
+            font-weight: 600;
+            border-radius: 7px;
+            opacity: 0.9;
+            transition: 0.3s ease-in;
+            box-shadow: 2px 2px 8px var(--black);
+
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+
     .container{
         margin-top: 5%;
         width: 100%;
@@ -154,6 +208,34 @@ main{
                 font-weight: bold;
                 color: var(--white);
                 text-align: center;
+            }
+        }
+    }
+
+    .pagination{
+        display: flex;
+        gap: 3%;
+        align-items: center;
+        margin-top: 2%;
+
+        button{
+            background-color: var(--green-100);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5vh 1vw;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px var(--black);
+        }
+
+        p{
+            text-wrap: nowrap;
+
+            span{
+                color: var(--green-100);
+                font-weight: 600;
+                border-bottom: 1px solid var(--green-100);
             }
         }
     }
@@ -234,6 +316,7 @@ footer{
     padding: 3vh 8vw;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
     div{
         display: flex;
@@ -242,5 +325,21 @@ footer{
         a:hover{
             text-decoration: underline;
         }
+    }
+}
+
+.to-top{
+    width: 35px;
+    height: auto;
+    position: fixed;
+    bottom: 4vh;
+    right: 1.5vw;
+    cursor: pointer;
+    color: var(--black);
+    transition: 0.2s ease-in;
+
+    &:hover{
+        transform: scale(1.1);
+        color: #000000;
     }
 }

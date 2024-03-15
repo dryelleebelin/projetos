@@ -9,26 +9,59 @@ import { toast } from 'react-toastify';
 import CarouselPhrases from '../../components/CarouselPhrases';
 import CarouselSeasons from '../../components/CarouselSeasons';
 import ModalCharacter from '../../components/ModalCharacter';
+import { TbSquareArrowUpFilled } from "react-icons/tb";
 
 export default function Home(){
     const [characters, setCharacters] = useState([])
     const currentYear = new Date().getFullYear()
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [modalItem, setModalItem] = useState('')
+    const [page, setPage] = useState(1)
+    const [totalPages, setTotalPages] = useState(0);
+    const [buttonToTop, setButtonToTop] = useState(false);
+    const [filter, setFilter] = useState({
+        name: '',
+        status: 'Status...',
+        species: 'Espécie...',
+        gender: 'Gênero...'
+    })
 
-    async function loadCharacters(){
+    function handleClean(e){
+        e.preventDefault();
+        setFilter({
+            name: '',
+            status: 'Status...',
+            species: 'Espécie...',
+            gender: 'Gênero...'
+        })
+    }
+
+    function handleChangeFilter(e){
+        const {name, value} = e.target
+        setFilter((prevFilter) => ({...prevFilter, [name]: value}))
+    }
+
+    async function loadCharacters(page){
         try{
-            const response = await api.get("/character")
+            let queryParams = `?page=${page}`
+
+            if (filter.name) queryParams += `&name=${filter.name}`;
+            if (filter.status !== 'Status...') queryParams += `&status=${filter.status}`;
+            if (filter.species !== 'Espécie...') queryParams += `&species=${filter.species}`;
+            if (filter.gender !== 'Gênero...') queryParams += `&gender=${filter.gender}`;
+
+            const response = await api.get(`character${queryParams}`)
             setCharacters(response.data.results.slice(0, 20))
+            setTotalPages(response.data.info.pages)
         } catch(err){
             console.error('Erro ao buscar dados: ', err);
             return;
         }
     }
-
+    
     useEffect(() => {
-        loadCharacters()
-    }, [])
+        loadCharacters(page);
+    }, [page, filter]);
 
     const handleInfo = () => {
         toast.info("Página ainda em construção!")
@@ -46,6 +79,25 @@ export default function Home(){
 
     const handleCloseModal = () => {
         setIsOpenModal(false);
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY
+            if (scrollY > window.innerHeight){
+            setButtonToTop(true);
+          } else {
+            setButtonToTop(false);
+          }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return(
@@ -79,6 +131,30 @@ export default function Home(){
                 <section className='characters'>
                     <h2>Personagens</h2>
                     <p>De viajantes no tempo à medica de cavalos, aqui a diversidade é igual a quantidade de realidades paralelas, além, é claro de muitosrostos inusitados e aleatórios a cada episódio.</p>
+                    <form className='filter' onSubmit={handleClean}>
+                        <input type='text' placeholder='Procure por um personagem' name='name' value={filter.name} onChange={handleChangeFilter}/>
+                        <select name='status' value={filter.status} onChange={handleChangeFilter}>
+                            <option value="status">Status...</option>
+                            <option value="alive">alive</option>
+                            <option value="dead">dead</option>
+                            <option value="unknown">unknown</option>
+                        </select>
+                        <select name='species' value={filter.species} onChange={handleChangeFilter}>
+                            <option value="especie">Espécie...</option>
+                            <option value="human">human</option>
+                            <option value="humanoid">humanoid</option>
+                            <option value="alien">alien</option>
+                            <option value="unknown">unknown</option>
+                        </select>
+                        <select name='gender' value={filter.gender} onChange={handleChangeFilter}>
+                            <option value="genero">Gênero...</option>
+                            <option value="female">female</option>
+                            <option value="male">male</option>
+                            <option value="genderLess">genderLess</option>
+                            <option value="unknown">unknown</option>
+                        </select>
+                        <button type='submit'>Limpar</button>
+                    </form>
                     <div className='container'>
                         {characters.map((character) => {
                             return(
@@ -89,6 +165,12 @@ export default function Home(){
                             )
                         })}
                     </div>
+                    <div className='pagination'>
+                        <button onClick={() => setPage(page - 1)} disabled={page === 1}>prev</button>
+                        <p>page: <span>{page}</span> / {totalPages}</p>
+                        <button onClick={() => setPage(page + 1)} disabled={page === totalPages}>next</button>
+                    </div>
+
                     {isOpenModal && <ModalCharacter isOpen={isOpenModal} closeModal={handleCloseModal} item={modalItem}/>}
                     <span id='phrases'/>
                 </section>
@@ -133,6 +215,7 @@ export default function Home(){
                         <a onClick={handleInfo}>Termos de uso</a>
                         <a onClick={handleInfo}>Política de privacidade</a>
                     </div>
+                    {buttonToTop && (<TbSquareArrowUpFilled className='to-top' onClick={scrollToTop}/>)}
                 </section>
             </main>
         </>

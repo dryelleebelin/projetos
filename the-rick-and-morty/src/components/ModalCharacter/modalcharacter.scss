@@ -10,14 +10,15 @@
 }
 
 .modal-content{
-    padding: 4% 5%;
+    padding: 5%;
     position: relative;
+    width: 54%;
 
     svg{
         position: absolute;
         top: 3%;
         left: 3%;
-        width: 25px;
+        width: 28px;
         height: auto;
         cursor: pointer;
     }
@@ -40,6 +41,10 @@
     height: auto;
     object-fit: cover;
     height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 15px 15px 0;
 }
 
 .view-image{
@@ -47,9 +52,9 @@
 
     svg{
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 20px;
+        top: 3%;
+        right: 1vw;
+        width: 23px;
         height: auto;
         cursor: pointer;
     }
