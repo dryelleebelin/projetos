@@ -132,8 +132,13 @@ main{
             flex-direction: column;
             width: 18%;
             margin-bottom: 2%;
-            background-color: var(--black);
             height: 35vh;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+
+            &:hover{
+                transform: scale(1.07);
+            }
 
             img{
                 width: 100%;

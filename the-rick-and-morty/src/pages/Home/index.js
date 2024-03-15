@@ -8,10 +8,13 @@ import React, {useEffect, useState} from 'react';
 import { toast } from 'react-toastify';
 import CarouselPhrases from '../../components/CarouselPhrases';
 import CarouselSeasons from '../../components/CarouselSeasons';
+import ModalCharacter from '../../components/ModalCharacter';
 
 export default function Home(){
     const [characters, setCharacters] = useState([])
     const currentYear = new Date().getFullYear()
+    const [isOpenModal, setIsOpenModal] = useState(false);
+    const [modalItem, setModalItem] = useState('')
 
     async function loadCharacters(){
         try{
@@ -31,6 +34,20 @@ export default function Home(){
         toast.info("Página ainda em construção!")
     }
 
+    async function detailCharacter(id){
+        const response = await api.get(`/character/${id}`, {
+            params:{
+                id: id
+            }
+        })
+        setModalItem(response.data)
+        setIsOpenModal(true)
+    };
+
+    const handleCloseModal = () => {
+        setIsOpenModal(false);
+    };
+
     return(
         <>
             <Header/>
@@ -41,7 +58,7 @@ export default function Home(){
                         <span>As perigosas aventuras de um cientista alcóolico e seu neto</span>
                         <img src={logo} alt='Logo Rick and Morty'/>
                         <p>Rick é um cientista louco excêntrico e completamente irresponsável que usa o neto, Morty, um menino de coração bom mas, não muito brilhante, como cobaia em seus experimentos. Juntos, eles embarcam em malucas aventuras interdimensionais.</p>
-                        <button onClick={handleInfo}>Assistir <FaPlay/></button>
+                        <button onClick={handleInfo}>Assistir <FaPlay/> </button>
                     </div>
 
                     <aside>
@@ -65,13 +82,14 @@ export default function Home(){
                     <div className='container'>
                         {characters.map((character) => {
                             return(
-                                <div className='item' key={character.id}>
+                                <div className='item' key={character.id} onClick={() => detailCharacter(character.id)}>
                                     <img src={character.image} alt='Character'/>
                                     <span>{character.name.split(" ").slice(0, 2).join(" ")}</span>
                                 </div>
                             )
                         })}
                     </div>
+                    {isOpenModal && <ModalCharacter isOpen={isOpenModal} closeModal={handleCloseModal} item={modalItem}/>}
                     <span id='phrases'/>
                 </section>
 

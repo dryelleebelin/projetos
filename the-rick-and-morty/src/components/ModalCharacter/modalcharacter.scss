@@ -1,0 +1,56 @@
+.modal-character{
+    width: 54vw;
+    height: 50vh;
+    display: flex;
+    background-color: var(--white);
+    justify-content: space-between;
+    padding: 0;
+    overflow-y: hidden;
+    border-radius: 15px;
+}
+
+.modal-content{
+    padding: 4% 5%;
+    position: relative;
+
+    svg{
+        position: absolute;
+        top: 3%;
+        left: 3%;
+        width: 25px;
+        height: auto;
+        cursor: pointer;
+    }
+
+    h1{
+        margin-bottom: 3%;
+    }
+
+    p{
+        margin-bottom: 2%;
+
+        span{
+            font-weight: bold;
+        }
+    }
+}
+
+.modal-image{
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    height: 100%;
+}
+
+.view-image{
+    position: relative;
+
+    svg{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: auto;
+        cursor: pointer;
+    }
+}
