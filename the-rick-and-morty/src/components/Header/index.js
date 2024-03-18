@@ -1,6 +1,7 @@
 import './header.scss';
 import logo from '../../images/logo.png';
 import logo2 from '../../images/logo2.png';
+import DarkMode from '../DarkMode/DarkMode';
 
 export default function Header() {
     const scrollToTop = () => {
@@ -28,6 +29,7 @@ export default function Header() {
                 <a onClick={scrollToPhrases}>FRASES E MEMES</a>
                 <a onClick={scrollToSeasons}>TEMPORADAS</a>
             </nav>
+            <DarkMode/>
         </header>
     );
 }

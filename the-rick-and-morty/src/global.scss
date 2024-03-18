@@ -8,6 +8,9 @@
 }
 
 :root{
+  --body-background: #fefefe;
+  --text-color: #101111;
+
   --black: #101111;
   --gray: #282A2A;
   --white: #fefefe;
@@ -18,6 +21,15 @@
   --green-300: #2b9404;
   --green-200: #418f42;
   --green-100: #7af844;
+}
+
+[data-theme="dark"]{
+  --body-background: var(--gray);
+  --text-color: var(--white);
+}
+
+*{
+  transition: all 0.3s ease-in-out;
 }
 
 button{
@@ -48,11 +60,11 @@ body, input, textarea, select, button{
 
 ::-webkit-scrollbar{
   width: 7px;
-  background-color: var(--gray);
+  background-color: var(--body-background);
   border: none;
 }
 ::-webkit-scrollbar-thumb{
-  background-color: var(--white);
+  background-color: var(--text-color);
   border-radius: 50px;
   height: 10vh;
 }
