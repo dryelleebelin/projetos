@@ -10,6 +10,7 @@ import CarouselPhrases from '../../components/CarouselPhrases';
 import CarouselSeasons from '../../components/CarouselSeasons';
 import ModalCharacter from '../../components/ModalCharacter';
 import { TbSquareArrowUpFilled } from "react-icons/tb";
+import { ImSpinner8 } from "react-icons/im";
 
 export default function Home(){
     const [characters, setCharacters] = useState([])
@@ -19,6 +20,7 @@ export default function Home(){
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState(0);
     const [buttonToTop, setButtonToTop] = useState(false);
+    const [loading, setLoading] = useState(true)
     const [filter, setFilter] = useState({
         name: '',
         status: 'Status...',
@@ -53,8 +55,10 @@ export default function Home(){
             const response = await api.get(`character${queryParams}`)
             setCharacters(response.data.results.slice(0, 20))
             setTotalPages(response.data.info.pages)
+            setLoading(false)
         } catch(err){
             console.error('Erro ao buscar dados: ', err);
+            setLoading(false)
             return;
         }
     }
@@ -131,7 +135,7 @@ export default function Home(){
                 <section className='characters'>
                     <h2>Personagens</h2>
                     <p>De viajantes no tempo à medica de cavalos, aqui a diversidade é igual a quantidade de realidades paralelas, além, é claro de muitosrostos inusitados e aleatórios a cada episódio.</p>
-                    <form className='filter' onSubmit={handleClean}>
+                    <form className='filter' onSubmit={handleClean} autoComplete='off'>
                         <input type='text' placeholder='Procure por um personagem' name='name' value={filter.name} onChange={handleChangeFilter}/>
                         <select name='status' value={filter.status} onChange={handleChangeFilter}>
                             <option value="status">Status...</option>
@@ -155,16 +159,20 @@ export default function Home(){
                         </select>
                         <button type='submit'>Limpar</button>
                     </form>
-                    <div className='container'>
-                        {characters.map((character) => {
-                            return(
-                                <div className='item' key={character.id} onClick={() => detailCharacter(character.id)}>
-                                    <img src={character.image} alt='Character'/>
-                                    <span>{character.name.split(" ").slice(0, 2).join(" ")}</span>
-                                </div>
-                            )
-                        })}
-                    </div>
+                    {loading ? (
+                        <div className="spinner"><ImSpinner8/></div>
+                    ) : (
+                        <div className='container'>
+                            {characters.map((character) => {
+                                return(
+                                    <div className='item' key={character.id} onClick={() => detailCharacter(character.id)}>
+                                        <img src={character.image} alt='Character'/>
+                                        <span>{character.name.split(" ").slice(0, 2).join(" ")}</span>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    )}
                     <div className='pagination'>
                         <button onClick={() => setPage(page - 1)} disabled={page === 1}>prev</button>
                         <p>page: <span>{page}</span> / {totalPages}</p>

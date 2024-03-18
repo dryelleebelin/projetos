@@ -49,7 +49,12 @@ export default function CarouselPhrases() {
     }, [])
       
     return(
-        <Swiper className='swiper-container' autoplay modules={[EffectCoverflow]} effect="coverflow" slidesPerView={slidesPerView} pagination={{clickable: true}}>
+        <Swiper className='swiper-container' autoplay modules={[EffectCoverflow]} effect="coverflow" slidesPerView={slidesPerView} pagination={{clickable: true}} loop coverflowEffect={{
+            rotate: 0, 
+            stretch: 0,
+            depth: 150,
+            modifier: 3,
+        }}>
             {data.map((item) => (
                 <SwiperSlide key={item.id}>
                     <img src={item.image} alt='Slider' className='slide-item'/>
