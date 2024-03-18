@@ -1,8 +1,3 @@
-main{
-    background-color: var(--body-background);
-    padding: 10vh 0 0 0;
-}
-
 @mixin titleGreen{
     color: var(--green-100);
     margin-bottom: 3%;
@@ -23,6 +18,20 @@ main{
     100% {
       transform: translateY(-15px);
     }
+}
+
+@keyframes spin{
+    0%{ 
+        transform: rotate(0deg)
+    }
+    100%{ 
+        transform: rotate(360deg); 
+    }
+}
+
+main{
+    background-color: var(--body-background);
+    padding: 10vh 0 0 0;
 }
 
 .home{
@@ -360,19 +369,197 @@ footer{
     margin: 10% 0;
 
     svg{
-        color: var(--white);
+        color: var(--text-color);
         width: 2.5rem;
         height: 2.5rem;
         animation: spin 1s linear infinite;
     }
 }
   
-@keyframes spin{
-    0%{ 
-        transform: rotate(0deg)
+
+/* -- para smartphones -- */
+@media only screen and (max-width: 480px){
+    @mixin titleGreen{
+        margin-bottom: 8%;
     }
-    100%{ 
-        transform: rotate(360deg); 
+    
+    @mixin pDescription{
+        width: 100%;
+    }
+
+    main{
+        padding: 14vh 0 0 0;
+    }
+
+    .home{
+        height: 100%;
+        padding: 0 8vw;
+        flex-direction: column;
+    
+        div{
+            width: 100%;
+    
+            img{
+                width: 250px;
+                margin: 6% 0;
+                animation: none; 
+            }
+    
+            p{
+                width: 100%;
+            }
+    
+            button{
+                width: 38%;
+                gap: 8%;
+            }
+        }
+    
+        aside{
+            width: 100%;
+            justify-content: center;
+            margin-top: 4vh;
+    
+            img{
+                width: 260px;
+            }
+        }
+    }
+
+    .sinopse{
+        height: 100%;
+        padding: 0 8vw;
+        margin-bottom: 12%;
+    
+        div{
+            height: 100%;
+            padding: 8%;
+    
+            h2{
+                margin-bottom: 10%;
+            }
+    
+            p{
+                width: 100%;
+            }
+        }
+    }
+
+    .characters{
+        margin-bottom: 12%;
+        padding: 0 8vw;
+    
+        h2{
+            @include titleGreen
+        }
+    
+        p{
+            @include pDescription
+        }
+    
+        .filter{
+            width: 100%;
+            margin-top: 10%;
+            flex-direction: column;
+            gap: 2vh;
+    
+            input{
+                width: 100%;
+                padding: 1vh 3%;
+            }
+    
+            select{
+                width: 100%;
+                padding: 1vh 1vw;
+            }
+    
+            button{
+                width: 100%;
+                padding: 1.5% 0;
+            }
+        }
+    
+        .container{
+            margin-top: 12%;
+    
+            .item{
+                width: 100%;
+                margin-bottom: 4%;
+                height: 40vh;
+
+                &:hover{
+                    transform: scale(1.03);
+                }
+            }
+        }
+    
+        .pagination{
+            gap: 6%;
+            margin-top: 5%;
+            width: 65%;
+    
+            button{
+                padding: 0.5vh 2vw;
+            }
+        }
+    }
+
+    .phrases{
+        margin-bottom: 12%;
+        padding: 0 8vw;
+    
+        h2{
+            @include titleGreen
+        }
+    
+        p{
+            @include pDescription
+        }
+    }
+
+    .seasons{
+        padding: 0 8vw 12% 8vw;
+    
+        h2{
+            @include titleGreen
+        }
+    
+        p{
+            @include pDescription
+        }
+    }
+
+    footer{
+        padding: 5vh 8vw;
+        flex-direction: column;
+        gap: 4vh;
+        font-size: 0.9rem;
+    
+        .footer-left{
+            img{
+                width: 200px;
+                margin-bottom: 1vh;
+            }
+    
+            p{
+                width: 100%;
+            }
+        }
+    
+        .footer-right{
+            justify-content: flex-start;
+        }
+    }
+
+    .baseboard{
+        padding: 2vh 8vw;
+        flex-direction: column;
+        font-size: 0.8rem;
+    }
+
+    .to-top{
+        width: 38px;
+        bottom: 2.5vh;
+        right: 4vw;
     }
 }
-  

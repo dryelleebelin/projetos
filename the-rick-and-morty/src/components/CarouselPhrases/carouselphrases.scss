@@ -10,3 +10,16 @@
         height: 250px;
     }
 }
+
+
+/* -- para smartphones -- */
+@media only screen and (max-width: 480px){
+    .swiper-container{
+        margin-top: 10%;
+        z-index: 0 !important;
+    
+        img{
+            height: auto;
+        }
+    }
+}

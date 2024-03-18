@@ -59,3 +59,52 @@
         cursor: pointer;
     }
 }
+
+
+/* -- para smartphones -- */
+@media only screen and (max-width: 480px){
+    .modal-character{
+        width: 70vw;
+        height: 65vh;
+        flex-direction: column;
+        z-index: 3 !important;
+    }
+
+    .modal-content{
+        padding: 3% 5% 5% 5%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        border-radius: 0 0 15px 15px;
+        z-index: 2;
+        background-color: var(--white);
+        z-index: 9999 !important;
+    
+        svg{
+            display: none;
+        }
+    
+        h1{
+            margin-bottom: 2%;
+            font-size: 23px;
+        }
+    }
+
+    .modal-image{
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 0;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .view-image{
+        svg{
+            top: 1vh;
+            right: 2vw;
+            width: 28px;
+        }
+    }
+}

@@ -28,3 +28,18 @@
         }
     }
 }
+
+
+/* -- para smartphones -- */
+@media only screen and (max-width: 480px){
+    .swiper-container2{
+        margin-top: 10%;
+        z-index: 0 !important;
+    
+        .slide2{
+            img{
+                height: auto;
+            }
+        }
+    }
+}

@@ -46,18 +46,6 @@ body, input, textarea, select, button{
   font: 400 1rem poppins;
 }
 
-@media (max-width: 720px){
-  html{
-    font-size: 87.5%;
-  }
-}
-
-@media (max-width: 1080px){
-  html{
-    font-size: 93.75%
-  }
-}
-
 ::-webkit-scrollbar{
   width: 7px;
   background-color: var(--body-background);
