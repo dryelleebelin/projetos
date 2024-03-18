@@ -27,10 +27,23 @@ header{
         a{
             font-weight: 600;
             transition: 0.2s ease-in;
-        }
+            position: relative;
+            padding-bottom: 1px;
 
-        a:hover{
-            opacity: 0.6;
+            &::after{  //pseudo-elemento
+                content: " ";
+                width: 0%;
+                height: 3px;
+                background-color: var(--green-300);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transition: 0.4s ease-in-out;
+            }
+
+            &:hover::after{
+                width: 100%;
+            }
         }
     }
 }
