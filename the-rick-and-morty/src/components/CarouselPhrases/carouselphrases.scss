@@ -23,3 +23,16 @@
         }
     }
 }
+
+
+/* -- para tablets e monitores menores -- */
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+    .swiper-container{
+        margin-top: 8%;
+        z-index: 0 !important;
+    
+        img{
+            height: auto;
+        }
+    }
+}

@@ -80,7 +80,6 @@
         border-radius: 0 0 15px 15px;
         z-index: 2;
         background-color: var(--white);
-        z-index: 9999 !important;
     
         svg{
             display: none;
@@ -106,5 +105,34 @@
             right: 2vw;
             width: 28px;
         }
+    }
+}
+
+
+/* -- para tablets e monitores menores -- */
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+    .modal-character{
+        width: 85vw;
+        height: 33vh;
+    }
+    
+    .modal-content{
+        width: 50%;
+        z-index: 2;
+        background-color: var(--white);
+    
+        h1{
+            margin-bottom: 3%;
+            font-size: 25px;
+        }
+    
+        p{
+            margin-bottom: 2%;
+        }
+    }
+    
+    .modal-image{
+        width: auto;
+        height: 100%;
     }
 }

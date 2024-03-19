@@ -444,6 +444,7 @@ footer{
             }
         }
     }
+    
 
     .characters{
         margin-bottom: 12%;
@@ -561,5 +562,194 @@ footer{
         width: 38px;
         bottom: 2.5vh;
         right: 4vw;
+    }
+}
+
+
+/* -- para tablets e monitores menores -- */
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+    @mixin titleGreen{
+        margin-bottom: 6%;
+    }
+    
+    @mixin pDescription{
+        width: 100%;
+    }
+
+    main{
+        padding: 14vh 0 0 0;
+    }
+    
+    .home{
+        height: 100%;
+        padding: 0 8vw;
+        flex-direction: column;
+    
+        div{
+            width: 100%;
+    
+            img{
+                width: 280px;
+                margin: 4% 0;
+                animation: none; 
+            }
+    
+            p{
+                width: 100%;
+            }
+    
+            button{
+                width: 22%;
+                gap: 6%;
+            }
+        }
+    
+        aside{
+            width: 100%;
+            justify-content: center;
+            margin-top: 2vh;
+    
+            img{
+                width: 380px;
+            }
+        }
+    }
+
+    .sinopse{
+        height: 100%;
+        padding: 0 8vw;
+        margin-bottom: 10%;
+    
+        div{
+            height: 100%;
+            padding: 5% 8%;
+    
+            h2{
+                margin-bottom: 6%;
+            }
+    
+            p{
+                width: 100%;
+                margin-bottom: 3%;
+            }
+        }
+    }
+
+    .characters{
+        margin-bottom: 12%;
+        padding: 0 8vw;
+    
+        h2{
+            @include titleGreen
+        }
+    
+        p{
+            @include pDescription
+        }
+    
+        .filter{
+            width: 100%;
+            margin-top: 8%;
+            gap: 3vh;
+            flex-wrap: wrap;
+            display: flex;
+    
+            input{
+                width: 47%;
+                padding: 1vh 3%;
+            }
+    
+            select{
+                width: 47%;
+                padding: 1vh 2vw;
+            }
+    
+            button{
+                width: 47%;
+                padding: 1.4% 0;
+                margin-left: 27%;
+                margin-top: 2%;
+                font-size: 1.1rem;
+            }
+        }
+    
+        .container{
+            margin-top: 10%;
+    
+            .item{
+                width: 48%;
+                margin-bottom: 4%;
+                height: 35vh;
+
+                &:hover{
+                    transform: scale(1.03);
+                }
+            }
+        }
+    
+        .pagination{
+            gap: 6%;
+            justify-content: center;
+    
+            button{
+                padding: 0.5vh 2vw;
+            }
+        }
+    }
+
+    .phrases{
+        margin-bottom: 10%;
+        padding: 0 8vw;
+    
+        h2{
+            @include titleGreen
+        }
+    
+        p{
+            @include pDescription
+        }
+    }
+
+    .seasons{
+        padding: 0 8vw 10% 8vw;
+    
+        h2{
+            @include titleGreen
+        }
+    
+        p{
+            @include pDescription
+        }
+    }
+    
+    footer{
+        padding: 5vh 8vw;
+        font-size: 0.9rem;
+    
+        .footer-left{
+            img{
+                width: 240px;
+                margin-bottom: 1vh;
+            }
+    
+            p{
+                width: 65%;
+            }
+        }
+    
+        .footer-right{
+            width: 65%;
+        }
+    }
+
+    .baseboard{
+        padding: 2vh 8vw;
+        font-size: 0.8rem;
+    }
+
+    .to-top{
+        width: 42px;
+        bottom: 3vh;
+        right: 4.5vw;
     }
 }

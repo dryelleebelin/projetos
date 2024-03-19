@@ -35,9 +35,13 @@ export default function CarouselSeasons() {
 
     useEffect(() => {
         function handleResize(){
-            if(window.innerWidth < 720){
+            if(window.innerWidth < 480){
                 setSlidesPerView(1)
-            } else{
+            }
+            else if(window.innerWidth >= 481 && window.innerWidth <= 1023){
+                setSlidesPerView(3)
+            }
+            else{
                 setSlidesPerView(4)
             }
         }

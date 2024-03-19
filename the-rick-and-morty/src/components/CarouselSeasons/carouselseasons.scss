@@ -21,7 +21,7 @@
         }
     
         span{
-            color: var(--white);
+            color: var(--text-color);
             opacity: 0.5;
             font-weight: 300;
             font-size: 0.9rem;
@@ -39,6 +39,26 @@
         .slide2{
             img{
                 height: auto;
+            }
+        }
+    }
+}
+
+
+/* -- para tablets e monitores menores -- */
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+    .swiper-container2{
+        width: 95%;
+        margin-top: 8%;
+        z-index: 0 !important;
+    
+        .slide2{
+            img{
+                height: 260px;
+            }
+
+            span{
+                width: 90%;
             }
         }
     }

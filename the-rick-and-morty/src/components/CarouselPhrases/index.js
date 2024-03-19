@@ -35,9 +35,13 @@ export default function CarouselPhrases() {
 
     useEffect(() => {
         function handleResize(){
-            if(window.innerWidth < 720){
+            if(window.innerWidth < 480){
                 setSlidesPerView(1)
-            } else{
+            }
+            else if(window.innerWidth >= 481 && window.innerWidth <= 1023){
+                setSlidesPerView(1)
+            }
+            else{
                 setSlidesPerView(3)
             }
         }
@@ -52,7 +56,7 @@ export default function CarouselPhrases() {
         <Swiper className='swiper-container' autoplay modules={[EffectCoverflow]} effect="coverflow" slidesPerView={slidesPerView} pagination={{clickable: true}} loop coverflowEffect={{
             rotate: 0, 
             stretch: 0,
-            depth: 150,
+            depth: 110,
             modifier: 3,
         }}>
             {data.map((item) => (
