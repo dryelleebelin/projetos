@@ -61,11 +61,3 @@
 .dark_mode_input:checked + .dark_mode_label svg.moon {
     fill: #fff;
 }
-
-
-/* -- para smartphones -- */
-@media only screen and (max-width: 480px){
-    .dark-mode{
-        display: none;
-    }
-}

@@ -56,20 +56,17 @@ header{
     width: 22vh;
 }
 
+.menu-icon{
+    display: none;
+}
+
+.nav-menu{
+    display: none;
+}
+
 
 /* -- para smartphones -- */
 @media only screen and (max-width: 480px){
-    header{
-        padding: 0 8vw;
-        height: 9vh;
-    
-        nav{
-            a{
-                display: none;
-            }
-        }
-    }
-
     .logo2{
         width: 6vh;
         margin-right: 3%;
@@ -78,15 +75,36 @@ header{
     .logo{
         width: 15vh;
     }
+
+    .dark-mode{
+        display: none;
+    }
 }
 
 
 /* -- para tablets e monitores menores -- */
 @media only screen and (min-width: 481px) and (max-width: 1023px){
-    header{
-        padding: 0 8vw;
-        height: 10vh;
+    .logo2{
+        width: 6vh;
+        margin-right: 3%;
+    }
     
+    .logo{
+        width: 16vh;
+    }
+    
+    .dark-mode-menu{
+        display: none;
+    }
+}
+
+
+/* -- para smartphones, tablets e monitores menores -- */
+@media only screen and  (max-width: 1023px){
+    header{
+    padding: 0 8vw;
+    height: 9vh;
+
         nav{
             a{
                 display: none;
@@ -94,12 +112,55 @@ header{
         }
     }
 
-    .logo2{
-        width: 7vh;
-        margin-right: 3%;
+    .menu-icon{
+        display: block;
+        background-color: transparent;
+        border: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        outline: none;
+
+        svg{
+            font-size: 35px;
+            z-index: 1;
+        }
     }
-    
-    .logo{
-        width: 16vh;
+
+    .close-menu{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30%;
+        height: 100vh;
+
+        &::after{
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh; 
+            background: var(--white);
+            filter: blur(70vw);
+            z-index: -1;
+        }
+    }
+
+    .animate__animated.animate__fadeInRight {
+        --animate-duration: 0.4s;
+    }
+
+    .nav-menu{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 9vh 10%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--blue-100);
     }
 }
