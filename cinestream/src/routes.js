@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Catalog from './pages/Catalog/index.tsx'
+import Catalog from './pages/Catalog'
   
 
 export default function RoutesApp(){

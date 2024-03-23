@@ -1,0 +1,38 @@
+.top-charts{
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 0 10vw 5vh 10vw;
+  gap: 10vh;
+
+  h1{
+    font-weight: 400;
+    font-size: 2.5rem;
+  }
+
+  .carrossel{
+    display: flex;
+    justify-content: space-between;
+
+    div{
+      position: relative;
+
+      img{
+        border-radius: 4px;
+        background-size: cover;
+      }
+
+      span {
+        position: absolute;
+        top: -10vh;
+        right: 1%;
+        font-size: 5.8rem;
+        background-image: linear-gradient(to bottom, var(--pink-100), var(--purple-200));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 600;
+      }
+    }
+  }
+}
