@@ -1,3 +1,8 @@
+.main-catalog{
+  margin-top: 20vh;
+  margin-bottom: 10vh;
+}
+
 .billboard {
   color: var(--white);
   height: 80vh;
@@ -77,33 +82,22 @@
   }
 }
 
-.movies{
-  color: var(--white);
+.section{
   display: flex;
   flex-direction: column;
-  padding: 5vh 10vw;
-  gap: 3vh;
+  padding: 1vh 5vw;
+  gap: 2vh;
 
   h1{
     font-weight: 400;
     display: flex;
     align-items: center;
-    gap: 0.5%;
+    gap: 0.4%;
+    color: var(--white);
+    font-size: 1.2rem;
 
     svg{
-      font-size: 0.9rem;
-    }
-  }
-
-  .carrossel{
-    display: flex;
-    justify-content: space-between;
-
-    img{
-      width: 24%;
-      height: auto;
-      background-size: cover;
-      border-radius: 3px;
+      font-size: 0.8rem;
     }
   }
 }

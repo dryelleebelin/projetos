@@ -1,23 +1,26 @@
-.top-charts{
+.popular-movies{
   color: var(--white);
   display: flex;
   flex-direction: column;
-  padding: 0 10vw 5vh 10vw;
-  gap: 10vh;
+  padding: 0 5vw;
 
   h1{
     font-weight: 400;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
-  .carrossel{
-    display: flex;
-    justify-content: space-between;
+  .carousel{
+    width: 100%;
+    height: auto;
+    padding-top: 8vh;
+    padding-bottom: 5vh;
 
-    div{
+    .item{
       position: relative;
 
       img{
+        width: 100%;
+        height: auto;
         border-radius: 4px;
         background-size: cover;
       }
@@ -26,7 +29,7 @@
         position: absolute;
         top: -10vh;
         right: 1%;
-        font-size: 5.8rem;
+        font-size: 6rem;
         background-image: linear-gradient(to bottom, var(--pink-100), var(--purple-200));
         -webkit-background-clip: text;
         background-clip: text;
@@ -35,4 +38,8 @@
       }
     }
   }
+}
+
+.swiper-button-prev, .swiper-button-next{
+  color: var(--white) !important;
 }

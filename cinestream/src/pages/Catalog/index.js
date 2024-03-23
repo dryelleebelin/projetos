@@ -4,6 +4,8 @@ import { toast } from "react-toastify"
 
 import Header from "../../components/Header"
 import Filters from "../../components/Filters"
+import CarouselPopularMovies from "../../components/CarouselPopularMovies"
+import CarouselMovies from "../../components/CarouselMovies"
 
 import avengers from '../../images/avengers.jpg'
 import cover4 from '../../images/cover4.webp'
@@ -12,7 +14,6 @@ import { FaRegCirclePlay, FaAngleRight } from "react-icons/fa6";
 import { MdOutlineDownload } from "react-icons/md";
 import { FaRegBookmark, FaBookmark  } from "react-icons/fa";
 import { BiLike, BiDislike, BiSolidLike, BiSolidDislike } from "react-icons/bi";
-import TopCharts from "../../components/TopCharts"
 
 export default function Catalog(){
   const [like, setLike] = useState(false)
@@ -62,113 +63,27 @@ export default function Catalog(){
             </div>
           </div>
         </section>
+        
+        <CarouselPopularMovies/>
 
-        <div style={{backgroundColor: 'red'}}>
-        aaa
-
-<TopCharts/>
-
-aaa
-        </div>
-
-        <section className="movies">
-          <h1>MOVIES <FaAngleRight/></h1>
-          <div className="carrossel">
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-          </div>
+        <section className="section">
+          <h1>PRÓXIMAS ESTREIAS <FaAngleRight/></h1>
+          <CarouselMovies route='upcoming' page='1'/>
         </section>
 
-        <section className="movies">
-          <h1>TV SERIES <FaAngleRight/></h1>
-          <div className="carrossel">
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-          </div>
+        <section className="section">
+          <h1>EM CARTAZ <FaAngleRight/></h1>
+          <CarouselMovies route='now_playing' page='2'/>
         </section>
 
-        <section className="movies">
-          <h1>MOVIES TOP RATED <FaAngleRight/></h1>
-          <div className="carrossel">
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-          </div>
+        <section className="section">
+          <h1>MAIS BEM AVALIADOS <FaAngleRight/></h1>
+          <CarouselMovies route='top_rated' page='1'/>
         </section>
 
-        <section className="movies">
-          <h1>MOVIES NOW PLAYING <FaAngleRight/></h1>
-          <div className="carrossel">
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-          </div>
-        </section>
-
-        <section className="movies">
-          <h1>MOVIES POPULAR <FaAngleRight/></h1>
-          <div className="carrossel">
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-          </div>
-        </section>
-
-        <section className="movies">
-          <h1>TV SERIES ON THE AIR <FaAngleRight/></h1>
-          <div className="carrossel">
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-          </div>
-        </section>
-
-        <section className="movies">
-          <h1>TV SERIES POPULAR <FaAngleRight/></h1>
-          <div className="carrossel">
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-          </div>
-        </section>
-
-        <section className="movies">
-          <h1>MOVIES UPCOMING<FaAngleRight/></h1>
-          <div className="carrossel">
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-          </div>
-        </section>
-
-        <section className="movies">
-          <h1>TV SERIES TOP RATED <FaAngleRight/></h1>
-          <div className="carrossel">
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-          </div>
-        </section>
-
-        <section className="movies">
-          <h1>KIDS<FaAngleRight/></h1>
-          <div className="carrossel">
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-            <img src={cover4} alt="Cover"/>
-          </div>
+        <section className="section">
+          <h1>POPULARES <FaAngleRight/></h1>
+          <CarouselMovies route='popular' page='1'/>
         </section>
       </main>
     </>
