@@ -1,4 +1,4 @@
-.popular-movies{
+.container-top{
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
     font-size: 2rem;
   }
 
-  .carousel{
+  .carousel-top{
     width: 100%;
     height: auto;
     padding-top: 8vh;

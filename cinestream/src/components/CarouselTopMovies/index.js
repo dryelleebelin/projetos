@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './carouselpopularmovies.scss'
+import './carouseltopmovies.scss'
 import api from '../../services/api'
 
 import { register } from 'swiper/element/bundle'
@@ -11,7 +11,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 register()
 
-export default function CarouselPopularMovies() {
+export default function CarouselTopMovies() {
   const [slidesPerView, setSlidesPerView] = useState(4)
   const [movies, setMovies] = useState([])
 
@@ -35,10 +35,10 @@ export default function CarouselPopularMovies() {
   }, [])
 
   return (
-    <div className="popular-movies">
+    <div className="container-top">
       <h1>TOP 10 FILMES</h1>
 
-      <Swiper className="carousel" slidesPerView={slidesPerView} navigation spaceBetween={30}>
+      <Swiper className="carousel-top" slidesPerView={slidesPerView} navigation spaceBetween={30}>
         {movies.map((item) => (
           <SwiperSlide className="item" key={item.id}>
             <img src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} alt="Cover"/>
