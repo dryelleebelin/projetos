@@ -30,7 +30,6 @@ export default function CarouselBillboard(){
         }
       })
       setMovies(response.data.results.slice(0, 20))
-      console.log(response.data.results)
     } catch (err) {
       console.log(err)
       return

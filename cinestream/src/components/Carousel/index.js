@@ -23,18 +23,24 @@ export default function Carousel(){
 
   const data = [
     { title: 'PRÓXIMAS ESTREIAS', route: 'movie/upcoming', page: '1'},
+    { title: 'FILMES DE ANIMAÇÃO', route: '/discover/movie', genreId: '16', page: '2'},
     { title: 'SÉRIES DE TV MAIS BEM AVALIADAS', route: 'tv/top_rated', page: '1'},
     { title: 'EM CARTAZ', route: 'movie/now_playing', page: '2'},
+    { title: 'SÉRIES DE TV PARA CRIANÇAS', route: '/discover/tv', genreId: '10762', page: '1'},
+    { title: 'DOCUMENTÁRIO', route: '/discover/movie', genreId: '99', page: '1'},
     { title: 'MAIS BEM AVALIADOS', route: 'movie/top_rated', page: '1'},
     { title: 'SÉRIES DE TV EM EXIBIÇÃO HOJE', route: 'tv/airing_today', page: '2'},
-    { title: 'SÉRIES DE TV POPULARES', route: 'tv/popular', page: '1'}
+    { title: 'FILMES DE TERROR', route: '/discover/movie', genreId: '27', page: '1'},
+    { title: 'SÉRIES DE TV POPULARES', route: 'tv/popular', page: '1'},
+    { title: 'SÉRIES DE TV NEWS', route: '/discover/tv', genreId: '10763', page: '1'},
   ]
 
   useEffect(() => {
-    async function fetchData(route, page){
+    async function fetchData(route, genreId, page){
       try {
         const response = await api.get(route, {
           params: {
+            with_genres: genreId,
             page: page
           }
         });
@@ -47,7 +53,7 @@ export default function Carousel(){
 
     async function loadCarouselData() {
       const carousels = await Promise.all(data.map(async (item) => {
-        const movies = await fetchData(item.route, item.page);
+        const movies = await fetchData(item.route, item.genreId, item.page);
         return { title: item.title, movies: movies };
       }));
       setCarouselData(carousels);
