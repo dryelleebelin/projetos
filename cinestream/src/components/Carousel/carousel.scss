@@ -9,3 +9,25 @@
     background-size: contain;
   }
 }
+
+.spinner{
+  display: flex;
+  justify-content: center;
+  margin: 10% 0;
+
+  svg{
+      color: var(--white);
+      width: 2.5rem;
+      height: 2.5rem;
+      animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin{
+  0%{ 
+      transform: rotate(0deg)
+  }
+  100%{ 
+      transform: rotate(360deg); 
+  }
+}

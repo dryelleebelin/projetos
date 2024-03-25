@@ -11,10 +11,10 @@ export default function Filters() {
         <>
             <form className='container-filters' onClick={info}>
                 <select>
-                    <option>FOR POPULARITY</option>
+                    <option>POR POPULARIDADE</option>
                 </select>
                 <select>
-                    <option>GENRES</option>
+                    <option>GÊNEROS</option>
                     <option>Action</option>
                     <option>Animation</option>
                     <option>Drama</option>
@@ -23,22 +23,22 @@ export default function Filters() {
                     <option>Kids</option>
                 </select>
                 <select>
-                    <option>COUNTRY</option>
+                    <option>PAÍS</option>
                     <option>Angola</option>
                     <option>United Arab Emirates</option>
                     <option>Brazil</option>
                 </select>
                 <select>
-                    <option>LANGUAGES</option>
+                    <option>IDIOMA</option>
                     <option>English</option>
                     <option>Russian</option>
                     <option>French</option>
                 </select>
                 <select>
-                    <option>YEAR</option>
+                    <option>ANO</option>
                 </select>
                 <input type='text' placeholder='People...'/>
-                <button type='submit'>CLEAR</button>
+                <button type='submit'>LIMPAR</button>
             </form>
         </>
     )

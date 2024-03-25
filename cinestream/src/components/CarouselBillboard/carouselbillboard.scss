@@ -1,0 +1,79 @@
+.billboard {
+  color: var(--white);
+  height: 80vh;
+  position: relative;
+  
+  .background{
+    width: 100vw;
+    height: auto;
+    background-size: cover;
+  }
+
+  .background::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 20%, var(--black));
+  }
+
+  .content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh 5vw;
+    justify-content: flex-end;
+    gap: 2%;
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 300;
+    }
+  
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1.5%;
+      margin-bottom: 2.5%;
+
+      button{
+        background-color: #ffffff36;
+        border: 2px solid var(--pink-100);
+        color: var(--pink-100);
+        padding: 0.7% 2.5%;
+        border-radius: 5px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: 0.3s ease-in-out;
+
+        &:hover{
+          background-color: #ffffff4f;
+        }
+
+        svg{
+          font-size: 1.2rem;
+        }
+      }
+
+      svg {
+        cursor: pointer;
+      }
+
+      .mark{
+        color: var(--pink-100);
+        border: 2px solid var(--pink-100);
+        font-size: 2.4rem;
+        border-radius: 8px;
+        padding: 0.6%;
+      }
+
+      .like, .dislike{
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

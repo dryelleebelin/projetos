@@ -27,13 +27,11 @@ export default function Header() {
       <img className='logo' src={logo} alt='Logo' onClick={scrollToTop}/>
       <nav>
         <a onClick={scrollToTop}>HOME</a>
-        <a href='#' onClick={info}>NEW</a>
-        <a href='#' onClick={info}>ACCOUNT</a>
-        <a href='#' onClick={info}>MY LIST</a>
-        <a href='#' onClick={info}>FILTERS</a>
+        <a href='#' onClick={info}>MINHA LISTA</a>
+        <a href='#' onClick={info}>CONTA</a>
       </nav>
       <div>
-        {searchVisible && <input type="text" placeholder="Search..."/>}
+        {searchVisible && <input type="text" placeholder="Procurar..."/>}
         <IoSearch onClick={() => {toggleSearch(); info();}} />
         <img src={avatar} alt='Avatar' onClick={info}/>
       </div>
