@@ -60,17 +60,19 @@ export default function CarouselBillboard(){
   }
 
   return (
-    <Swiper className="billboard" modules={[EffectFade]} effect="fade" slidesPerView={1} autoplay={{ delay: 30000 }}>
+    <Swiper className="billboard" modules={[EffectFade]} effect="fade" slidesPerView={1} autoplay={{ delay: 10000 }} allowTouchMove={false}>
       {movies.map((item) => (
         <SwiperSlide className="background" key={item.id} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${item.backdrop_path})` }}>
-          <div className="content" onClick={info}>
-            <h1>{item.title}</h1>
-            <div>
-              <button>ASSISTIR <FaRegCirclePlay /></button>
-              <button>DOWNLOAD <MdOutlineDownload /></button>
-              {favorite ? <FaBookmark className="mark" onClick={handleFavorite} /> : <FaRegBookmark className="mark" onClick={handleFavorite} />}
-              {like ? <BiSolidLike className="like" /> : <BiLike className="like" onClick={handleLike} />}
-              {dislike ? <BiSolidDislike className="dislike" /> : <BiDislike className="dislike" onClick={handleDislike} />}
+          <div className="gradient-overlay">
+            <div className="content" onClick={info}>
+              <h1>{item.title}</h1>
+              <div>
+                <button>ASSISTIR <FaRegCirclePlay /></button>
+                <button>DOWNLOAD <MdOutlineDownload /></button>
+                {favorite ? <FaBookmark className="mark" onClick={handleFavorite} /> : <FaRegBookmark className="mark" onClick={handleFavorite} />}
+                {like ? <BiSolidLike className="like" /> : <BiLike className="like" onClick={handleLike} />}
+                {dislike ? <BiSolidDislike className="dislike" /> : <BiDislike className="dislike" onClick={handleDislike} />}
+              </div>
             </div>
           </div>
         </SwiperSlide>

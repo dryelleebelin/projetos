@@ -10,24 +10,22 @@
   }
 }
 
-.spinner{
+.section{
   display: flex;
-  justify-content: center;
-  margin: 10% 0;
+  flex-direction: column;
+  padding: 1vh 5vw;
+  gap: 2vh;
 
-  svg{
-      color: var(--white);
-      width: 2.5rem;
-      height: 2.5rem;
-      animation: spin 1s linear infinite;
-  }
-}
+  h1{
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.4%;
+    color: var(--white);
+    font-size: 1.2rem;
 
-@keyframes spin{
-  0%{ 
-      transform: rotate(0deg)
-  }
-  100%{ 
-      transform: rotate(360deg); 
+    svg{
+      font-size: 0.8rem;
+    }
   }
 }
