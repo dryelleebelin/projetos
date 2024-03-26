@@ -6,7 +6,10 @@ export default function Filters() {
     const [genres, setGenres] = useState([])
     const [countries, setCountries] = useState([])
     const [languages, setLanguages] = useState([])
-    const [search, setSearch] = useState('')
+
+    const [filter, setFilter] = useState({
+        search: '',
+    })
 
     async function loadFilters(){
         try {
@@ -15,9 +18,9 @@ export default function Filters() {
                 api.get('genre/tv/list'),
                 api.get('configuration/countries'),
                 api.get('configuration/languages'),
-                api.get('search/mullllti', {
+                api.get('search/multi', {
                     params: {
-                        query: search
+                        query: filter.search
                     }
                 })
             ]);
@@ -26,7 +29,7 @@ export default function Filters() {
             setGenres(filterGenres(combinedGenres));
             setCountries(countriesResponse.data)
             setLanguages(languagesResponse.data)
-            setSearch(searchResponse.data.results)
+            setFilter.search(searchResponse.data.results)
         } catch(error){
             console.error('Erro ao carregar filtros: ', error)
             return
@@ -36,6 +39,11 @@ export default function Filters() {
     useEffect(() => {
         loadFilters()
     }, []);
+
+    function handleChangeFilter(e){
+        const {name, value} = e.target
+        setFilter((prevFilter) => ({...prevFilter, [name]: value}))
+    }
 
     function filterGenres(genres){
         return genres.filter((genre, index, self) => (
@@ -47,7 +55,7 @@ export default function Filters() {
         <>
             <form className='container-filters'>
                 <select name='genre'>
-                    <option disabled selected value="gênero">gênero</option>
+                    <option disabled value="gênero">gênero</option>
                     {genres.map((genre, index) => (
                         <option key={index} value={genre.name}>{genre.name}</option>
                     ))}
@@ -64,7 +72,7 @@ export default function Filters() {
                         <option key={index} value={language.english_name}>{language.english_name.split(" ").slice(0, 1).join(" ")}</option>
                     ))}
                 </select>
-                <input type='text' placeholder='Filme, Série ou Pessoa...' autoComplete='off' onChange={(e) => setSearch(e.target.value)}/>
+                <input type='text' name='search' value={filter.search} placeholder='Filme, Série ou Pessoa...' autoComplete='off' onChange={handleChangeFilter}/>
                 <button type='submit'>LIMPAR</button>
             </form>
         </>
