@@ -8,26 +8,28 @@ export default function Filters() {
     const [languages, setLanguages] = useState([])
     const [search, setSearch] = useState('')
 
-    async function loadFilters() {
+    async function loadFilters(){
         try {
             const [moviesResponse, tvResponse, countriesResponse, languagesResponse, searchResponse] = await Promise.all([
                 api.get('genre/movie/list'),
                 api.get('genre/tv/list'),
                 api.get('configuration/countries'),
                 api.get('configuration/languages'),
-                api.get('search/multi', {
+                api.get('search/mullllti', {
                     params: {
                         query: search
                     }
                 })
             ]);
             const combinedGenres = [...moviesResponse.data.genres, ...tvResponse.data.genres];
+            
             setGenres(filterGenres(combinedGenres));
             setCountries(countriesResponse.data)
             setLanguages(languagesResponse.data)
             setSearch(searchResponse.data.results)
-        } catch (err) {
-            console.log(err);
+        } catch(error){
+            console.error('Erro ao carregar filtros: ', error)
+            return
         }
     }
 
@@ -35,7 +37,7 @@ export default function Filters() {
         loadFilters()
     }, []);
 
-    function filterGenres(genres) {
+    function filterGenres(genres){
         return genres.filter((genre, index, self) => (
             index === self.findIndex((g) => (g.id === genre.id && g.name === genre.name))
         ));

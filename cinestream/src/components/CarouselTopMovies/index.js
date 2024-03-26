@@ -27,8 +27,8 @@ export default function CarouselTopMovies() {
         {...item, id: index + 1}
       )))
       setLoading(false)
-    } catch(err){
-      console.log(err)
+    } catch(error){
+      console.log(error)
       return
     }
   }

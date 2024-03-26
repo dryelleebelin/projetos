@@ -45,8 +45,8 @@ export default function Carousel(){
           }
         });
         return response.data.results.slice(0, 20);
-      } catch (err){
-        console.log(err);
+      } catch (error){
+        console.log(error);
         return [];
       }
     }
