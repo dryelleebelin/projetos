@@ -17,7 +17,6 @@ register();
 export default function CarouselBillboard() {
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
-  const [favorite, setFavorite] = useState(false);
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
 
@@ -54,28 +53,9 @@ export default function CarouselBillboard() {
   };
 
   useEffect(() => {
-    loadMovies()
+    loadMovies();
   }, []);
 
-  function favoriteMovie(id) {
-    const myList = localStorage.getItem("@cinestream");
-    const savedMovies = JSON.parse(myList) || [];
-    const hasMovie = savedMovies.some((savedMovie) => savedMovie.id === id);
-    if (!hasMovie) {
-      savedMovies.push({ id: id });
-      localStorage.setItem("@cinestream", JSON.stringify(savedMovies));
-      setFavorite(true);
-    }
-  }
-  
-  function unfavoriteMovie(id) {
-    const myList = localStorage.getItem("@cinestream");
-    const savedMovies = JSON.parse(myList) || [];
-    const updatedMovies = savedMovies.filter((item) => item.id !== id);
-    localStorage.setItem("@cinestream", JSON.stringify(updatedMovies));
-    setFavorite(false);
-  }
-  
   const handleLike = () => {
     setLike(true);
     setDislike(false);
@@ -96,7 +76,7 @@ export default function CarouselBillboard() {
               <h1>{item.title}</h1>
               <div>
                 <a href={`https://www.youtube.com/results?search_query=${item.title} Trailer`} target="_blank" rel="noopener noreferrer"><button>VER TRAILER <FaRegCirclePlay /></button></a>
-                {favorite ? <FaBookmark className="mark" onClick={() => unfavoriteMovie(item.id)} /> : <FaRegBookmark className="mark" onClick={() => favoriteMovie(item.id)} />}
+                <FaRegBookmark className="mark"/>
                 {like ? <BiSolidLike className="like" /> : <BiLike className="like" onClick={handleLike} />}
                 {dislike ? <BiSolidDislike className="dislike" /> : <BiDislike className="dislike" onClick={handleDislike} />}
               </div>
