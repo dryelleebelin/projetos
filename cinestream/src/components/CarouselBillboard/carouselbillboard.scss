@@ -27,6 +27,11 @@
     justify-content: flex-end;
     gap: 2%;
 
+    span{
+      margin-bottom: -1%;
+      font-size: 0.9rem;
+    }
+
     h1 {
       font-size: 2.2rem;
       font-weight: 300;
@@ -38,24 +43,31 @@
       gap: 1.5%;
       margin-bottom: 2.5%;
 
-      button{
-        background-color: #ffffff36;
-        border: 2px solid var(--pink-100);
-        color: var(--pink-100);
-        padding: 0.7% 2.5%;
-        border-radius: 5px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        transition: 0.3s ease-in-out;
-
-        &:hover{
-          background-color: #ffffff4f;
-        }
-
-        svg{
-          font-size: 1.2rem;
+      a{
+        height: 100%;
+        width: auto;
+        margin-right: 1.5%;
+        
+        button{
+          background-color: #ffffff36;
+          border: 2px solid var(--pink-100);
+          color: var(--pink-100);
+          padding: 7.4% 10%;
+          border-radius: 5px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          transition: 0.3s ease-in-out;
+          text-wrap: nowrap;
+  
+          &:hover{
+            background-color: #ffffff4f;
+          }
+  
+          svg{
+            font-size: 1.2rem;
+          }
         }
       }
 

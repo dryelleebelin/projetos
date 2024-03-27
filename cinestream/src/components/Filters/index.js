@@ -73,7 +73,7 @@ export default function Filters() {
                     ))}
                 </select>
                 <input type='text' name='search' value={filter.search} placeholder='Filme, Série ou Pessoa...' autoComplete='off' onChange={handleChangeFilter}/>
-                <button type='submit'>LIMPAR</button>
+                <button type='submit' disabled>LIMPAR</button>
             </form>
         </>
     );
