@@ -1,0 +1,87 @@
+.signin{
+  color: var(--white);
+  background-color: var(--purple-200);
+  border: 2px solid var(--pink-200);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10%;
+  height: 60vh;
+  width: 26vw;
+  gap: 6%;
+
+  div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p{
+      font-size: 1.2rem;
+    }
+
+    svg{
+      font-size: 25px;
+      cursor: pointer;
+    }
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+
+    label{
+      font-size: 0.9rem;
+      margin-bottom: 1%;
+    }
+
+    input{
+      background-color: transparent;
+      border: 1px solid var(--pink-200);
+      border-radius: 4px;
+      padding: 1% 4%;
+      margin-bottom: 4%;
+      height: 5.4vh;
+      color: var(--white);
+
+      &::placeholder{
+        color: var(--gray);
+        opacity: 0.6;
+      }
+    }
+
+    a{
+      font-size: 0.7rem;
+      color: var(--pink-100);
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+
+    button{
+      margin: 6% 0;
+      background-color: rgba(255, 255, 255, 0.196);
+      border: 1px solid var(--pink-200);
+      color: var(--white);
+      height: 5vh;
+      border-radius: 4px;
+      transition: 0.3s ease-in-out;
+
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.269);
+      }
+    }
+
+    p{
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      gap: 2%;
+
+      input{
+        margin-bottom: 0;
+        cursor: pointer;
+      }
+    }
+  }
+}
