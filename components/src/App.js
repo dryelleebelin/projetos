@@ -10,6 +10,7 @@ export default function App(){
         <button><Link to={`/button/darkmode`}>darkmode</Link></button>
         <button><Link to={`/button/download`}>download</Link></button>
         <button><Link to={`/card/01`}>cards</Link></button>
+        <button><Link to={`/lista/draganddrop`}>drag and drop</Link></button>
       </main>
     </div>
   );

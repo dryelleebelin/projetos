@@ -1,0 +1,68 @@
+.draganddrop{
+  background-color: #121212;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #ffffff !important;
+
+  h1{
+    font-size: 1.5rem;
+    margin-bottom: 1%;
+  }
+
+  form{
+    width: 35vw;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1%;
+
+    input{
+      outline: none;
+      width: 89%;
+      height: 100%;
+      border-radius: 4px;
+      border: none;
+      padding: 1% 2%;
+      font-weight: 600;
+
+      &::placeholder{
+        font-weight: 400;
+      }
+    }
+
+    button{
+      width: 10%;
+      height: 100%;
+      border: none;
+      background-color: #0466c8;
+      color: #ffffff;
+      border-radius: 4px;
+    }
+  }
+
+  section{
+    background-color: #ffffff;
+    color: #121212;
+    border-radius: 4px;
+    padding: 0.7%;
+    width: 35vw;
+
+    article{
+      display: flex;
+      flex-direction: column;
+      gap: 1vh;
+
+      .task{
+        background-color: rgba(128, 128, 128, 0.63);
+        border: 1px solid #1212128a;
+        padding: 1.4vh 0.8vw;
+        border-radius: 4px;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

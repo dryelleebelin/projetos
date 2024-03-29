@@ -5,6 +5,7 @@ import Sidebar01 from "./components/sidebars/01";
 import DarkMode from "./components/buttons/DarkMode/DarkMode";
 import Download from "./components/buttons/Download";
 import Card01 from "./components/cards/01";
+import DragAndDrop from "./components/listas/DragAndDrop/index.tsx";
 
 export default function RoutesApp(){
   return(
@@ -15,6 +16,7 @@ export default function RoutesApp(){
         <Route path="/button/darkmode" element={<DarkMode/>}/>
         <Route path="/button/download" element={<Download/>}/>
         <Route path="/card/01" element={<Card01/>}/>
+        <Route path="/lista/draganddrop" element={<DragAndDrop/>}/>
       </Routes>
     </BrowserRouter>
   )

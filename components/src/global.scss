@@ -25,13 +25,15 @@ a{
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  gap: 5%;
+  gap: 3%;
 
   main{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5%;
+    gap: 1%;
+    width: 90vw;
+    flex-wrap: wrap;
 
     button{
       border: none;
@@ -43,6 +45,7 @@ a{
       font-size: 1rem;
       color: #ffffff;
       text-wrap: nowrap;
+      margin-bottom: 1%;
 
       &:hover{
         opacity: 1;
