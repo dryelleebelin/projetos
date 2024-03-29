@@ -35,12 +35,14 @@ a{
 
     button{
       border: none;
-      background-color: #0909cf;
+      background-color: #0404d1;
       padding: 1vh 2vw;
       border-radius: 4px;
-      opacity: 0.8;
+      opacity: 0.9;
       transition: 0.4s ease-in-out;
       font-size: 1rem;
+      color: #ffffff;
+      text-wrap: nowrap;
 
       &:hover{
         opacity: 1;

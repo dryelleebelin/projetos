@@ -1,7 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import App from "./App";
-import Sidebar01 from "./components/Sidebars/01";
+import Sidebar01 from "./components/sidebars/01";
+import DarkMode from "./components/buttons/DarkMode/DarkMode";
+import Download from "./components/buttons/Download";
+import Card01 from "./components/cards/01";
 
 export default function RoutesApp(){
   return(
@@ -9,6 +12,9 @@ export default function RoutesApp(){
       <Routes>
         <Route path="/" element={<App/>}/>
         <Route path="/sidebar/01" element={<Sidebar01/>}/>
+        <Route path="/button/darkmode" element={<DarkMode/>}/>
+        <Route path="/button/download" element={<Download/>}/>
+        <Route path="/card/01" element={<Card01/>}/>
       </Routes>
     </BrowserRouter>
   )
