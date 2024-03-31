@@ -24,7 +24,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky"
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "npm run commitlint $HUSKY_GIT_PARAMS"
+    }
   },
   "eslintConfig": {
     "extends": [
