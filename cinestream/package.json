@@ -23,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
@@ -44,7 +45,10 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
     "@types/node": "^20.11.30",
-    "@types/react": "^18.2.67"
+    "@types/react": "^18.2.67",
+    "husky": "^9.0.11"
   }
 }
