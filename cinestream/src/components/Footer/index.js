@@ -24,7 +24,7 @@ export default function Footer(){
       <div className="footer">
         <div>
           <img src={logo} onClick={scroolToTop}/>
-          <a onClick={scroolToTop}>Home</a>
+          <a onClick={info}>Catálogo</a>
           <a onClick={info}>Minha lista</a>
           <a onClick={info}>Conta</a>
         </div>

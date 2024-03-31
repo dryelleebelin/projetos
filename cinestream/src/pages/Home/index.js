@@ -1,23 +1,43 @@
 import React, { useEffect, useState } from "react";
-import './home.scss'
+import './home.scss';
 
 import SignIn from "../SignIn";
+import Register from "../Register";
 
-export default function Home(){
+export default function Home() {
   useEffect(() => {
-    document.title = "CineStream"
-  }, [])
+    document.title = "Home - CineStream";
+  }, []);
 
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenModalSignIn, setIsOpenModalSignIn] = useState(false);
+  const [isOpenModalRegister, setIsOpenModalRegister] = useState(false);
 
   const handleCloseModal = () => {
-    setIsOpenModal(false);
+    setIsOpenModalSignIn(false);
+    setIsOpenModalRegister(false);
   };
 
-  return(
+  const handleOpenSignInModal = () => {
+    setIsOpenModalSignIn(true);
+    setIsOpenModalRegister(false);
+  };
+
+  const handleOpenRegisterModal = () => {
+    setIsOpenModalSignIn(false);
+    setIsOpenModalRegister(true);
+  };
+
+  return (
     <div className="home">
-      {!isOpenModal && <button type="button" onClick={() => setIsOpenModal(!isOpenModal)}>Login</button>}
-      {isOpenModal && <SignIn isOpen={isOpenModal} closeModal={handleCloseModal}/>}
+      <button type="button" onClick={handleOpenSignInModal}>Login</button>
+      <button type="button" onClick={handleOpenRegisterModal}>Register</button>
+
+      {isOpenModalSignIn && (
+        <SignIn isOpen={isOpenModalSignIn} closeModal={handleCloseModal} openRegisterModal={handleOpenRegisterModal} />
+      )}
+      {isOpenModalRegister && (
+        <Register isOpen={isOpenModalRegister} closeModal={handleCloseModal} openSignInModal={handleOpenSignInModal} />
+      )}
     </div>
-  )
+  );
 }

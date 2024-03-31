@@ -1,4 +1,4 @@
-.signin{
+.signin, .register{
   color: var(--white);
   background-color: var(--purple-200);
   border: 2px solid var(--pink-200);
@@ -9,6 +9,7 @@
   height: 60vh;
   width: 26vw;
   gap: 6%;
+  overflow-y: hidden;
 
   div{
     display: flex;

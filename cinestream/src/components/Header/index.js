@@ -26,7 +26,7 @@ export default function Header() {
     <header className='header'>
       <img className='logo' src={logo} alt='Logo' onClick={scrollToTop}/>
       <nav>
-        <a onClick={scrollToTop}>HOME</a>
+        <a onClick={scrollToTop}>CATÁLOGO</a>
         <a href='#' onClick={info}>MINHA LISTA</a>
         <a href='#' onClick={info}>CONTA</a>
       </nav>
