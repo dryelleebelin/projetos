@@ -13,6 +13,7 @@ export default function App(){
         <button><Link to={`/lista/draganddrop`}>drag and drop</Link></button>
         <button><Link to={`/page/calculator`}>calculator</Link></button>
         <button><Link to={`/page/citacoes`}>citações</Link></button>
+        <button><Link to={`/notifications/01`}>notificações</Link></button>
       </main>
     </div>
   );
