@@ -40,19 +40,18 @@
     div {
       display: flex;
       align-items: center;
-      gap: 1.5%;
+      gap: 1vw;
       margin-bottom: 2.5%;
 
       a{
         height: 100%;
         width: auto;
-        margin-right: 1.5%;
         
         button{
           background-color: #ffffff36;
           border: 2px solid var(--pink-100);
           color: var(--pink-100);
-          padding: 7.4% 10%;
+          padding: 1.2vh 1vw;
           border-radius: 5px;
           font-weight: 600;
           display: flex;

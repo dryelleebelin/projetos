@@ -28,7 +28,7 @@ export default function Header() {
       <img className='logo' src={logo} alt='Logo' onClick={scrollToTop}/>
       <nav>
         <Link to={`/catalog`} onClick={scrollToTop}>CATÁLOGO</Link>
-        <a href='#' onClick={info}>MINHA LISTA</a>
+        <Link to={`/my-list`} onClick={scrollToTop}>MINHA LISTA</Link>
         <a href='#' onClick={info}>CONTA</a>
       </nav>
       <div>

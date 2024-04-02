@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './carouselbillboard.scss';
 import api from "../../services/api";
+import { Link } from "react-router-dom";
 
 import { register } from 'swiper/element/bundle';
 import 'swiper/css';
@@ -11,6 +12,7 @@ import { EffectFade } from 'swiper/modules';
 import { FaRegCirclePlay, FaAngleRight } from "react-icons/fa6";
 import { FaRegBookmark, FaBookmark  } from "react-icons/fa";
 import { BiLike, BiDislike, BiSolidLike, BiSolidDislike } from "react-icons/bi";
+import { IoMdInformationCircleOutline } from "react-icons/io";
 
 register();
 
@@ -75,7 +77,8 @@ export default function CarouselBillboard() {
               <span>{getGenreNames(item.genre_ids).join(", ")}</span>
               <h1>{item.title}</h1>
               <div>
-                <a href={`https://www.youtube.com/results?search_query=${item.title} Trailer`} target="_blank" rel="noopener noreferrer"><button>VER TRAILER <FaRegCirclePlay /></button></a>
+                <a href={`https://www.youtube.com/results?search_query=${item.title} Trailer`} target="_blank" rel="noopener noreferrer"><button>VER TRAILER <FaRegCirclePlay/></button></a>
+                <Link to={`/detail/${item.id}`}><button>MAIS INFORMAÇÕES <IoMdInformationCircleOutline/></button></Link>
                 <FaRegBookmark className="mark"/>
                 {like ? <BiSolidLike className="like" /> : <BiLike className="like" onClick={handleLike} />}
                 {dislike ? <BiSolidDislike className="dislike" /> : <BiDislike className="dislike" onClick={handleDislike} />}

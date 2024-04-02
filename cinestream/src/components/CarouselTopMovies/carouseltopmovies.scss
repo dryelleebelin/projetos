@@ -18,6 +18,12 @@
 
     .item{
       position: relative;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+
+      &:hover{
+        transform: scale(1.06);
+      }
 
       img{
         width: 100%;

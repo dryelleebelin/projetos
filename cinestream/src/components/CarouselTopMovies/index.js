@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 import './carouseltopmovies.scss'
 import api from '../../services/api'
+import { useNavigate } from "react-router-dom"
 
 import { register } from 'swiper/element/bundle'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import 'swiper/css/effect-fade';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css/effect-fade'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { CgSpinner } from "react-icons/cg";
 
 register()
 
-export default function CarouselTopMovies() {
+export default function CarouselTopMovies(){
+  const navigate = useNavigate()
   const [slidesPerView, setSlidesPerView] = useState(4)
   const [movies, setMovies] = useState([])
+  const [idMovies, setIdMovies] = useState([])
   const [loading, setLoading] = useState(true)
+  const top10 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 
   async function loadMovies(){
     try{
@@ -23,9 +27,7 @@ export default function CarouselTopMovies() {
         params: { 
           page: 1
       }}) 
-      setMovies(response.data.results.slice(0, 10).map((item, index) => (
-        {...item, id: index + 1}
-      )))
+      setMovies(response.data.results.slice(0, 10))
       setLoading(false)
     } catch(error){
       console.log(error)
@@ -45,10 +47,10 @@ export default function CarouselTopMovies() {
         <div className="container-top">
           <h1>TOP 10 FILMES</h1>
           <Swiper className="carousel-top" slidesPerView={slidesPerView} navigation spaceBetween={30}>
-            {movies.map((item) => (
-              <SwiperSlide className="item" key={item.id}>
-                <img src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} alt="Cover"/>
-                <span>{item.id}</span>
+            {movies.map((movie, index) => (
+              <SwiperSlide className="item" key={movie.id}>
+                <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt="Cover" onClick={() => navigate(`/detail/${movie.id}`)}/>
+                <span>{top10[index]}</span>
               </SwiperSlide>
             ))}
           </Swiper>

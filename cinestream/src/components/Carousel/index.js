@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import './carousel.scss'
-import api from "../../services/api";
+import api from "../../services/api"
 
-import CarouselTopMovies from "../CarouselTopMovies";
+import CarouselTopMovies from "../CarouselTopMovies"
 
 import { register } from 'swiper/element/bundle'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import 'swiper/css/effect-fade';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css/effect-fade'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { FaAngleRight } from "react-icons/fa6";
-import { CgSpinner } from "react-icons/cg";
+import { FaAngleRight } from "react-icons/fa6"
+import { CgSpinner } from "react-icons/cg"
 
 register()
 
@@ -65,10 +65,6 @@ export default function Carousel(){
     loadCarouselData();
   }, []);
 
-  const handleSeeDetail = (id, route) => {
-    navigate(`/catalog/detail/${id}`)
-  }
-
   return(
     <>
       {loading ? 
@@ -82,7 +78,7 @@ export default function Carousel(){
               <Swiper className="carousel" slidesPerView={slidesPerView} navigation spaceBetween={20}>
                 {carousel.movies.map((movie) => (
                   <SwiperSlide className="item" key={movie.id}>
-                    <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="Cover" onClick={() => {handleSeeDetail(movie.id, movie.route)}}/>
+                    <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="Cover" onClick={() => navigate(`/detail/${movie.id}`)}/>
                   </SwiperSlide>
                 ))}
               </Swiper>
