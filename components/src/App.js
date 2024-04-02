@@ -14,6 +14,9 @@ export default function App(){
         <button><Link to={`/page/calculator`}>calculator</Link></button>
         <button><Link to={`/page/citacoes`}>citações</Link></button>
         <button><Link to={`/notifications/01`}>notificações</Link></button>
+        <button><Link to={`/progressbar/01`}>progressbar</Link></button>
+        <button><Link to={`/progressbar/02`}>progressbar</Link></button>
+        <button><Link to={`/progressbar/stepper`}>stepper</Link></button>
       </main>
     </div>
   );

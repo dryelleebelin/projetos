@@ -9,6 +9,9 @@ import DragAndDrop from "./components/listas/DragAndDrop/index.tsx"
 import Calculator from "./pages/Calculator/index.js"
 import Citacoes from "./pages/Citacoes/index.js"
 import Notifications01 from "./components/notifications/01/index.js"
+import Progressbar01 from "./components/progressbar/01/index.js"
+import Progressbar02 from "./components/progressbar/02/index.js"
+import Stepper from "./components/progressbar/stepper/index.js"
 
 export default function RoutesApp(){
   return(
@@ -23,6 +26,9 @@ export default function RoutesApp(){
         <Route path="/page/calculator" element={<Calculator/>}/>
         <Route path="/page/citacoes" element={<Citacoes/>}/>
         <Route path="/notifications/01" element={<Notifications01/>}/>
+        <Route path="/progressbar/01" element={<Progressbar01/>}/>
+        <Route path="/progressbar/02" element={<Progressbar02/>}/>
+        <Route path="/progressbar/stepper" element={<Stepper/>}/>
       </Routes>
     </BrowserRouter>
   )

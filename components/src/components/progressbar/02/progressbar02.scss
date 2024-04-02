@@ -1,0 +1,45 @@
+.container-progressbar2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #171717;
+
+  .progress-bar{
+    width: 30%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #e6e6e6;
+    margin-bottom: 10px;
+
+    .progress-bar-fill{
+      height: 100%;
+      border-radius: 10px;
+      background-color: #2ecc71;
+      transition: width 0.5s ease-out;
+    }
+  }
+
+  .progress-label{
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #444444; 
+  }
+
+  button{
+    background-color: rgb(10, 110, 171);
+    border-radius: 6px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 40px;
+    outline: 0;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 15px;
+    padding: 1vh 2vw;
+  }
+}
