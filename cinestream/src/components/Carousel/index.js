@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import './carousel.scss'
 import api from "../../services/api";
 
@@ -17,6 +18,7 @@ import { CgSpinner } from "react-icons/cg";
 register()
 
 export default function Carousel(){
+  const navigate = useNavigate()
   const [slidesPerView, setSlidesPerView] = useState(7)
   const [carouselData, setCarouselData] = useState([]);
   const [loading, setLoading] = useState(true)
@@ -45,16 +47,16 @@ export default function Carousel(){
           }
         });
         return response.data.results.slice(0, 20);
-      } catch (error){
-        console.log(error);
-        return [];
+      } catch(error){
+        console.error(error)
+        return []
       }
     }
 
     async function loadCarouselData() {
       const carousels = await Promise.all(data.map(async (item) => {
-        const movies = await fetchData(item.route, item.genreId, item.page);
-        return { title: item.title, movies: movies };
+        const movies = await fetchData(item.route, item.genreId, item.page)
+        return { title: item.title, movies: movies }
       }));
       setCarouselData(carousels);
       setLoading(false)
@@ -62,6 +64,10 @@ export default function Carousel(){
 
     loadCarouselData();
   }, []);
+
+  const handleSeeDetail = (id, route) => {
+    navigate(`/catalog/detail/${id}`)
+  }
 
   return(
     <>
@@ -76,7 +82,7 @@ export default function Carousel(){
               <Swiper className="carousel" slidesPerView={slidesPerView} navigation spaceBetween={20}>
                 {carousel.movies.map((movie) => (
                   <SwiperSlide className="item" key={movie.id}>
-                    <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="Cover"/>
+                    <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="Cover" onClick={() => {handleSeeDetail(movie.id, movie.route)}}/>
                   </SwiperSlide>
                 ))}
               </Swiper>

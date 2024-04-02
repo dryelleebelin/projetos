@@ -56,9 +56,9 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }) {
       if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password"){
         toast.error("E-mail ou senha incorretos")
       } else if (error.code === "auth/too-many-requests"){
-        toast.error("Muitas tentativas. Tente novamente mais tarde.")
+        toast.error("Muitas tentativas. Tente novamente mais tarde")
       } else{
-        toast.error("Erro ao fazer login. Tente novamente mais tarde.")
+        toast.error("Erro ao fazer login")
       }
       console.error(error)
       setLoading(false)
@@ -99,7 +99,7 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }) {
     }
 
     try {
-      await sendPasswordResetEmail(auth, email);
+      await sendPasswordResetEmail(auth, email)
       toast.info("E-mail de redefinição de senha enviado. Verifique sua caixa de entrada")
       setForgotPassword(false)
     } catch(error){
@@ -121,11 +121,13 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }) {
         </div>
         {forgotPassword ? 
           <div className="forgot-password">
-            <p>Nos conte algumas informações sobre sua conta</p>
+            <label>Nos conte algumas informações sobre sua conta.</label>
             <form onSubmit={handleForgotPassword}>
               <label>E-mail:</label>
               <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Digite o seu e-mail" />
-              <button type="submit">ENVIAR</button>
+              <button type="submit">
+                {loading ? <div className="spinner-button"><CgSpinner/></div> : "ENVIAR"}
+              </button>
             </form>
           </div>
         : 

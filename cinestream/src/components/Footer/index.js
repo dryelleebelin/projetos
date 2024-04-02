@@ -1,17 +1,18 @@
-import React from "react";
+import React from "react"
 import './footer.scss'
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"
+import { Link } from "react-router-dom"
 
 import logo from '../../images/logo.png'
 import googlePlay from '../../images/google-play.png'
 import appStore from '../../images/app-store.png'
 
-import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa"
 
 export default function Footer(){
   const currenYear = new Date().getFullYear()
 
-  const scroolToTop = () => {
+  const scrollToTop = () => {
     window.scrollTo({ top: '0', behavior: 'smooth'})
   }
 
@@ -23,8 +24,8 @@ export default function Footer(){
     <footer>
       <div className="footer">
         <div>
-          <img src={logo} onClick={scroolToTop}/>
-          <a onClick={info}>Catálogo</a>
+          <img src={logo} onClick={scrollToTop}/>
+          <Link to={`/catalog`} onClick={scrollToTop}>Catálogo</Link>
           <a onClick={info}>Minha lista</a>
           <a onClick={info}>Conta</a>
         </div>

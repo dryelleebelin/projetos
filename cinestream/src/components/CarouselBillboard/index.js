@@ -27,12 +27,12 @@ export default function CarouselBillboard() {
           page: 1
         }
       });
-      setMovies(response.data.results.slice(0, 20));
+      setMovies(response.data.results.slice(0, 20))
+      loadGenres()
     } catch (error) {
-      console.error('Erro ao carregar filmes: ', error);
-      return;
+      console.error('Erro ao carregar filmes: ', error)
+      return
     }
-    loadGenres();
   }
 
   async function loadGenres(){

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import './header.scss';
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
 
-import logo from '../../images/logo.png';
-import avatar from '../../images/avatar.svg';
+import logo from '../../images/logo.png'
+import avatar from '../../images/avatar.svg'
 
-import { IoSearch } from "react-icons/io5";
+import { IoSearch } from "react-icons/io5"
 
 export default function Header() {
   const [searchVisible, setSearchVisible] = useState(false);
@@ -26,7 +27,7 @@ export default function Header() {
     <header className='header'>
       <img className='logo' src={logo} alt='Logo' onClick={scrollToTop}/>
       <nav>
-        <a onClick={scrollToTop}>CATÁLOGO</a>
+        <Link to={`/catalog`} onClick={scrollToTop}>CATÁLOGO</Link>
         <a href='#' onClick={info}>MINHA LISTA</a>
         <a href='#' onClick={info}>CONTA</a>
       </nav>
