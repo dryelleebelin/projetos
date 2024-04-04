@@ -1,12 +1,20 @@
-import React, { useEffect, useState } from "react";
-import './home.scss';
+import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import './home.scss'
 
-import SignIn from "../SignIn";
-import Register from "../Register";
+import SignIn from "../SignIn"
+import Register from "../Register"
 
 export default function Home() {
+  const navigate = useNavigate()
+
   useEffect(() => {
-    document.title = "Home - CineStream";
+    document.title = "Home - CineStream"
+
+    const uid = JSON.parse(localStorage.getItem('@uidCinestream'))
+    if (uid){
+      navigate('/catalog')
+    }
   }, []);
 
   const [isOpenModalSignIn, setIsOpenModalSignIn] = useState(false);

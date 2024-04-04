@@ -1,16 +1,16 @@
-import React, { useContext, useState } from 'react'
-import './header.scss';
-import { toast } from 'react-toastify'
-import { Link } from 'react-router-dom'
-import { AuthContext } from '../../contexts/auth'
+import React, { useState } from 'react'
+import './header.scss'
+import { Link, useNavigate } from 'react-router-dom'
+import { auth } from '../../services/firebaseConnection'
+import { signOut } from 'firebase/auth'
 
 import logo from '../../images/logo.png'
 import avatar from '../../images/avatar.svg'
 
 import { IoSearch } from "react-icons/io5"
 
-export default function Header() {
-  const { logout } = useContext(AuthContext)
+export default function Header(){
+  const navigate = useNavigate()
   const [searchVisible, setSearchVisible] = useState(false);
 
   const toggleSearch = () => {
@@ -19,6 +19,12 @@ export default function Header() {
 
   const scrollToTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'})
+  }
+
+  async function logout(){
+    await signOut(auth)
+    localStorage.removeItem('@uidCinestream')
+    navigate("/")
   }
 
   return (
@@ -32,7 +38,7 @@ export default function Header() {
       <div>
         {searchVisible && <input type="text" placeholder="Procurar..."/>}
         <IoSearch onClick={() => toggleSearch()}/>
-        <img src={avatar} alt='Avatar' onClick={() => logout()}/>
+        <img src={avatar} alt='Avatar' onClick={logout}/>
       </div>
     </header>
   );
