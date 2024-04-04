@@ -1,17 +1,19 @@
-import {initializeApp} from 'firebase/app';
-import {getAuth} from 'firebase/auth';
+import {initializeApp} from 'firebase/app'
+import {getAuth} from 'firebase/auth'
+import {getFirestore} from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC6-W1pS3r6Vi4KTT_ryjtiC66qflTURX0",
-  authDomain: "cinestream-project.firebaseapp.com",
-  projectId: "cinestream-project",
-  storageBucket: "cinestream-project.appspot.com",
-  messagingSenderId: "345270061926",
-  appId: "1:345270061926:web:7edc059b342261731d16a7",
-  measurementId: "G-TS3WN1XLM3"
+  apiKey: "AIzaSyA9VjhH724-RvY8BN6o2tnHthJY5k8YvLo",
+  authDomain: "cinestream-24a06.firebaseapp.com",
+  projectId: "cinestream-24a06",
+  storageBucket: "cinestream-24a06.appspot.com",
+  messagingSenderId: "425732977993",
+  appId: "1:425732977993:web:255fe3f0c02bfbde881698",
+  measurementId: "G-QEE6GHR6XP"
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig)
 const auth = getAuth(firebaseApp)
+const db = getFirestore(firebaseApp)
 
-export { auth };
+export { auth, db };

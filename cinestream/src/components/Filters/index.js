@@ -37,7 +37,7 @@ export default function Filters() {
     }
 
     useEffect(() => {
-        loadFilters()
+        //loadFilters()
     }, []);
 
     function handleChangeFilter(e){
@@ -54,20 +54,20 @@ export default function Filters() {
     return (
         <>
             <form className='container-filters'>
-                <select name='genre'>
+                <select name='genre' defaultValue="gênero">
                     <option disabled value="gênero">gênero</option>
                     {genres.map((genre, index) => (
                         <option key={index} value={genre.name}>{genre.name}</option>
                     ))}
                 </select>
-                <select name='country'>
-                    <option disabled selected value="país">país</option>
+                <select name='country' defaultValue="país">
+                    <option disabled value="país">país</option>
                     {countries.map((country, index) => (
                         <option key={index} value={country.english_name}>{country.english_name.split(" ").slice(0, 2).join(" ")}</option>
                     ))}
                 </select>
-                <select name='language'>
-                    <option disabled selected value="idioma">idioma</option>
+                <select name='language' defaultValue="idioma">
+                    <option disabled value="idioma">idioma</option>
                     {languages.map((language, index) => (
                         <option key={index} value={language.english_name}>{language.english_name.split(" ").slice(0, 1).join(" ")}</option>
                     ))}

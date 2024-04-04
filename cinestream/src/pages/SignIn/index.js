@@ -1,21 +1,21 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useContext, useState } from "react"
 import './signin.scss'
 import Modal from 'react-modal'
 import { toast } from "react-toastify";
 import { auth } from '../../services/firebaseConnection'
-import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth'
+import { sendPasswordResetEmail } from 'firebase/auth'
+import { AuthContext } from "../../contexts/auth.js"
 
 import { IoClose } from "react-icons/io5"
 import { CgSpinner } from "react-icons/cg"
 
 export default function SignIn({ isOpen, closeModal, openRegisterModal }) {
-  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isChecked, setIsChecked] = useState(true)
   const [loading, setLoading] = useState(false)
   const [forgotPassword, setForgotPassword] = useState(false)
+  const { signIn, loadingAuth } = useContext(AuthContext)
   const customStyles = {
     content: {
       top: '50%',
@@ -28,7 +28,7 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }) {
     }
   };
 
-  async function handleSubmit(e){
+  function handleSubmit(e){
     e.preventDefault()
 
     if (email === '' || password === ''){
@@ -44,25 +44,7 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }) {
       return
     }
 
-    setLoading(true)
-
-    try {
-      await signInWithEmailAndPassword(auth, email, password)
-        setEmail('')
-        setPassword('')
-        setLoading(false)
-        navigate('/catalog')
-    } catch(error){
-      if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password"){
-        toast.error("E-mail ou senha incorretos")
-      } else if (error.code === "auth/too-many-requests"){
-        toast.error("Muitas tentativas. Tente novamente mais tarde")
-      } else{
-        toast.error("Erro ao fazer login")
-      }
-      console.error(error)
-      setLoading(false)
-    }
+    signIn(email, password)
   };
 
   const isValidEmail = (email) => {
@@ -98,10 +80,14 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }) {
       return
     }
 
+    setLoading(true)
+
     try {
       await sendPasswordResetEmail(auth, email)
       toast.info("E-mail de redefinição de senha enviado. Verifique sua caixa de entrada")
       setForgotPassword(false)
+      setLoading(false)
+
     } catch(error){
       if (error.code === "auth/user-not-found"){
         toast.error("E-mail não encontrado")
@@ -109,6 +95,7 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }) {
         toast.error("Erro ao enviar e-mail de redefinição de senha. Tente novamente.")
       }
       console.error(error)
+      setLoading(false)
     }
   };
 
@@ -131,14 +118,14 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }) {
             </form>
           </div>
         : 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={signIn(email, password)}>
           <label>E-mail:</label>
           <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Digite o seu e-mail"/>
           <label>Senha:</label>
           <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Digite a sua senha"/>
           <a onClick={handleForgotPasswordClick}>Esqueceu a senha?</a>
           <button type="submit">
-            {loading ? <div className="spinner-button"><CgSpinner/></div> : "ENTRAR"}
+            {loadingAuth ? <div className="spinner-button"><CgSpinner/></div> : "ENTRAR"}
           </button>
           <p><input type="checkbox" checked={isChecked} onChange={handleCheck} />Lembre-se de mim</p>
           <a onClick={handleOpenRegisterModal}>Ainda não possui um conta? Cadastrar-se</a>

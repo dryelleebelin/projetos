@@ -30,7 +30,7 @@ export default function CarouselTopMovies(){
       setMovies(response.data.results.slice(0, 10))
       setLoading(false)
     } catch(error){
-      console.log(error)
+      console.error(error)
       return
     }
   }

@@ -1,20 +1,17 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useContext, useState } from "react"
 import '../SignIn/signin.scss'
 import Modal from 'react-modal'
 import { toast } from "react-toastify"
-import { auth } from "../../services/firebaseConnection"
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import { AuthContext } from "../../contexts/auth"
 
 import { IoClose } from "react-icons/io5"
 import { CgSpinner } from "react-icons/cg";
 
 export default function Register({ isOpen, closeModal, openSignInModal }){
-  const navigate = useNavigate()
+  const { register, loadingAuth } = useContext(AuthContext)
   const [user, setUser] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
   const customStyles = {
     content: {
       top: '50%',
@@ -43,25 +40,7 @@ export default function Register({ isOpen, closeModal, openSignInModal }){
       return;
     }
 
-    setLoading(true)
-
-    try {
-      await createUserWithEmailAndPassword(auth, email, password)
-      setEmail('')
-      setPassword('')
-      setLoading(false)
-      navigate('/catalog')
-    } catch(error){
-      if (error.code === "auth/weak-password"){
-        toast.warn("Por favor, escolha uma senha mais forte")
-      } else if (error.code === "auth/email-already-in-use"){
-        toast.error("Desculpe, este e-mail já está em uso")
-      } else{
-        toast.error("Erro ao criar conta. Tente novamente mais tarde.")
-      }
-      console.error(error)
-      setLoading(false)
-    }
+    await register(user, email, password)
   };
 
   const isValidEmail = (email) => {
@@ -91,8 +70,8 @@ export default function Register({ isOpen, closeModal, openSignInModal }){
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Digite o seu e-mail"/>
           <label>Senha:</label>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Digite a sua senha"/>
-          <button type="submit" disabled={loading}>
-            {loading ? <div className="spinner-button"><CgSpinner/></div> : "CRIAR"}
+          <button type="submit" disabled={loadingAuth}>
+            {loadingAuth ? <div className="spinner-button"><CgSpinner/></div> : "CRIAR"}
           </button>
           <a onClick={handleOpenSignInModal}>Já tenho conta.</a>
         </form>
