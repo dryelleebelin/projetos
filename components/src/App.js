@@ -17,6 +17,10 @@ export default function App(){
         <button><Link to={`/progressbar/01`}>progressbar</Link></button>
         <button><Link to={`/progressbar/02`}>progressbar</Link></button>
         <button><Link to={`/progressbar/stepper`}>stepper</Link></button>
+        <button><Link to={`/footer/01`}>footer</Link></button>
+        <button><Link to={`/footer/02`}>footer</Link></button>
+        <button><Link to={`/card/02`}>card</Link></button>
+        <button><Link to={`/footer/03`}>footer</Link></button>
       </main>
     </div>
   );
