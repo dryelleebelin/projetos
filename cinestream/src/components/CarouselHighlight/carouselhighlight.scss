@@ -1,0 +1,12 @@
+.swiper-container{
+  width: 45vw !important;
+  height: 100%;
+  cursor: grab;
+  z-index: 0 !important;
+
+  img{
+    object-fit: cover;
+    width: 310px;
+    height: auto;
+  }
+}

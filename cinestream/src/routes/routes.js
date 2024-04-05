@@ -13,9 +13,13 @@ export default function RoutesApp(){
     <Routes>
       <Route exact path="/" element={<Home/>}/>
 
-      <Route path="/catalog" element={<Private><Catalog/></Private>}/>
+      <Route path="/catalog" element={<Catalog/>}/>
+      <Route path="/detail/:id" element={<Detail/>}/>
+      <Route path="/my-list" element={<MyList/>}/>
+      
+      {/* <Route path="/catalog" element={<Private><Catalog/></Private>}/>
       <Route path="/detail/:id" element={<Private><Detail/></Private>}/>
-      <Route path="/my-list" element={<Private><MyList/></Private>}/>
+      <Route path="/my-list" element={<Private><MyList/></Private>}/> */}
     </Routes>
   )
 }

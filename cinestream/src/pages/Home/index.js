@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
 import './home.scss'
 
 import SignIn from "../SignIn"
 import Register from "../Register"
+import CarouselHighlight from "../../components/CarouselHighlight"
+
+import logo from '../../images/logo.png'
 
 export default function Home() {
-  const navigate = useNavigate()
-
   useEffect(() => {
     document.title = "Home - CineStream"
-
-    const uid = JSON.parse(localStorage.getItem('@uidCinestream'))
-    if (uid){
-      navigate('/catalog')
-    }
-  }, []);
+  }, [])
 
   const [isOpenModalSignIn, setIsOpenModalSignIn] = useState(false);
   const [isOpenModalRegister, setIsOpenModalRegister] = useState(false);
@@ -37,8 +32,36 @@ export default function Home() {
 
   return (
     <div className="home">
-      <button type="button" onClick={handleOpenSignInModal}>Login</button>
-      <button type="button" onClick={handleOpenRegisterModal}>Register</button>
+      <header>
+        <div class="blurry-background"></div>
+        <img src={logo} alt="Logo"/>
+        <div className="buttons">
+          <button type="button" onClick={handleOpenSignInModal}>ENTRAR</button>
+          <button type="button" onClick={handleOpenRegisterModal}>CADASTRO</button>
+        </div>
+      </header>
+
+      <main>
+        <section className="highlight">
+          <aside>
+            <h1>ABRA UM NOVO MUNDO DE CINEMA</h1>
+            <button>ENTRAR</button>
+          </aside>
+
+          <div>
+            <CarouselHighlight/>
+          </div>
+        </section>
+
+        <section className="looping">
+          <p>ABRA UM NOVO MUNDO DE CINEMA</p>
+          <p>ABRA UM NOVO MUNDO DE CINEMA</p>
+          <p>ABRA UM NOVO MUNDO DE CINEMA</p>
+          <p>ABRA UM NOVO MUNDO DE CINEMA</p>
+          <p>ABRA UM NOVO MUNDO DE CINEMA</p>
+          <p>ABRA UM NOVO MUNDO DE CINEMA</p>
+        </section>
+      </main>
 
       {isOpenModalSignIn && (
         <SignIn isOpen={isOpenModalSignIn} closeModal={handleCloseModal} openRegisterModal={handleOpenRegisterModal} />
