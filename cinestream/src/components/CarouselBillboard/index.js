@@ -63,9 +63,15 @@ export default function CarouselBillboard() {
     searchFavorites()
   }, []);
 
+  const getUIDFromLocalStorage = () => {
+    const uid = JSON.parse(localStorage.getItem('@uidCinestream'))
+    return uid
+  }
+
   async function handleFavorite(id){
     try{
-      await addDoc(collection(db, "favorites"), {
+      const uid = getUIDFromLocalStorage()
+      await addDoc(collection(db, `favorites/${uid}/movies`), {
         idFavorite: id
       })
       setFavorites([...favorites, id])
@@ -78,7 +84,8 @@ export default function CarouselBillboard() {
 
   async function searchFavorites(){
     try {
-      const favoritesRef = collection(db, "favorites")
+      const uid = getUIDFromLocalStorage()
+      const favoritesRef = collection(db, `favorites/${uid}/movies`)
       const snapshot = await getDocs(favoritesRef)
       const lista = snapshot.docs.map(doc => doc.data().idFavorite)
       setFavorites(lista)
@@ -90,16 +97,18 @@ export default function CarouselBillboard() {
 
   async function removeFavorite(id){
     try{
-      const docRef = doc(db, "favorites", id);
+      const uid = getUIDFromLocalStorage()
+      const docRef = doc(db, `favorites/${uid}/movies`, id.toString())
       await deleteDoc(docRef)
       setFavorites(favorites.filter(itemId => itemId !== id))
       console.log("removido com sucesso!!!")
-
+  
     } catch(error){
       toast.error("Erro ao remover favorito.")
       console.error("Erro ao remover favorito: " + error)
     }
   }
+  
 
   const handleLike = () => {
     setLike(true);
@@ -122,7 +131,7 @@ export default function CarouselBillboard() {
               <div>
                 <a href={`https://www.youtube.com/results?search_query=${item.title} Trailer`} target="_blank" rel="noopener noreferrer"><button>VER TRAILER <FaRegCirclePlay/></button></a>
                 <Link to={`/detail/${item.id}`}><button>MAIS INFORMAÇÕES <IoMdInformationCircleOutline/></button></Link>
-                {favorites.includes(item.id) ? <FaBookmark className="mark" onClick={() => removeFavorite(item.id)}/> : <FaRegBookmark className="mark" onClick={() => handleFavorite(item.id)}/>}
+                {favorites.includes(item.id) ? <FaBookmark className="mark"/> : <FaRegBookmark className="mark" onClick={() => handleFavorite(item.id)}/>}
                 {like ? <BiSolidLike className="like" /> : <BiLike className="like" onClick={handleLike} />}
                 {dislike ? <BiSolidDislike className="dislike" /> : <BiDislike className="dislike" onClick={handleDislike} />}
               </div>

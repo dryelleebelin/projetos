@@ -1,5 +1,38 @@
 .my-list{
   margin-top: 10vh;
-  height: 100vh;
+  height: 90vh;
   color: var(--white);
+  padding: 5vh 5vw;
+
+  h1{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 3vh;
+  }
+
+  div{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+
+    img{
+      width: 140px;
+      height: auto;
+      margin-bottom: 1%;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+
+      &:hover{
+        transform: scale(1.06);
+      }
+    }
+  }
+
+  span{
+    display: flex;
+    justify-content: center;
+    padding-top: 20%;
+  }
 }

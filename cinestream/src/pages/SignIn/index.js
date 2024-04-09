@@ -47,14 +47,11 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }){
 
     setLoading(true)
 
-    toast.info("consutando api")
-
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password)
       const uid = userCredential.user.uid
       localStorage.setItem('@uidCinestream', JSON.stringify(uid)) 
       setLoading(false)
-      toast.info("deu certo, navegando...")
       navigate('/catalog')
 
     } catch(error){
