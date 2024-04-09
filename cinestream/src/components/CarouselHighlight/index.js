@@ -9,12 +9,12 @@ import 'swiper/css/effect-fade';
 import {Swiper, SwiperSlide} from 'swiper/react'
 import { EffectCoverflow } from 'swiper/modules'
 
-import visual1 from '../../images/visual1.png'
-import visual2 from '../../images/visual2.png'
-import visual3 from '../../images/visual3.png'
-import visual4 from '../../images/visual4.png'
-import visual5 from '../../images/visual5.png'
-import visual6 from '../../images/visual6.png'
+import cover1 from '../../images/cover1.png'
+import cover2 from '../../images/cover2.png'
+import cover3 from '../../images/cover3.png'
+import cover4 from '../../images/cover4.png'
+import cover5 from '../../images/cover5.png'
+import cover6 from '../../images/cover6.png'
 
 register()
 
@@ -22,12 +22,12 @@ export default function CarouselHighlight() {
   const [slidesPerView, setSlidesPerView] = useState(3) 
 
   const data = [
-    { id: '1', image: visual1 },
-    { id: '2', image: visual2 },
-    { id: '3', image: visual3 },
-    { id: '4', image: visual4 },
-    { id: '5', image: visual5 },
-    { id: '6', image: visual6 }
+    { id: '1', image: cover1 },
+    { id: '2', image: cover2 },
+    { id: '3', image: cover3 },
+    { id: '4', image: cover4 },
+    { id: '5', image: cover5 },
+    { id: '6', image: cover6 }
   ]
 
   useEffect(() => {

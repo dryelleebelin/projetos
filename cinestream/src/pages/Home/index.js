@@ -45,7 +45,7 @@ export default function Home() {
         <section className="highlight">
           <aside>
             <h1>ABRA UM NOVO MUNDO DE CINEMA</h1>
-            <button>ENTRAR</button>
+            <button type="button" onClick={handleOpenSignInModal}>ENTRAR</button>
           </aside>
 
           <div>

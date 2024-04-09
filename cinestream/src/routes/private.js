@@ -2,21 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 
 export default function Private({children}){
-  const [signed, setSigned] = useState('')
-    
+  const [redirect, setRedirect] = useState(false)
+
   useEffect(() => {
-    function loadUser(){
-      const storageUser = localStorage.getItem('@uidCinestream')
-      if(storageUser){
-        setSigned(JSON.parse(storageUser))
-      }
+    const token = localStorage.getItem('@uidCinestream')
+    
+    if (!token){
+      setRedirect(true)
     }
-    loadUser()
   }, [])
 
-  if(!signed){
-    return <Navigate to="/"/>
+  if(redirect) {
+    return <Navigate to="/" replace />
   }
-  
+
   return children
 }
