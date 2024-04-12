@@ -1,12 +1,13 @@
 .home{
-  background: linear-gradient(0deg, var(--pink-100), var(--pink-200), var(--purple-200), var(--purple-300));
   color: var(--white);
   height: 100vh;
+  padding-top: 10vh;
+  overflow: hidden;
 
   header{
     width: 100%;
     height: 10vh;
-    background-color: transparent;
+    background: linear-gradient(0deg, var(--purple-300) 10%, var(--purple-300));
     color: var(--white);
     display: flex;
     align-items: center;
@@ -56,45 +57,47 @@
   }
 
   main{
-    padding-top: 10vh;
+    background-image: url("../../images/wallpaper.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     .highlight{
       width: 100%;
-      height: 81vh;
+      height: 82vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      padding: 0 5vw;
+      justify-content: center;
 
-      aside{
-        width: 40%;
-
-        h1{
-          font-size: 3.3rem;
-          font-weight: 400;
-          width: 85%;
-          margin-bottom: 8%;
-        }
-
-        button{
-          border: none;
-          padding: 0.8% 8%;
-          background: linear-gradient(60deg, var(--purple-200), var(--pink-100));
-          color: var(--white);
-          border-radius: 6px;
-          outline: none;
-          opacity: 0.8;
-          transition: 0.4s ease-in-out;
-          box-shadow: 0 2px 8px rgb(10, 10, 10);
-          font-size: 1.5rem;
-  
-          &:hover{
-            opacity: 1;
-          }
-        }
+      img{
+        width: 10%;
+        margin-bottom: 1%;
       }
 
-      div{
-        width: 60%;
+      h1{
+        font-size: 1.3rem;
+        font-weight: 400;
+        width: 35%;
+        text-align: center;
+        margin-bottom: 2%;
+      }
+
+      button{
+        padding: 0.4% 3%;
+        background: linear-gradient(60deg, var(--purple-200), var(--pink-100));
+        color: var(--white);
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        opacity: 0.8;
+        transition: 0.4s ease-in-out;
+        box-shadow: 0 2px 8px rgb(10, 10, 10);
+        font-size: 1.3rem;
+
+        &:hover{
+          opacity: 1;
+        }
       }
     }
 

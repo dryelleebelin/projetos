@@ -6,10 +6,10 @@ import isoLangs from 'iso-639-1';
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import FavoriteIcon from '../../components/FavoriteIcon'
 
 import { CgSpinner } from "react-icons/cg"
 import { FaRegCirclePlay } from "react-icons/fa6"
-import { FaRegBookmark, FaBookmark  } from "react-icons/fa"
 
 export default function Detail() {
   const { id } = useParams()
@@ -98,7 +98,7 @@ export default function Detail() {
               <h4>Idioma Original: <p>{getLanguageName(detail.original_language)}</p></h4>
               {director && <h4>Diretor: <p>{director}</p></h4>}
               {cast && <h4>Elenco: <p>{cast.map(actor => actor.name).join(', ')}...</p></h4>}
-              <FaRegBookmark className="mark"/>
+              <FavoriteIcon id={detail.id}/>
             </section>
           </main>
         </div>
