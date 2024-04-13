@@ -1,6 +1,5 @@
 import React from "react"
 import './footer.scss'
-import { toast } from "react-toastify"
 import { Link } from "react-router-dom"
 
 import logo from '../../images/logo.png'
@@ -16,20 +15,16 @@ export default function Footer(){
     window.scrollTo({ top: '0', behavior: 'smooth'})
   }
 
-  const info = () => {
-    toast.info("Em desenvolvimento.")
-  }
-
   return(
     <footer>
       <div className="footer">
         <div>
           <img src={logo} onClick={scrollToTop}/>
           <Link to={`/catalog`} onClick={scrollToTop}>Catálogo</Link>
-          <a onClick={info}>Minha lista</a>
-          <a onClick={info}>Conta</a>
+          <Link to={`/my-list`} onClick={scrollToTop}>Minha lista</Link>
+          <Link to={`/account`} onClick={scrollToTop}>Conta</Link>
         </div>
-        <div onClick={info}>
+        <div>
           <a>Sobre</a>
           <a>App</a>
           <a>Termos de uso</a>

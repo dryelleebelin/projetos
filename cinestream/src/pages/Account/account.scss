@@ -1,0 +1,97 @@
+.account{
+  margin-top: 10vh;
+  height: 90vh;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 2vh;
+  padding-top: 10vh;
+
+  form{
+    width: 25%;
+    background-color: #0b0b0b;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    padding: 1.5vh 1vw;
+
+    div{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2vh;
+
+      label{
+        font-size: 0.8rem;
+        color: var(--gray);
+        font-weight: 500;
+      }
+
+      input{
+        color: var(--white);
+        padding: 0.8vh 0;
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        outline: none;
+
+        &::placeholder{
+          color: var(--white);
+          opacity: 0.7;
+          font-weight: 300;
+        }
+      }
+    }
+
+    button{
+      width: 15%;
+      font-size: 0.8rem;
+      color: var(--pink-100);
+      font-weight: 500;
+      padding: 1vh 0;
+      border: none;
+      background-color: transparent;
+      text-align: start;
+      opacity: 0.7;
+      transition: 0.3s ease-in-out;
+      margin-top: -2vh;
+
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+  }
+
+  section{
+    width: 25%;
+    background-color: #0b0b0b;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    padding: 1.5vh 1vw;
+
+    button{
+      width: 100%;
+      padding: 1vh 0;
+      border: none;
+      background-color: transparent;
+      color: var(--white);
+      border-radius: 6px;
+      text-align: start;
+      display: flex;
+      align-items: center;
+      gap: 0.6vw;
+      transition: 0.3s ease-in-out;
+
+      svg{
+        width: 22px;
+        height: auto;
+      }
+
+      &:hover{
+        background-color: #121212;
+      }
+    }
+  }
+}

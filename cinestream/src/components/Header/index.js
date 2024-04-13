@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import './header.scss'
-import { Link, useNavigate } from 'react-router-dom'
-import { auth } from '../../services/firebaseConnection'
-import { signOut } from 'firebase/auth'
+import { Link } from 'react-router-dom'
 
 import logo from '../../images/logo.png'
 import avatar from '../../images/avatar.svg'
@@ -10,7 +8,6 @@ import avatar from '../../images/avatar.svg'
 import { IoSearch } from "react-icons/io5"
 
 export default function Header(){
-  const navigate = useNavigate()
   const [searchVisible, setSearchVisible] = useState(false);
 
   const toggleSearch = () => {
@@ -21,24 +18,18 @@ export default function Header(){
     window.scrollTo({top: 0, behavior: 'smooth'})
   }
 
-  async function logout(){
-    await signOut(auth)
-    localStorage.removeItem('@uidCinestream')
-    navigate("/")
-  }
-
   return (
     <header className='header'>
       <img className='logo' src={logo} alt='Logo' onClick={scrollToTop}/>
       <nav>
         <Link to={`/catalog`} onClick={scrollToTop}>CATÁLOGO</Link>
         <Link to={`/my-list`} onClick={scrollToTop}>MINHA LISTA</Link>
-        <a href='#'>CONTA</a>
+        <Link to={`/account`} onClick={scrollToTop}>CONTA</Link>
       </nav>
       <div>
         {searchVisible && <input type="text" placeholder="Procurar..."/>}
         <IoSearch onClick={() => toggleSearch()}/>
-        <img src={avatar} alt='Avatar' onClick={logout}/>
+        <Link to={`/account`} onClick={scrollToTop}><img src={avatar} alt='Avatar'/></Link>
       </div>
     </header>
   );

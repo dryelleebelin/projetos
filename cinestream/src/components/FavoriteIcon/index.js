@@ -37,7 +37,7 @@ export default function FavoriteIcon({id}){
       setFavorites(lista)
 
     } catch (error) {
-      console.error("Erro ao buscar favoritos: ", error);
+      console.error("Erro ao buscar favoritos: ", error)
     }
   }
 
