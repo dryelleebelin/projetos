@@ -62,7 +62,8 @@ export default function Detail() {
   }
 
   useEffect(() => {
-    document.title = "Detail - CineStream"
+    document.title = "Detalhes - CineStream"
+
     loadDetail()
   }, [id])
 

@@ -77,6 +77,8 @@ export default function Account(){
   }
 
   useEffect(() => {
+    document.title = "Minha conta - CineStream"
+
     fetchData()
   }, [])
 

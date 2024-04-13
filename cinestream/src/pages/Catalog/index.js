@@ -9,7 +9,7 @@ import Footer from "../../components/Footer"
 
 export default function Catalog(){
   useEffect(() => {
-    document.title = "Catálogo - CineStream ";
+    document.title = "Catálogo - CineStream "
   }, []);
 
   return(

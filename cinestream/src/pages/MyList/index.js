@@ -16,6 +16,8 @@ export default function MyList(){
   const [loading, setLoading] = useState(true) 
 
   useEffect(() => {
+    document.title = "Minha lista - CineStream"
+
     async function loadFavorites(){
       try{
         const uid = JSON.parse(localStorage.getItem('@uidCinestream'))
