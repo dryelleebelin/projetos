@@ -7,6 +7,9 @@ import { signOut } from 'firebase/auth'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import ModalDeleteAccount from "../../components/ModalDeleteAccount"
+
+import avatar from '../../images/avatar.svg'
 
 import { IoIosLogOut } from "react-icons/io"
 import { MdDeleteOutline } from "react-icons/md"
@@ -18,6 +21,7 @@ export default function Account(){
   const [birthday, setBirthday] = useState('')
   const [disabled, setDisabled] = useState(true)
   const [loading, setLoading] = useState(true)
+  const [isOpenModal, setIsOpenModal] = useState(false)
 
   async function fetchData(){
     try{
@@ -58,22 +62,22 @@ export default function Account(){
     }
   }
 
+  function handleChangeLanguage(){
+    alert("teste")
+  }
+
   async function handleLogout(){
     await signOut(auth)
     localStorage.removeItem('@uidCinestream')
     navigate("/")
   }
 
-  async function handleDeleteAccount(){
-    try{
-      const user = auth.currentUser
-      await user.delete()
-      localStorage.removeItem('@uidCinestream')
-      navigate("/")
+  const handleOpenModal = () => {
+    setIsOpenModal(true)
+  }
 
-    } catch(error){
-      console.error("Erro ao deletar conta: ", error)
-    }
+  const handleCloseModal = () => {
+    setIsOpenModal(false)
   }
 
   useEffect(() => {
@@ -90,16 +94,20 @@ export default function Account(){
         {!loading &&
           <form onSubmit={(e) => e.preventDefault()}>
             <div>
+              <label>Foto</label>
+              <img src={avatar} alt="Avatar"/>
+              <button type="button">Editar foto de perfil</button>
+            </div>
+
+            <span></span>
+
+            <div>
               <label>Nome</label>
               <input type="text" value={name} placeholder="Digite seu nome..." disabled={disabled} onChange={(e) => setName(e.target.value)}/>
             </div>
             <div>
               <label>Data de nascimento</label>
               <input type="date" value={birthday} disabled={disabled} onChange={(e) => setBirthday(e.target.value)}/>
-            </div>
-            <div>
-              <label>Email</label>
-              <input type="email" value={email} disabled/>
             </div>
             {disabled ? (
               <button type="button" onClick={handleEdit}>Editar</button> 
@@ -109,13 +117,35 @@ export default function Account(){
           </form>
         }
 
+        <form style={{paddingBottom: '0'}}>
+          <div style={{marginTop: '1vh'}}>
+            <label>Email</label>
+            <input type="email" value={email} disabled/>
+          </div>
+        </form>
+
+        <form onSubmit={(e) => e.preventDefault()}>
+          <label style={{marginTop: '1vh'}}>Idioma</label>
+          <select name="language" defaultValue="portuguese" disabled={disabled}>
+            <option value="portuguese">Português</option>
+            <option value="english">Inglês</option>
+          </select>
+          {disabled ? (
+            <button type="button" onClick={handleEdit}>Trocar idioma</button> 
+          ) : (
+            <button type="button" onClick={handleChangeLanguage}>Salvar</button>
+          )}
+        </form>
+
         <section>
           <button type="button" onClick={handleLogout}><IoIosLogOut/> Sair</button>
         </section>
 
         <section>
-          <button type="button" onClick={handleDeleteAccount} style={{color: 'red'}}><MdDeleteOutline/> Deletar conta</button>
+          <button type="button" onClick={handleOpenModal} style={{color: 'red'}}><MdDeleteOutline/> Deletar conta</button>
         </section>
+
+        <ModalDeleteAccount isOpen={isOpenModal} closeModal={handleCloseModal}/>
       </div>
 
       <Footer/>

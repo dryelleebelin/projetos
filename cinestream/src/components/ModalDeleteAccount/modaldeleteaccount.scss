@@ -1,0 +1,64 @@
+.modal-delete-account{
+  color: var(--white);
+  background-color: #0b0b0b;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 12%;
+  height: 100%;
+  width: 34vw;
+  gap: 2vh;
+  overflow-y: hidden;
+  position: relative;
+
+  .close-modal{
+    font-size: 28px;
+    cursor: pointer;
+    position: absolute;
+    top: 6%;
+    right: 5%;
+  }
+
+  h1{
+    font-size: 1.3rem;
+    color: var(--pink-200);
+  }
+
+  div{
+    display: flex;
+    gap: 3%;
+
+    button:first-child{
+      background-color: #990000;
+      color: var(--white);
+      height: 5vh;
+      border: none;
+      border-radius: 4px;
+      padding: 0 5%;
+      transition: 0.4s ease-in-out;
+      width: 50%;
+
+      &:hover{
+        background-color: #ba0101;
+      }
+
+      div{
+        align-items: center;
+      }
+    }
+
+    button:last-child{
+      background-color: rgba(255, 255, 255, 0.196);
+      border: 1px solid var(--pink-200);
+      color: var(--white);
+      height: 5vh;
+      border-radius: 4px;
+      transition: 0.3s ease-in-out;
+      padding: 0 5%;
+
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.269);
+      }
+    }
+  }
+}
