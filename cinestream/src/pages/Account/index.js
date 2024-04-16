@@ -8,20 +8,33 @@ import { signOut } from 'firebase/auth'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ModalDeleteAccount from "../../components/ModalDeleteAccount"
-
-import avatar from '../../images/avatar.svg'
+import AvatarSelector from "../../components/AvatarSelector"
 
 import { IoIosLogOut } from "react-icons/io"
 import { MdDeleteOutline } from "react-icons/md"
 
 export default function Account(){
   const navigate = useNavigate()
+  const [avatar, setAvatar] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [birthday, setBirthday] = useState('')
   const [disabled, setDisabled] = useState(true)
   const [loading, setLoading] = useState(true)
-  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [isOpenModalDelete, setIsOpenModalDelete] = useState(false)
+  const [isOpenModalAvatar, setIsOpenModalAvatar] = useState(false)
+
+  async function fetchAvatar(){
+    try{
+      const uid = JSON.parse(localStorage.getItem('@uidCinestream'))
+      const docRef = doc(db, 'avatar', uid)
+      const docSnap = await getDoc(docRef)
+      setAvatar(docSnap.data().url)
+
+    } catch(error){
+      console.error("Erro ao buscar avatar: ", error)
+    }
+  }
 
   async function fetchData(){
     try{
@@ -62,6 +75,13 @@ export default function Account(){
     }
   }
 
+  const handleOpenModalAvatar = () => {
+    setIsOpenModalAvatar(true)
+  }
+  const handleCloseModalAvatar = () => {
+    setIsOpenModalAvatar(false)
+  }
+
   function handleChangeLanguage(){
     alert("teste")
   }
@@ -72,17 +92,17 @@ export default function Account(){
     navigate("/")
   }
 
-  const handleOpenModal = () => {
-    setIsOpenModal(true)
+  const handleOpenModalDelete = () => {
+    setIsOpenModalDelete(true)
   }
-
-  const handleCloseModal = () => {
-    setIsOpenModal(false)
+  const handleCloseModalDelete = () => {
+    setIsOpenModalDelete(false)
   }
 
   useEffect(() => {
     document.title = "Minha conta - CineStream"
 
+    fetchAvatar()
     fetchData()
   }, [])
 
@@ -94,9 +114,9 @@ export default function Account(){
         {!loading &&
           <form onSubmit={(e) => e.preventDefault()}>
             <div>
-              <label>Foto</label>
+              <label>Avatar</label>
               <img src={avatar} alt="Avatar"/>
-              <button type="button">Editar foto de perfil</button>
+              <button type="button" onClick={handleOpenModalAvatar}>Editar avatar</button>
             </div>
 
             <span></span>
@@ -142,10 +162,11 @@ export default function Account(){
         </section>
 
         <section>
-          <button type="button" onClick={handleOpenModal} style={{color: 'red'}}><MdDeleteOutline/> Deletar conta</button>
+          <button type="button" onClick={handleOpenModalDelete} style={{color: 'red'}}><MdDeleteOutline/> Deletar conta</button>
         </section>
 
-        <ModalDeleteAccount isOpen={isOpenModal} closeModal={handleCloseModal}/>
+        <AvatarSelector isOpen={isOpenModalAvatar} closeModal={handleCloseModalAvatar}/>
+        <ModalDeleteAccount isOpen={isOpenModalDelete} closeModal={handleCloseModalDelete}/>
       </div>
 
       <Footer/>

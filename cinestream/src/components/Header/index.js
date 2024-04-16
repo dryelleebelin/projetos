@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './header.scss'
 import { Link } from 'react-router-dom'
+import { db } from '../../services/firebaseConnection'
+import { doc, getDoc } from "firebase/firestore"
 
 import logo from '../../images/logo.png'
-import avatar from '../../images/avatar.svg'
 
 import { IoSearch } from "react-icons/io5"
 
 export default function Header(){
   const [searchVisible, setSearchVisible] = useState(false);
+  const [avatar, setAvatar] = useState('')
 
   const toggleSearch = () => {
     setSearchVisible(!searchVisible);
@@ -17,6 +19,22 @@ export default function Header(){
   const scrollToTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'})
   }
+
+  async function fetchAvatar(){
+    try{
+      const uid = JSON.parse(localStorage.getItem('@uidCinestream'))
+      const docRef = doc(db, 'avatar', uid)
+      const docSnap = await getDoc(docRef)
+      setAvatar(docSnap.data().url)
+
+    } catch(error){
+      console.error("Erro ao buscar avatar: ", error)
+    }
+  }
+
+  useEffect(() => {
+    fetchAvatar()
+  }, [])
 
   return (
     <header className='header'>
@@ -29,7 +47,7 @@ export default function Header(){
       <div>
         {searchVisible && <input type="text" placeholder="Procurar..."/>}
         <IoSearch onClick={() => toggleSearch()}/>
-        <Link to={`/account`} onClick={scrollToTop}><img src={avatar} alt='Avatar'/></Link>
+        {avatar !== '' && <Link to={`/account`} onClick={scrollToTop}><img src={avatar} alt='Avatar'/></Link>}
       </div>
     </header>
   );

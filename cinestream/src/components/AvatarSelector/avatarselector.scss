@@ -1,0 +1,62 @@
+.modal-avatars{
+  color: var(--white);
+  background-color: #0b0b0b;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10%;
+  height: 100%;
+  width: 34vw;
+  gap: 3vh;
+  overflow: hidden;
+  position: relative;
+  
+  h2{
+    width: 100%;
+  }
+
+  svg{
+    position: absolute;
+    top: 6%;
+    right: 4%;
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  .avatars{
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vh;
+
+    img{
+      width: 60px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  
+    img.selected {
+      border: 2px solid #007bff;
+    }
+  }
+
+  .button{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    button{
+      background-color: rgba(255, 255, 255, 0.196);
+      border: 1px solid var(--pink-200);
+      color: var(--white);
+      height: 5vh;
+      border-radius: 4px;
+      transition: 0.3s ease-in-out;
+      padding: 0 5%;
+  
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.269);
+      }
+    }
+  }
+}

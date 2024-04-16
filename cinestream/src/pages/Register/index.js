@@ -52,6 +52,9 @@ export default function Register({ isOpen, closeModal, openSignInModal }){
       await setDoc(doc(db, "users", uid), {
         name: user
       })
+      await setDoc(doc(db, "avatar", uid), {
+        url: 'https://api.dicebear.com/8.x/bottts-neutral/svg?seed=Max'
+      })
       localStorage.setItem('@uidCinestream', JSON.stringify(uid)) 
       setLoading(false)
       navigate('/catalog')
