@@ -30,6 +30,11 @@
         color: var(--pink-200);
       }
     }
+
+    .active{
+      color: var(--pink-200);
+      font-weight: 500;
+    }
   }
 
   div{
@@ -59,6 +64,11 @@
       width: auto;
       border-radius: 3px;
       cursor: pointer;
+    }
+
+    span{
+      height: 30px;
+      width: auto;
     }
   }
 }

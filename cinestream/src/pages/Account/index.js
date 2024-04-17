@@ -111,31 +111,29 @@ export default function Account(){
       <Header/> 
 
       <div className="account">
-        {!loading &&
-          <form onSubmit={(e) => e.preventDefault()}>
-            <div>
-              <label>Avatar</label>
-              <img src={avatar} alt="Avatar"/>
-              <button type="button" onClick={handleOpenModalAvatar}>Editar avatar</button>
-            </div>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div>
+            <label>Avatar</label>
+            {avatar ? <img src={avatar} alt="Avatar"/> : <img src='https://api.dicebear.com/8.x/bottts-neutral/svg?seed=Max' alt='Avatar' style={{opacity: '0'}}/>}
+            <button type="button" onClick={handleOpenModalAvatar}>Editar avatar</button>
+          </div>
 
-            <span></span>
+          <span></span>
 
-            <div>
-              <label>Nome</label>
-              <input type="text" value={name} placeholder="Digite seu nome..." disabled={disabled} onChange={(e) => setName(e.target.value)}/>
-            </div>
-            <div>
-              <label>Data de nascimento</label>
-              <input type="date" value={birthday} disabled={disabled} onChange={(e) => setBirthday(e.target.value)}/>
-            </div>
-            {disabled ? (
-              <button type="button" onClick={handleEdit}>Editar</button> 
-            ) : (
-              <button type="button" onClick={updateData}>Salvar</button>
-            )}
-          </form>
-        }
+          <div>
+            <label>Nome</label>
+            <input type="text" value={name} placeholder="Digite seu nome..." disabled={disabled} onChange={(e) => setName(e.target.value)}/>
+          </div>
+          <div>
+            <label>Data de nascimento</label>
+            <input type="date" value={birthday} disabled={disabled} onChange={(e) => setBirthday(e.target.value)}/>
+          </div>
+          {disabled ? (
+            <button type="button" onClick={handleEdit}>Editar</button> 
+          ) : (
+            <button type="button" onClick={updateData}>Salvar</button>
+          )}
+        </form>
 
         <form style={{paddingBottom: '0'}}>
           <div style={{marginTop: '1vh'}}>

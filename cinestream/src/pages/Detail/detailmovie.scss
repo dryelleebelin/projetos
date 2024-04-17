@@ -9,18 +9,16 @@
     align-items: center;
     justify-content: center;
 
-    a{
+    svg{
       position: absolute;
+      color: var(--pink-200);
+      font-size: 80px;
+      transition: 0.3s ease-in-out;
+      opacity: 0.9;
+      cursor: pointer;
 
-      svg{
-        color: var(--pink-200);
-        font-size: 80px;
-        transition: 0.3s ease-in-out;
-        opacity: 0.9;
-
-        &:hover{
-          transform: scale(1.08);
-        }
+      &:hover{
+        transform: scale(1.08);
       }
     }
 

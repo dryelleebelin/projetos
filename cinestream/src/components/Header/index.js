@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './header.scss'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { db } from '../../services/firebaseConnection'
 import { doc, getDoc } from "firebase/firestore"
 
@@ -9,6 +9,7 @@ import logo from '../../images/logo.png'
 import { IoSearch } from "react-icons/io5"
 
 export default function Header(){
+  const location = useLocation()
   const [searchVisible, setSearchVisible] = useState(false);
   const [avatar, setAvatar] = useState('')
 
@@ -40,14 +41,14 @@ export default function Header(){
     <header className='header'>
       <img className='logo' src={logo} alt='Logo' onClick={scrollToTop}/>
       <nav>
-        <Link to={`/catalog`} onClick={scrollToTop}>CATÁLOGO</Link>
-        <Link to={`/my-list`} onClick={scrollToTop}>MINHA LISTA</Link>
-        <Link to={`/account`} onClick={scrollToTop}>CONTA</Link>
+        <Link to={`/catalog`} className={location.pathname === '/catalog' ? 'active' : ''} onClick={scrollToTop}>CATÁLOGO</Link>
+        <Link to={`/my-list`} className={location.pathname === '/my-list' ? 'active' : ''} onClick={scrollToTop}>MINHA LISTA</Link>
+        <Link to={`/account`} className={location.pathname === '/account' ? 'active' : ''} onClick={scrollToTop}>CONTA</Link>
       </nav>
       <div>
         {searchVisible && <input type="text" placeholder="Procurar..."/>}
         <IoSearch onClick={() => toggleSearch()}/>
-        {avatar !== '' && <Link to={`/account`} onClick={scrollToTop}><img src={avatar} alt='Avatar'/></Link>}
+        {avatar ? <Link to={`/account`} onClick={scrollToTop}><img src={avatar} alt='Avatar'/></Link> : <img src='https://api.dicebear.com/8.x/bottts-neutral/svg?seed=Max' alt='Avatar' style={{opacity: '0'}}/>}
       </div>
     </header>
   );

@@ -78,7 +78,7 @@ export default function Carousel(){
               <Swiper className="carousel" slidesPerView={slidesPerView} navigation spaceBetween={20}>
                 {carousel.movies.map((movie) => (
                   <SwiperSlide className="item" key={movie.id}>
-                    <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="Cover" onClick={() => navigate(`/detail/${movie.id}`)}/>
+                    <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="Cover" onClick={() => {window.scrollTo({top: 0, behavior: 'smooth'}); navigate(`/detail/${movie.id}`) }}/>
                   </SwiperSlide>
                 ))}
               </Swiper>

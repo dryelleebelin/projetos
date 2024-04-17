@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import api from "../../services/api"
 import './detailmovie.scss'
-import isoLangs from 'iso-639-1';
+import isoLangs from 'iso-639-1'
+import axios from "axios"
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import FavoriteIcon from '../../components/FavoriteIcon'
+import ModalTrailer from "../../components/ModalTrailer"
 
 import { CgSpinner } from "react-icons/cg"
 import { FaRegCirclePlay } from "react-icons/fa6"
@@ -19,6 +21,8 @@ export default function Detail() {
   const releaseYear = new Date(detail.release_date || detail.first_air_date).getFullYear()
   const [loading, setLoading] = useState(true)
   const titleTrailer = detail.title || detail.name
+  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [videoId, setVideoId] = useState('')
 
   async function loadDetail(){
     try {
@@ -69,7 +73,30 @@ export default function Detail() {
 
   const getLanguageName = (code) => {
     return isoLangs.getName(code)
-  };
+  }
+
+  async function openModal(){
+    try {
+      const response = await axios.get(
+        `https://www.googleapis.com/youtube/v3/search?q=${encodeURIComponent(titleTrailer)}%20trailer&key=AIzaSyDmNT3GTNKKAjipgXKKsuZwx3uxoNKwjkk&part=snippet&type=video`
+      )
+
+      if (response.data.items.length > 0) {
+        const firstVideoId = response.data.items[0].id.videoId
+        setVideoId(firstVideoId)
+        setIsOpenModal(true)
+
+      } else {
+        console.error("Nenhum trailer encontrado.")
+      }
+    } catch (error) {
+      console.error("Erro ao buscar trailer: ", error)
+    }
+  }
+
+  const handleCloseModal = () => {
+    setIsOpenModal(false)
+  }
 
   return(
     <>
@@ -80,7 +107,7 @@ export default function Detail() {
       :
         <div className="detail">
           <div className="container-trailer">
-            <a href={`https://www.youtube.com/results?search_query=${titleTrailer} Trailer`} target="_blank" rel="noopener noreferrer"><FaRegCirclePlay/></a>
+            <FaRegCirclePlay onClick={openModal}/>
             <img className="backdrop" src={`https://image.tmdb.org/t/p/original/${detail.backdrop_path}`} alt="Backdrop"/>
           </div>
 
@@ -102,6 +129,8 @@ export default function Detail() {
               <FavoriteIcon id={detail.id}/>
             </section>
           </main>
+
+          <ModalTrailer isOpen={isOpenModal} closeModal={handleCloseModal} id={videoId}/>
         </div>
       }
 
