@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import './home.scss'
 import { useNavigate } from 'react-router-dom'
+import useTranslations from '../../translations/useTranslations'
 
 import SignIn from "../SignIn"
 import Register from "../Register"
@@ -10,6 +11,7 @@ import logo from '../../images/logo.png'
 import { CgSpinner } from "react-icons/cg"
 
 export default function Home(){
+  const translations = useTranslations()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
 
@@ -54,25 +56,25 @@ export default function Home(){
             <div class="blurry-background"></div>
             <img src={logo} alt="Logo"/>
             <div className="buttons">
-              <button type="button" onClick={handleOpenSignInModal}>ENTRAR</button>
-              <button type="button" onClick={handleOpenRegisterModal}>CADASTRO</button>
+              <button type="button" onClick={handleOpenSignInModal}>{translations.toEnter}</button>
+              <button type="button" onClick={handleOpenRegisterModal}>{translations.register}</button>
             </div>
           </header>
 
           <main>
             <section className="highlight">
               <img src={logo} alt="Logo"/>
-              <h1>Deixe-se envolver pelas melhores narrativas do cinema, disponíveis agora em nossa plataforma.</h1>
-              <button type="button" onClick={handleOpenSignInModal}>ENTRAR</button>
+              <h1>{translations.immerseYourselfInTheBestCinemaNarrativesAvailableNowOnOurPlatform}</h1>
+              <button type="button" onClick={handleOpenSignInModal}>{translations.toEnter}</button>
             </section>
 
             <section className="looping">
-              <p>ABRA UM NOVO MUNDO DE CINEMA</p>
-              <p>ABRA UM NOVO MUNDO DE CINEMA</p>
-              <p>ABRA UM NOVO MUNDO DE CINEMA</p>
-              <p>ABRA UM NOVO MUNDO DE CINEMA</p>
-              <p>ABRA UM NOVO MUNDO DE CINEMA</p>
-              <p>ABRA UM NOVO MUNDO DE CINEMA</p>
+              <p>{translations.openANewWorldOfCinema}</p>
+              <p>{translations.openANewWorldOfCinema}</p>
+              <p>{translations.openANewWorldOfCinema}</p>
+              <p>{translations.openANewWorldOfCinema}</p>
+              <p>{translations.openANewWorldOfCinema}</p>
+              <p>{translations.openANewWorldOfCinema}</p>
             </section>
           </main>
 

@@ -3,19 +3,21 @@ import './header.scss'
 import { Link, useLocation } from 'react-router-dom'
 import { db } from '../../services/firebaseConnection'
 import { doc, getDoc } from "firebase/firestore"
+import useTranslations from '../../translations/useTranslations'
 
 import logo from '../../images/logo.png'
 
 import { IoSearch } from "react-icons/io5"
 
 export default function Header(){
+  const translations = useTranslations()
   const location = useLocation()
-  const [searchVisible, setSearchVisible] = useState(false);
+  const [searchVisible, setSearchVisible] = useState(false)
   const [avatar, setAvatar] = useState('')
 
   const toggleSearch = () => {
     setSearchVisible(!searchVisible);
-  };
+  }
 
   const scrollToTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'})
@@ -41,9 +43,9 @@ export default function Header(){
     <header className='header'>
       <img className='logo' src={logo} alt='Logo' onClick={scrollToTop}/>
       <nav>
-        <Link to={`/catalog`} className={location.pathname === '/catalog' ? 'active' : ''} onClick={scrollToTop}>CATÁLOGO</Link>
-        <Link to={`/my-list`} className={location.pathname === '/my-list' ? 'active' : ''} onClick={scrollToTop}>MINHA LISTA</Link>
-        <Link to={`/account`} className={location.pathname === '/account' ? 'active' : ''} onClick={scrollToTop}>CONTA</Link>
+        <Link to={`/catalog`} className={location.pathname === '/catalog' ? 'active' : ''} onClick={scrollToTop}>{translations.catalog}</Link>
+        <Link to={`/my-list`} className={location.pathname === '/my-list' ? 'active' : ''} onClick={scrollToTop}>{translations.myList}</Link>
+        <Link to={`/account`} className={location.pathname === '/account' ? 'active' : ''} onClick={scrollToTop}>{translations.account}</Link>
       </nav>
       <div>
         {searchVisible && <input type="text" placeholder="Procurar..."/>}

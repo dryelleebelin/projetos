@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { auth, db } from '../../services/firebaseConnection'
 import { doc, getDoc, updateDoc } from "firebase/firestore"
 import { signOut } from 'firebase/auth'
+import useTranslations from "../../translations/useTranslations"
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -14,6 +15,7 @@ import { IoIosLogOut } from "react-icons/io"
 import { MdDeleteOutline } from "react-icons/md"
 
 export default function Account(){
+  const translations = useTranslations()
   const navigate = useNavigate()
   const [avatar, setAvatar] = useState('')
   const [name, setName] = useState('')
@@ -23,6 +25,10 @@ export default function Account(){
   const [loading, setLoading] = useState(true)
   const [isOpenModalDelete, setIsOpenModalDelete] = useState(false)
   const [isOpenModalAvatar, setIsOpenModalAvatar] = useState(false)
+  const [language, setLanguage] = useState(() => {
+    const storedLanguage = localStorage.getItem('@languageCinestream')
+    return storedLanguage ? storedLanguage : 'portuguese'
+  })
 
   async function fetchAvatar(){
     try{
@@ -82,8 +88,10 @@ export default function Account(){
     setIsOpenModalAvatar(false)
   }
 
-  function handleChangeLanguage(){
-    alert("teste")
+  const handleSaveLanguage = () => {
+    setLanguage(language)
+    localStorage.setItem('@languageCinestream', language)
+    setDisabled(true)
   }
 
   async function handleLogout(){
@@ -108,59 +116,59 @@ export default function Account(){
 
   return(
     <>
-      <Header/> 
+      <Header language={language}/> 
 
       <div className="account">
         <form onSubmit={(e) => e.preventDefault()}>
           <div>
-            <label>Avatar</label>
+            <label>{translations.avatar}</label>
             {avatar ? <img src={avatar} alt="Avatar"/> : <img src='https://api.dicebear.com/8.x/bottts-neutral/svg?seed=Max' alt='Avatar' style={{opacity: '0'}}/>}
-            <button type="button" onClick={handleOpenModalAvatar}>Editar avatar</button>
+            <button type="button" onClick={handleOpenModalAvatar}>{translations.editAvatar}</button>
           </div>
 
           <span></span>
 
           <div>
-            <label>Nome</label>
+            <label>{translations.name}</label>
             <input type="text" value={name} placeholder="Digite seu nome..." disabled={disabled} onChange={(e) => setName(e.target.value)}/>
           </div>
           <div>
-            <label>Data de nascimento</label>
+            <label>{translations.dateOfBirth}</label>
             <input type="date" value={birthday} disabled={disabled} onChange={(e) => setBirthday(e.target.value)}/>
           </div>
           {disabled ? (
-            <button type="button" onClick={handleEdit}>Editar</button> 
+            <button type="button" onClick={handleEdit}>{translations.edit}</button> 
           ) : (
-            <button type="button" onClick={updateData}>Salvar</button>
+            <button type="button" onClick={updateData}>{translations.save}</button>
           )}
         </form>
 
         <form style={{paddingBottom: '0'}}>
           <div style={{marginTop: '1vh'}}>
-            <label>Email</label>
+            <label>{translations.email}</label>
             <input type="email" value={email} disabled/>
           </div>
         </form>
 
         <form onSubmit={(e) => e.preventDefault()}>
-          <label style={{marginTop: '1vh'}}>Idioma</label>
-          <select name="language" defaultValue="portuguese" disabled={disabled}>
-            <option value="portuguese">Português</option>
-            <option value="english">Inglês</option>
+          <label style={{marginTop: '1vh'}}>{translations.language}</label>
+          <select name="language" value={language} onChange={(e) => setLanguage(e.target.value)} disabled={disabled}>
+            <option value="portuguese">{translations.portuguese}</option>
+            <option value="english">{translations.english}</option>
           </select>
           {disabled ? (
-            <button type="button" onClick={handleEdit}>Trocar idioma</button> 
+            <button type="button" onClick={handleEdit}>{translations.changeLanguage}</button> 
           ) : (
-            <button type="button" onClick={handleChangeLanguage}>Salvar</button>
+            <button type="button" onClick={handleSaveLanguage}>{translations.save}</button>
           )}
         </form>
 
         <section>
-          <button type="button" onClick={handleLogout}><IoIosLogOut/> Sair</button>
+          <button type="button" onClick={handleLogout}><IoIosLogOut/> {translations.logout}</button>
         </section>
 
         <section>
-          <button type="button" onClick={handleOpenModalDelete} style={{color: 'red'}}><MdDeleteOutline/> Deletar conta</button>
+          <button type="button" onClick={handleOpenModalDelete} style={{color: 'red'}}><MdDeleteOutline/> {translations.deleteAccount}</button>
         </section>
 
         <AvatarSelector isOpen={isOpenModalAvatar} closeModal={handleCloseModalAvatar}/>

@@ -1,6 +1,7 @@
 import React from "react"
 import './footer.scss'
 import { Link } from "react-router-dom"
+import useTranslations from '../../translations/useTranslations'
 
 import logo from '../../images/logo.png'
 import googlePlay from '../../images/google-play.png'
@@ -9,6 +10,7 @@ import appStore from '../../images/app-store.png'
 import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa"
 
 export default function Footer(){
+  const translations = useTranslations()
   const currenYear = new Date().getFullYear()
 
   const scrollToTop = () => {
@@ -20,16 +22,16 @@ export default function Footer(){
       <div className="footer">
         <div>
           <img src={logo} onClick={scrollToTop}/>
-          <Link to={`/catalog`} onClick={scrollToTop}>Catálogo</Link>
-          <Link to={`/my-list`} onClick={scrollToTop}>Minha lista</Link>
-          <Link to={`/account`} onClick={scrollToTop}>Conta</Link>
+          <Link to={`/catalog`} onClick={scrollToTop}>{translations.catalog2}</Link>
+          <Link to={`/my-list`} onClick={scrollToTop}>{translations.myList2}</Link>
+          <Link to={`/account`} onClick={scrollToTop}>{translations.account2}</Link>
         </div>
         <div>
-          <a>Sobre</a>
-          <a>App</a>
-          <a>Termos de uso</a>
-          <a>Política de privacidade</a>
-          <a>Desenvolvedores</a>
+          <a>{translations.about}</a>
+          <a>{translations.app}</a>
+          <a>{translations.termsOfUse}</a>
+          <a>{translations.privacyPolicy}</a>
+          <a>{translations.developers}</a>
         </div>
         <div className="social">
           <a href="https://www.instagram.com/dryelleebelin/" target="_blank" rel="noopener noreferrer"><FaInstagram/></a>

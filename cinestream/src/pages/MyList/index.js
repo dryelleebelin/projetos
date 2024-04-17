@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import api from "../../services/api"
 import { db } from '../../services/firebaseConnection'
 import { collection, getDocs } from'firebase/firestore'
+import useTranslations from "../../translations/useTranslations"
 
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
@@ -11,6 +12,7 @@ import Footer from "../../components/Footer"
 import { CgSpinner } from "react-icons/cg"
 
 export default function MyList(){
+  const translations = useTranslations()
   const navigate = useNavigate()
   const [favorites, setFavorites] = useState([])
   const [loading, setLoading] = useState(true) 
@@ -52,7 +54,7 @@ export default function MyList(){
         <div className="my-list">
           {favorites.length > 0 ? (
             <>
-              <h1>Minha lista</h1>
+              <h1>{translations.myList2}</h1>
               <div>
                 {favorites.map((item) => (
                   <img key={item.id} src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} alt="Cover" onClick={() => navigate(`/detail/${item.id}`)}/>
@@ -60,7 +62,7 @@ export default function MyList(){
               </div>
             </>
           ) : (
-            <span>Sua lista está vazia.</span>
+            <span>{translations.yourListIsEmpty}</span>
           )}
         </div>
       )}
