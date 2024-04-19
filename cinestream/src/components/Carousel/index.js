@@ -39,6 +39,18 @@ export default function Carousel(){
     { title: <h1>{translations.newsTvSeries}</h1>, route: '/discover/tv', genreId: '10763', page: '1'},
   ]
 
+  function handleResize(){
+    if(window.innerWidth < 480){
+      setSlidesPerView(2)
+    }
+    else if(window.innerWidth >= 481 && window.innerWidth <= 1023){
+      setSlidesPerView(4)
+    }
+    else{
+      setSlidesPerView(7)
+    }
+}
+
   useEffect(() => {
     async function fetchData(route, genreId, page){
       try {
@@ -65,6 +77,12 @@ export default function Carousel(){
     }
 
     loadCarouselData()
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return() => {
+      window.removeEventListener("resize", handleResize)
+    }
     
   }, [translations])
 

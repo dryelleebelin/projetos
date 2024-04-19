@@ -68,10 +68,10 @@ export default function Detail() {
   }
 
   useEffect(() => {
-    document.title = "Detalhes - CineStream"
+    document.title = translations.details + " - CineStream"
 
     loadDetail()
-  }, [id])
+  }, [id, translations])
 
   const getLanguageName = (code) => {
     return isoLangs.getName(code)

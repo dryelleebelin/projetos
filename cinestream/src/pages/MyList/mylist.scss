@@ -11,6 +11,8 @@
   }
 
   div{
+    height: 85%;
+    overflow-y: auto;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -34,5 +36,53 @@
     display: flex;
     justify-content: center;
     padding-top: 20%;
+  }
+}
+
+
+// -- responsiveness for cell phones --
+@media only screen and (max-width: 480px){
+  .my-list{
+    margin-top: 8vh;
+    height: 90vh;
+  
+    h1{
+      font-size: 1.6rem;
+    }
+  
+    div{
+      height: 90%;
+      overflow-y: auto;
+      gap: 3%;
+  
+      img{
+        width: 100px;
+        margin-bottom: 3%;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+
+// -- tablet responsiveness --
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+  .my-list{
+    margin-top: 8vh;
+    height: 90vh;
+  
+    h1{
+      font-size: 1.6rem;
+    }
+  
+    div{
+      height: 90%;
+      overflow-y: auto;
+      gap: 3%;
+  
+      img{
+        width: 160px;
+      }
+    }
   }
 }

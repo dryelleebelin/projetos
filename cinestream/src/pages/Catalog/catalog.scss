@@ -1,4 +1,19 @@
 .main-catalog{
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  margin: 10vh 0;
+}
+
+
+// -- responsiveness for cell phones --
+@media only screen and (max-width: 480px){
+  .main-catalog{
+    margin: 10vh 0 5vh 0;
+  }
+}
+
+
+// -- tablet responsiveness --
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+  .main-catalog{
+    margin: 10vh 0 5vh 0;
+  }
 }

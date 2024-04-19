@@ -102,5 +102,8 @@
   "pleaseFillInTheEmailField": "Por favor, preencha o campo de email.",
   "passwordResetEmailSentCheckYourInbox": "E-mail de redefinição de senha enviado. Verifique sua caixa de entrada.",
   "emailNotFound": "E-mail não encontrado.",
-  "errorSendingPasswordResetEmailTryAgainLater": "Erro ao enviar e-mail de redefinição de senha. Tente novamente mais tarde."
+  "errorSendingPasswordResetEmailTryAgainLater": "Erro ao enviar e-mail de redefinição de senha. Tente novamente mais tarde.",
+  "underDevelopment": "Em desenvolvimento!",
+  "errorLoadingMovieWithID": "Erro ao carregar filme com ID: ",
+  "details": "Detalhes"
 }

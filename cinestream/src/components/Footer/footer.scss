@@ -59,3 +59,77 @@ footer{
     justify-content: space-between;
   }
 }
+
+
+// -- responsiveness for cell phones --
+@media only screen and (max-width: 480px){
+  footer{
+    height: 100%;
+    padding: 5vh 5vw;
+    align-items: center;
+    justify-content: center;
+  
+    .footer{
+      gap: 10%;
+      flex-direction: column;
+      align-items: center;
+      
+      div{
+        gap: 1vh;
+        align-items: center;
+        margin-bottom: 2vh;
+  
+        img{
+          width: 45px;
+        }
+      }
+  
+      .social{
+
+        svg{
+          font-size: 28px;
+        }
+      }
+    }
+  
+    .baseboard{
+      flex-direction: column;
+      height: 100%;
+      margin-top: 8%;
+      gap: 1vh;
+    }
+  }
+}
+
+
+// -- tablet responsiveness --
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+  footer{
+    height: 30vh;
+    padding: 5vh 5vw;
+    font-size: 1rem;
+  
+    .footer{
+      gap: 15%;
+  
+      div{
+        gap: 0.5vh;
+  
+        img{
+          margin-bottom: 2vh;
+        }
+      }
+  
+      .social{
+        svg{
+          font-size: 26px;
+        }
+      }
+    }
+  
+    .baseboard{
+      margin-top: 3vh;
+      height: 100%;
+    }
+  }
+}

@@ -61,10 +61,14 @@ export default function FavoriteIcon({id}){
     searchFavorites()
   }, [])
 
+  const info = () => {
+    toast.info(translations.underDevelopment)
+  }
+
   return(
     <>
       {favorites.includes(id) ? 
-        <FaBookmark className="mark"/>
+        <FaBookmark className="mark" onClick={info}/>
       : 
         <FaRegBookmark className="mark" onClick={() => handleFavorite(id)}/>
       }

@@ -35,3 +35,49 @@
     }
   }
 }
+
+
+// -- responsiveness for cell phones --
+@media only screen and (max-width: 480px){
+  .carousel{
+    img{
+      height: 280px;
+      border-radius: 6px;
+    }
+  }
+  
+  .section{
+    padding: 0.5vh 5vw;
+  
+    h1{
+      gap: 0.6%;
+      font-size: 1.1rem;
+  
+      svg{
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+
+// -- tablet responsiveness --
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+  .carousel{
+    img{
+      height: 260px;
+    }
+  }
+  
+  .section{
+    padding: 0.5vh 5vw;
+  
+    h1{
+      gap: 0.6%;
+  
+      svg{
+        font-size: 1rem;
+      }
+    }
+  }
+}

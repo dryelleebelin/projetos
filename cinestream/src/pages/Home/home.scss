@@ -126,3 +126,89 @@
     transform: translateX(-100%);
   }
 }
+
+
+
+// -- responsiveness for cell phones --
+@media only screen and (max-width: 480px){ 
+  .home{
+    header{
+      .buttons{
+        gap: 3vw;
+  
+        button{
+          padding: 0.9vh 4vw;
+        }
+      }
+    }
+  
+    main{
+      background-image: url("../../images/wallpaper-phone.png");
+
+      .highlight{
+        img{
+          width: 20%;
+          margin-bottom: 5%;
+        }
+  
+        h1{
+          width: 80%;
+          margin-bottom: 5%;
+        }
+  
+        button{
+          padding: 0.8% 5%;
+        }
+      }
+    }
+  }
+}
+
+
+
+// -- tablet responsiveness --
+@media only screen and (min-width: 481px) and (max-width: 1023px){ 
+  .home{
+    header{
+      img{
+        height: 50px;
+      }
+
+      .buttons{
+        gap: 2vw;
+  
+        button{
+          padding: 0.9vh 3vw;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  
+    main{
+      background-image: url("../../images/wallpaper-phone.png");
+      
+      .highlight{
+        img{
+          width: 12%;
+          margin-bottom: 3%;
+        }
+  
+        h1{
+          font-size: 1.5rem;
+          width: 70%;
+          margin-bottom: 3%;
+        }
+  
+        button{
+          padding: 0.8% 4%;
+        }
+      }
+
+      .looping{
+        p{
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+} 

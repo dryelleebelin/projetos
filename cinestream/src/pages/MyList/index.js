@@ -18,7 +18,7 @@ export default function MyList(){
   const [loading, setLoading] = useState(true) 
 
   useEffect(() => {
-    document.title = "Minha lista - CineStream"
+    document.title = translations.myList + " - CineStream"
 
     async function loadFavorites(){
       try{
@@ -26,23 +26,32 @@ export default function MyList(){
         const favoritesRef = collection(db, `favorites/${uid}/movies`)
         const snapshot = await getDocs(favoritesRef)
         const lista = snapshot.docs.map(doc => doc.data().idFavorite)
-
+    
         const moviesPromises = lista.map(async id => {
-          const response = await api.get(`movie/${id}`)
-          return response.data
+          try {
+            const response = await api.get(`movie/${id}`)
+            return response.data
+          } catch(error) {
+            console.log(translations.errorLoadingMovieWithID, id, error)
+            return null
+          }
         })
     
         const favoritesData = await Promise.all(moviesPromises)
-
-        setFavorites(favoritesData)
+    
+        // remove os filmes que retornaram null (indicando erro)
+        const validFavorites = favoritesData.filter(movie => movie !== null)
+    
+        setFavorites(validFavorites)
         setLoading(false)
-  
+    
       } catch(error){
         console.error(translations.errorWhenSearchingForFavorites, error)
       }
     }
+    
     loadFavorites()
-  }, [])
+  }, [translations])
 
   return(
     <>
@@ -54,7 +63,7 @@ export default function MyList(){
         <div className="my-list">
           {favorites.length > 0 ? (
             <>
-              <h1>{translations.myList2}</h1>
+              <h1>{translations.myList}</h1>
               <div>
                 {favorites.map((item) => (
                   <img key={item.id} src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} alt="Cover" onClick={() => navigate(`/detail/${item.id}`)}/>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './filters.scss'
 import api from '../../services/api'
 import useTranslations from '../../translations/useTranslations'
+import { toast } from 'react-toastify'
 
 export default function Filters() {
     const translations = useTranslations()
@@ -53,9 +54,13 @@ export default function Filters() {
         ));
     }
 
+    const info = () => {
+        toast.info(translations.underDevelopment)
+    }
+
     return (
         <>
-            <form className='container-filters'>
+            <form className='container-filters' onClick={info}>
                 <select name='genre' defaultValue="gênero">
                     <option disabled value="gênero">{translations.gender}</option>
                     {genres.map((genre, index) => (

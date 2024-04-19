@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import './catalog.scss'
+import useTranslations from "../../translations/useTranslations"
 
 import Header from "../../components/Header"
 import Filters from "../../components/Filters"
@@ -8,9 +9,11 @@ import Carousel from "../../components/Carousel"
 import Footer from "../../components/Footer"
 
 export default function Catalog(){
+  const { catalog } = useTranslations()
+
   useEffect(() => {
-    document.title = "Catálogo - CineStream "
-  }, []);
+    document.title = `${catalog} - CineStream`
+  }, [catalog])
 
   return(
     <>

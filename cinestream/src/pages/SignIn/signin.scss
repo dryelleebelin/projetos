@@ -96,3 +96,73 @@
     margin-top: 7%;
   }
 }
+
+
+// -- responsiveness for cell phones --
+@media only screen and (max-width: 480px){
+  .signin, .register{
+    padding: 12% 10%;
+    height: 100%;
+    width: 80vw;
+    gap: 8%;
+  
+    div{
+      margin-bottom: 5%;
+
+      p{
+        font-size: 1.3rem;
+      }
+  
+      svg{
+        font-size: 32px;
+      }
+    }
+  }
+
+  .forgot-password{
+    form{
+      margin-top: 10%;
+    }
+  }
+}
+
+
+// -- tablet responsiveness --
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+  .signin, .register{
+    padding: 12% 10%;
+    height: 100%;
+    width: 60vw;
+  
+    div{
+      margin-bottom: 6%;
+
+      p{
+        font-size: 1.4rem;
+      }
+  
+      svg{
+        font-size: 35px;
+      }
+    }
+
+    form{
+      label{
+        font-size: 1rem;
+      }
+  
+      input{
+        height: 4.5vh;
+      }
+  
+      a{
+        font-size: 0.8rem;
+      }
+  
+      button{
+        margin: 5% 0;
+        height: 4vh;
+      }
+    }
+  }
+}

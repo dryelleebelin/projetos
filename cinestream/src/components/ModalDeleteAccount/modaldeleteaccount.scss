@@ -62,3 +62,54 @@
     }
   }
 }
+
+
+// -- responsiveness for cell phones --
+@media only screen and (max-width: 480px){
+  .modal-delete-account{
+    padding: 10%;
+    width: 80vw;
+    gap: 3vh;
+  
+    .close-modal{
+      font-size: 30px;
+      top: 5%;
+    }
+  
+    h1{
+      font-size: 1.2rem;
+    }
+  
+    div{
+      justify-content: space-between;
+    }
+  }
+}
+
+
+// -- tablet responsiveness --
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+  .modal-delete-account{
+    padding: 10%;
+    width: 60vw;
+  
+    .close-modal{
+      font-size: 34px;
+      top: 5%;
+      right: 4%;
+    }
+
+    div{
+      gap: 4%;
+  
+      button:first-child{
+        height: 4vh;
+        width: 45%;
+      }
+  
+      button:last-child{
+        height: 4vh;
+      }
+    }
+  }
+}

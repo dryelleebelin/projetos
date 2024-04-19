@@ -92,6 +92,7 @@ export default function Account(){
     setLanguage(language)
     localStorage.setItem('@languageCinestream', language)
     setDisabled(true)
+    window.location.reload()
   }
 
   async function handleLogout(){
@@ -108,11 +109,11 @@ export default function Account(){
   }
 
   useEffect(() => {
-    document.title = "Minha conta - CineStream"
+    document.title = translations.account + " - CineStream"
 
     fetchAvatar()
     fetchData()
-  }, [])
+  }, [translations])
 
   return(
     <>

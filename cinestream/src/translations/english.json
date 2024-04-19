@@ -102,5 +102,8 @@
   "pleaseFillInTheEmailField": "Please fill in the email field.",
   "passwordResetEmailSentCheckYourInbox": "Password reset email sent. Check your inbox.",
   "emailNotFound": "Email not found.",
-  "errorSendingPasswordResetEmailTryAgainLater": "Error sending password reset email. Try again Later."
+  "errorSendingPasswordResetEmailTryAgainLater": "Error sending password reset email. Try again Later.",
+  "underDevelopment": "Under development!",
+  "errorLoadingMovieWithID": "Error loading movie with ID: ",
+  "details": "Details"
 }

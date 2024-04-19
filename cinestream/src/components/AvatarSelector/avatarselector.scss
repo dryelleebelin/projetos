@@ -64,3 +64,65 @@
     align-items: center;
   }
 }
+
+
+// -- responsiveness for cell phones --
+@media only screen and (max-width: 480px){
+  .modal-avatars{
+    width: 90vw;
+    
+    h2{
+      font-size: 1.2rem;
+    }
+  
+    .close{
+      top: 3%;
+      right: 4%;
+      font-size: 30px;
+    }
+  
+    .avatars{
+      gap: 1.5vh;
+      justify-content: center;
+  
+      img{
+        width: 55px;
+      }
+    }
+  
+    .button{
+      button{
+        padding: 0 7%;
+      }
+    }
+  }
+}
+
+
+// -- tablet responsiveness --
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+  .modal-avatars{
+    width: 70vw;
+  
+    .close{
+      top: 5%;
+      right: 4%;
+      font-size: 36px;
+    }
+  
+    .avatars{
+      gap: 1vh;
+      justify-content: center;
+  
+      img{
+        width: 70px;
+      }
+    }
+  
+    .button{
+      button{
+        height: 4vh;
+      }
+    }
+  }
+}

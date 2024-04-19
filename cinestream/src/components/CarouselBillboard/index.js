@@ -15,6 +15,7 @@ import { EffectFade } from 'swiper/modules'
 import { FaRegCirclePlay } from "react-icons/fa6"
 import { BiLike, BiDislike, BiSolidLike, BiSolidDislike } from "react-icons/bi"
 import { IoMdInformationCircleOutline } from "react-icons/io"
+import { toast } from "react-toastify"
 
 register()
 
@@ -63,14 +64,16 @@ export default function CarouselBillboard() {
   
 
   const handleLike = () => {
-    setLike(true);
-    setDislike(false);
-  };
+    setLike(true)
+    setDislike(false)
+    toast.info(translations.underDevelopment)
+  }
 
   const handleDislike = () => {
-    setDislike(true);
-    setLike(false);
-  };
+    setDislike(true)
+    setLike(false)
+    toast.info(translations.underDevelopment)
+  }
 
   return (
     <Swiper className="billboard" modules={[EffectFade]} effect="fade" slidesPerView={1} autoplay={{ delay: 10000 }} allowTouchMove={false}>
