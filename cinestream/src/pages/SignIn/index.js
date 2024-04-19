@@ -5,11 +5,13 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from "react-toastify"
 import { auth } from '../../services/firebaseConnection'
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth'
+import useTranslations from '../../translations/useTranslations'
 
 import { IoClose } from "react-icons/io5"
 import { CgSpinner } from "react-icons/cg"
 
 export default function SignIn({ isOpen, closeModal, openRegisterModal }){
+  const translations = useTranslations()
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -33,15 +35,15 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }){
     e.preventDefault()
 
     if (email === '' || password === ''){
-      toast.warn("Por favor, preencha todos os campos")
+      toast.warn(translations.pleaseFillInAllFields)
       return
     }
     if (!isValidEmail(email)){
-      toast.warn("Por favor, insira um endereço de e-mail válido")
+      toast.warn(translations.pleaseEnterAValidEmailAddress)
       return
     }
     if (!isValidPassword(password)){
-      toast.warn("A senha deve conter pelo menos 8 caracteres")
+      toast.warn(translations.passwordMustContainAtLeast8Characters)
       return
     }
 
@@ -56,16 +58,16 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }){
 
     } catch(error){
       if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password"){
-        toast.error("E-mail ou senha incorretos")
+        toast.error(translations.incorrectEmailOrPassword)
       } else if (error.code === "auth/too-many-requests"){
-        toast.error("Muitas tentativas. Tente novamente mais tarde")
+        toast.error(translations.manyAttemptsTryAgainLater)
       } else{
-        toast.error("Erro ao fazer login")
+        toast.error(translations.errorWhenLoggingIn)
       }
-      console.error(error)
+      console.error(translations.errorLoggingIn, error)
       setLoading(false)
     }
-  };
+  }
 
   const isValidEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -92,11 +94,11 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }){
     e.preventDefault()
 
     if (email === ''){
-      toast.warn("Por favor, preencha o campo")
+      toast.warn(translations.pleaseFillInTheEmailField)
       return
     }
     if (!isValidEmail(email)){
-      toast.warn("Por favor, insira um endereço de e-mail válido")
+      toast.warn(translations.pleaseEnterAValidEmailAddress)
       return
     }
 
@@ -104,17 +106,17 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }){
 
     try {
       await sendPasswordResetEmail(auth, email)
-      toast.info("E-mail de redefinição de senha enviado. Verifique sua caixa de entrada")
+      toast.info(translations.passwordResetEmailSentCheckYourInbox)
       setForgotPassword(false)
       setLoading(false)
 
     } catch(error){
       if (error.code === "auth/user-not-found"){
-        toast.error("E-mail não encontrado")
+        toast.error(translations.emailNotFound)
       } else{
-        toast.error("Erro ao enviar e-mail de redefinição de senha. Tente novamente.")
+        toast.error(translations.errorSendingPasswordResetEmailTryAgainLater)
       }
-      console.error(error)
+      console.error(translations.errorResettingPassword, error)
       setLoading(false)
     }
   };
@@ -123,32 +125,32 @@ export default function SignIn({ isOpen, closeModal, openRegisterModal }){
     <Modal style={customStyles} isOpen={isOpen} onRequestClose={closeModal}>
       <div className="signin">
         <div>
-          <p>LOGIN</p>
+          <p>{translations.login}</p>
           <IoClose onClick={closeModal} />
         </div>
         {forgotPassword ? 
           <div className="forgot-password">
-            <label>Nos conte algumas informações sobre sua conta.</label>
+            <label>{translations.tellUsSomeInformationAboutYourAccount}</label>
             <form onSubmit={handleForgotPassword}>
-              <label>E-mail:</label>
-              <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Digite o seu e-mail" />
+              <label>{translations.email}:</label>
+              <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder={translations.enterYourEmail} />
               <button type="submit">
-                {loading ? <div className="spinner-button"><CgSpinner/></div> : "ENVIAR"}
+                {loading ? <div className="spinner-button"><CgSpinner/></div> : <>{translations.toSend}</>}
               </button>
             </form>
           </div>
         : 
         <form onSubmit={handleSubmit}>
-          <label>E-mail:</label>
-          <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Digite o seu e-mail"/>
-          <label>Senha:</label>
-          <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Digite a sua senha"/>
-          <a onClick={handleForgotPasswordClick}>Esqueceu a senha?</a>
+          <label>{translations.email}:</label>
+          <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder={translations.enterYourEmail}/>
+          <label>{translations.password}:</label>
+          <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder={translations.enterYourPassword}/>
+          <a onClick={handleForgotPasswordClick}>{translations.forgotPassword}</a>
           <button type="submit">
-            {loading ? <div className="spinner-button"><CgSpinner/></div> : "ENTRAR"}
+            {loading ? <div className="spinner-button"><CgSpinner/></div> : <>{translations.toEnter}</>}
           </button>
-          <p><input type="checkbox" checked={isChecked} onChange={handleCheck} />Lembre-se de mim</p>
-          <a onClick={handleOpenRegisterModal}>Ainda não possui um conta? Cadastrar-se</a>
+          <p><input type="checkbox" checked={isChecked} onChange={handleCheck}/>{translations.rememberMe}</p>
+          <a onClick={handleOpenRegisterModal}>{translations.doNotHaveAnAccountYetRegister}</a>
         </form>
         }
       </div>

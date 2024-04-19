@@ -3,10 +3,12 @@ import './favoriteicon.scss'
 import { toast } from "react-toastify"
 import { db } from '../../services/firebaseConnection'
 import { doc, setDoc, collection, addDoc, getDoc, getDocs, updateDoc, deleteDoc, onSnapshot } from'firebase/firestore'
+import useTranslations from '../../translations/useTranslations'
 
 import { FaRegBookmark, FaBookmark  } from "react-icons/fa"
 
 export default function FavoriteIcon({id}){
+  const translations = useTranslations()
   const [favorites, setFavorites] = useState([])
 
   const getUIDFromLocalStorage = () => {
@@ -23,8 +25,8 @@ export default function FavoriteIcon({id}){
       setFavorites([...favorites, id])
 
     } catch(error){
-      toast.error("Erro ao favoritar, tente novamente mais tarde.")
-      console.error("Erro ao favoritar: ", error)
+      toast.error(translations.favoriteErrorPleaseTryAgainLater)
+      console.error(translations.errorWhenFavorites, error)
     }
   }
 
@@ -37,7 +39,7 @@ export default function FavoriteIcon({id}){
       setFavorites(lista)
 
     } catch (error) {
-      console.error("Erro ao buscar favoritos: ", error)
+      console.error(translations.errorWhenSearchingForFavorites, error)
     }
   }
 
@@ -50,8 +52,8 @@ export default function FavoriteIcon({id}){
       console.log("removido com sucesso!!!")
   
     } catch(error){
-      toast.error("Erro ao remover favorito.")
-      console.error("Erro ao remover favorito: " + error)
+      toast.error(translations.errorRemovingFavorite2)
+      console.error(translations.errorRemovingFavorite, error)
     }
   }
 

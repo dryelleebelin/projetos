@@ -14,9 +14,9 @@ export default function useTranslations(){
         const languageData = await import(`../translations/${language}.json`)
         setTranslations(languageData.default)
       } catch (error) {
-        console.error('Error loading translations: ', error)
+        console.error(translations.errorLoadingTranslations, error)
       }
-    };
+    }
 
     loadTranslations()
   }, [language])

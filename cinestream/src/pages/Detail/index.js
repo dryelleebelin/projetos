@@ -4,6 +4,7 @@ import api from "../../services/api"
 import './detailmovie.scss'
 import isoLangs from 'iso-639-1'
 import axios from "axios"
+import useTranslations from "../../translations/useTranslations"
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -14,6 +15,7 @@ import { CgSpinner } from "react-icons/cg"
 import { FaRegCirclePlay } from "react-icons/fa6"
 
 export default function Detail() {
+  const translations = useTranslations()
   const { id } = useParams()
   const [detail, setDetail] = useState({})
   const [cast, setCast] = useState([])
@@ -56,10 +58,10 @@ export default function Detail() {
 
           setLoading(false)
         } catch(error) {
-          console.error('Erro ao carregar detalhes: ', error)
+          console.error(translations.errorLoadingDetails, error)
         }
       } else {
-        console.error('Erro ao carregar detalhes: ', error)
+        console.error(translations.errorLoadingDetails, error)
         setLoading(false)
       }
     }
@@ -87,10 +89,11 @@ export default function Detail() {
         setIsOpenModal(true)
 
       } else {
-        console.error("Nenhum trailer encontrado.")
+        console.log(translations.noTrailersFound)
+        return
       }
     } catch (error) {
-      console.error("Erro ao buscar trailer: ", error)
+      console.error(translations.errorWhenSearchingForTrailer, error)
     }
   }
 
@@ -117,15 +120,15 @@ export default function Detail() {
               <h1>{detail.title || detail.name} <span>{releaseYear || detail.first_air_date}</span></h1>
               {detail.vote_average && <span>{detail.vote_average.toFixed(1)}/10</span>}
               {detail.overview && <p>{detail.overview}</p>}
-              {detail.runtime && <h4>Duração: <p>{Math.floor(detail.runtime / 60)}h {detail.runtime % 60}min</p></h4>}
-              {detail.number_of_seasons && <h4>Temporadas: <p>{detail.number_of_seasons}</p></h4>}
-              {detail.number_of_episodes && <h4>Episódios: <p>{detail.number_of_episodes}</p></h4>}
-              <h4>{detail.genres && detail.genres.length === 1 ? "Gênero:" : "Gêneros:"}
+              {detail.runtime && <h4>{translations.duration}: <p>{Math.floor(detail.runtime / 60)}h {detail.runtime % 60}min</p></h4>}
+              {detail.number_of_seasons && <h4>{translations.seasons}: <p>{detail.number_of_seasons}</p></h4>}
+              {detail.number_of_episodes && <h4>{translations.episodes}: <p>{detail.number_of_episodes}</p></h4>}
+              <h4>{detail.genres && detail.genres.length === 1 ? <>{translations.gender}:</> : <>{translations.genres}:</>}
                 <p>{detail.genres && detail.genres.map(genre => genre.name).join(', ')}</p>
               </h4>
-              <h4>Idioma Original: <p>{getLanguageName(detail.original_language)}</p></h4>
-              {director && <h4>Diretor: <p>{director}</p></h4>}
-              {cast && <h4>Elenco: <p>{cast.map(actor => actor.name).join(', ')}...</p></h4>}
+              <h4>{translations.originalLanguage}: <p>{getLanguageName(detail.original_language)}</p></h4>
+              {director && <h4>{translations.director}: <p>{director}</p></h4>}
+              {cast && <h4>{translations.cast}: <p>{cast.map(actor => actor.name).join(', ')}...</p></h4>}
               <FavoriteIcon id={detail.id}/>
             </section>
           </main>

@@ -25,6 +25,7 @@
 
     a{
       transition: 0.3s ease-in-out;
+      text-transform: uppercase;
 
       &:hover{
         color: var(--pink-200);

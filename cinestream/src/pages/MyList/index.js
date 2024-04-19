@@ -28,17 +28,17 @@ export default function MyList(){
         const lista = snapshot.docs.map(doc => doc.data().idFavorite)
 
         const moviesPromises = lista.map(async id => {
-          const response = await api.get(`movie/${id}`);
-          return response.data;
-        });
+          const response = await api.get(`movie/${id}`)
+          return response.data
+        })
     
-        const favoritesData = await Promise.all(moviesPromises);
+        const favoritesData = await Promise.all(moviesPromises)
 
         setFavorites(favoritesData)
         setLoading(false)
   
       } catch(error){
-        console.error("Erro ao carregar favoritos: " + error)
+        console.error(translations.errorWhenSearchingForFavorites, error)
       }
     }
     loadFavorites()

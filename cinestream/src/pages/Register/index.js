@@ -6,11 +6,13 @@ import { toast } from "react-toastify"
 import { auth, db } from "../../services/firebaseConnection"
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { doc, setDoc } from 'firebase/firestore'
+import useTranslations from '../../translations/useTranslations'
 
 import { IoClose } from "react-icons/io5"
 import { CgSpinner } from "react-icons/cg"
 
 export default function Register({ isOpen, closeModal, openSignInModal }){
+  const translations = useTranslations()
   const navigate = useNavigate()
   const [user, setUser] = useState('')
   const [email, setEmail] = useState('')
@@ -32,16 +34,16 @@ export default function Register({ isOpen, closeModal, openSignInModal }){
     e.preventDefault()
 
     if (user === '' || email === '' || password === ''){
-      toast.warn("Por favor, preencha todos os campos");
-      return;
+      toast.warn(translations.pleaseFillInAllFields)
+      return
     }
     if (!isValidEmail(email)){
-      toast.warn("Por favor, insira um endereço de e-mail válido");
-      return;
+      toast.warn(translations.pleaseEnterAValidEmailAddress)
+      return
     }
     if (!isValidPassword(password)){
-      toast.warn("A senha deve conter pelo menos 8 caracteres");
-      return;
+      toast.warn(translations.passwordMustContainAtLeast8Characters)
+      return
     }
 
     setLoading(true)
@@ -62,16 +64,16 @@ export default function Register({ isOpen, closeModal, openSignInModal }){
 
     } catch(error){
       if (error.code === "auth/weak-password"){
-        toast.warn("Por favor, escolha uma senha mais forte")
+        toast.warn(translations.pleaseChooseAStrongerPassword)
       } else if (error.code === "auth/email-already-in-use"){
-        toast.error("Desculpe, este e-mail já está em uso")
+        toast.error(translations.sorryThisEmailIsAlreadyInUse)
       } else{
-        toast.error("Erro ao criar conta. Tente novamente mais tarde.")
+        toast.error(translations.errorCreatingAccountTryAgainLater)
       }
-      console.error(error)
+      console.error(translations.errorWhenRegistering, error)
       setLoading(false)
     }
-  };
+  }
 
   const isValidEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -90,20 +92,20 @@ export default function Register({ isOpen, closeModal, openSignInModal }){
     <Modal style={customStyles} isOpen={isOpen} onRequestClose={closeModal}>
       <div className="register">
         <div>
-          <p>CADASTRO</p>
+          <p>{translations.register}</p>
           <IoClose onClick={closeModal} />
         </div>
         <form onSubmit={handleSubmit}>
-          <label>Nome completo:</label>
-          <input type="text" value={user} onChange={(e) => setUser(e.target.value)} placeholder="Digite o seu nome completo"/>
-          <label>E-mail:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Digite o seu e-mail"/>
-          <label>Senha:</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Digite a sua senha"/>
+          <label>{translations.fullName}:</label>
+          <input type="text" value={user} onChange={(e) => setUser(e.target.value)} placeholder={translations.enterYourFullName}/>
+          <label>{translations.email}:</label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={translations.enterYourEmail}/>
+          <label>{translations.password}:</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder={translations.enterYourPassword}/>
           <button type="submit" disabled={loading}>
-            {loading ? <div className="spinner-button"><CgSpinner/></div> : "CRIAR"}
+            {loading ? <div className="spinner-button"><CgSpinner/></div> : <>{translations.toCreate}</>}
           </button>
-          <a onClick={handleOpenSignInModal}>Já tenho conta.</a>
+          <a onClick={handleOpenSignInModal}>{translations.iAlreadyHaveAnAccount}</a>
         </form>
       </div>
     </Modal>

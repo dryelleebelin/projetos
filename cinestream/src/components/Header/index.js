@@ -31,7 +31,7 @@ export default function Header(){
       setAvatar(docSnap.data().url)
 
     } catch(error){
-      console.error("Erro ao buscar avatar: ", error)
+      console.error(translations.errorWhenSearchingForAvatar, error)
     }
   }
 
@@ -48,7 +48,7 @@ export default function Header(){
         <Link to={`/account`} className={location.pathname === '/account' ? 'active' : ''} onClick={scrollToTop}>{translations.account}</Link>
       </nav>
       <div>
-        {searchVisible && <input type="text" placeholder="Procurar..."/>}
+        {searchVisible && <input type="text" placeholder={translations.toSearchFor}/>}
         <IoSearch onClick={() => toggleSearch()}/>
         {avatar ? <Link to={`/account`} onClick={scrollToTop}><img src={avatar} alt='Avatar'/></Link> : <img src='https://api.dicebear.com/8.x/bottts-neutral/svg?seed=Max' alt='Avatar' style={{opacity: '0'}}/>}
       </div>

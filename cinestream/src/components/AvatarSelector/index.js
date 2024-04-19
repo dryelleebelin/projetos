@@ -4,12 +4,15 @@ import { toast } from "react-toastify"
 import Modal from 'react-modal'
 import { db } from '../../services/firebaseConnection'
 import { doc, updateDoc } from "firebase/firestore"
+import useTranslations from '../../translations/useTranslations'
 
 import { IoClose } from "react-icons/io5"
 import { CgSpinner } from "react-icons/cg"
 
 export default function AvatarSelector({ isOpen, closeModal }){
+  const translations = useTranslations()
   const [selectedAvatar, setSelectedAvatar] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const customStyles = {
     content: {
@@ -43,33 +46,39 @@ export default function AvatarSelector({ isOpen, closeModal }){
 
   async function handleSaveAvatar(){
     if (selectedAvatar){
+      setLoading(true)
+
       try{
         const uid = JSON.parse(localStorage.getItem('@uidCinestream'))
         await updateDoc(doc(db, 'avatar', uid), {
           url: selectedAvatar
         })
-        window.location.reload()
         closeModal()
+        setLoading(false)
+        window.location.reload()
       } catch(error){
-        console.error("Erro ao salvar avatar: ", error)
+        console.error(translations.errorSavingAvatar, error)
+        setLoading(false)
       }
     } else{
-      toast.warning('Selecione um avatar antes de salvar!')
+      toast.warning(translations.selectAnAvatarBeforeSaving)
     }
   }
 
   return (
     <Modal style={customStyles} isOpen={isOpen} onRequestClose={closeModal}>
       <div className="modal-avatars">
-        <h2>Selecione seu avatar</h2>
-        <IoClose onClick={closeModal}/>
+        <h2>{translations.selectYourAvatar}</h2>
+        <IoClose className="close" onClick={closeModal}/>
         <div className="avatars">
           {data.map((item) => (
             <img key={item.id} src={item.url} className={selectedAvatar === item.url ? "selected" : ""} alt="Avatar" onClick={() => setSelectedAvatar(item.url)}/>
           ))}
         </div>
         <div className="button">
-          <button type="button" disabled={!selectedAvatar} onClick={handleSaveAvatar}>Salvar</button>
+          <button type="button" disabled={!selectedAvatar} onClick={handleSaveAvatar}>
+            {loading ? <div className="spinner-button"><CgSpinner/></div> : <>{translations.save}</>}
+          </button>
         </div>
       </div>
     </Modal>

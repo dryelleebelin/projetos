@@ -3,11 +3,13 @@ import './modaldeleteaccount.scss'
 import Modal from 'react-modal'
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../../services/firebaseConnection'
+import useTranslations from '../../translations/useTranslations'
 
 import { IoClose } from "react-icons/io5"
 import { CgSpinner } from "react-icons/cg"
 
 export default function ModalDeleteAccount({ isOpen, closeModal }){
+  const translations = useTranslations()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
 
@@ -34,7 +36,7 @@ export default function ModalDeleteAccount({ isOpen, closeModal }){
       setLoading(false)
 
     } catch(error){
-      console.error("Erro ao deletar conta: ", error)
+      console.error(translations.errorDeletingAccount, error)
       setLoading(false)
     }
   }
@@ -43,13 +45,13 @@ export default function ModalDeleteAccount({ isOpen, closeModal }){
     <Modal style={customStyles} isOpen={isOpen} onRequestClose={closeModal}>
       <div className="modal-delete-account">
         <IoClose className="close-modal" onClick={closeModal}/>
-        <h1>Exclusão de Conta</h1>
-        <p>Você está prestes a excluir permanentemente sua conta. Esta ação é irreversível e resultará na perda de todos os seus dados e informações associadas à sua conta.</p>
+        <h1>{translations.accountDeletion}</h1>
+        <p>{translations.textDeleteAccount}</p>
         <div>
           <button type="button" onClick={handleDeleteAccount}>
-            {loading ? <div className="spinner-button"><CgSpinner/></div> : "Confirmar Exclusão"}
+            {loading ? <div className="spinner-button"><CgSpinner/></div> : <>{translations.confirmDeletion}</>}
           </button>
-          <button type="button" onClick={closeModal}>Cancelar</button>
+          <button type="button" onClick={closeModal}>{translations.cancel}</button>
         </div>
       </div>
     </Modal>

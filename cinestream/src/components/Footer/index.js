@@ -22,9 +22,9 @@ export default function Footer(){
       <div className="footer">
         <div>
           <img src={logo} onClick={scrollToTop}/>
-          <Link to={`/catalog`} onClick={scrollToTop}>{translations.catalog2}</Link>
-          <Link to={`/my-list`} onClick={scrollToTop}>{translations.myList2}</Link>
-          <Link to={`/account`} onClick={scrollToTop}>{translations.account2}</Link>
+          <Link to={`/catalog`} onClick={scrollToTop}>{translations.catalog}</Link>
+          <Link to={`/my-list`} onClick={scrollToTop}>{translations.myList}</Link>
+          <Link to={`/account`} onClick={scrollToTop}>{translations.account}</Link>
         </div>
         <div>
           <a>{translations.about}</a>

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import './filters.scss';
-import api from '../../services/api';
+import React, { useEffect, useState } from 'react'
+import './filters.scss'
+import api from '../../services/api'
+import useTranslations from '../../translations/useTranslations'
 
 export default function Filters() {
+    const translations = useTranslations()
     const [genres, setGenres] = useState([])
     const [countries, setCountries] = useState([])
     const [languages, setLanguages] = useState([])
@@ -31,7 +33,7 @@ export default function Filters() {
             setLanguages(languagesResponse.data)
             setFilter.search(searchResponse.data.results)
         } catch(error){
-            console.error('Erro ao carregar filtros: ', error)
+            console.error(translations.errorLoadingFilters, error)
             return
         }
     }
@@ -55,25 +57,25 @@ export default function Filters() {
         <>
             <form className='container-filters'>
                 <select name='genre' defaultValue="gênero">
-                    <option disabled value="gênero">gênero</option>
+                    <option disabled value="gênero">{translations.gender}</option>
                     {genres.map((genre, index) => (
                         <option key={index} value={genre.name}>{genre.name}</option>
                     ))}
                 </select>
                 <select name='country' defaultValue="país">
-                    <option disabled value="país">país</option>
+                    <option disabled value="país">{translations.country}</option>
                     {countries.map((country, index) => (
                         <option key={index} value={country.english_name}>{country.english_name.split(" ").slice(0, 2).join(" ")}</option>
                     ))}
                 </select>
                 <select name='language' defaultValue="idioma">
-                    <option disabled value="idioma">idioma</option>
+                    <option disabled value="idioma">{translations.language}</option>
                     {languages.map((language, index) => (
                         <option key={index} value={language.english_name}>{language.english_name.split(" ").slice(0, 1).join(" ")}</option>
                     ))}
                 </select>
-                <input type='text' name='search' value={filter.search} placeholder='Filme, Série ou Pessoa...' autoComplete='off' onChange={handleChangeFilter}/>
-                <button type='submit' disabled>LIMPAR</button>
+                <input type='text' name='search' value={filter.search} placeholder={translations.filmSeriesOrPerson} autoComplete='off' onChange={handleChangeFilter}/>
+                <button type='submit' disabled>{translations.toClean}</button>
             </form>
         </>
     );

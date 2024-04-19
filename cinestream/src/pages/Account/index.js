@@ -38,7 +38,7 @@ export default function Account(){
       setAvatar(docSnap.data().url)
 
     } catch(error){
-      console.error("Erro ao buscar avatar: ", error)
+      console.error(translations.errorWhenSearchingForAvatar, error)
     }
   }
 
@@ -59,7 +59,7 @@ export default function Account(){
       }
       
     } catch(error){
-      console.error("Erro ao buscar dados: ", error)
+      console.error(translations.errorFetchingData, error)
     }
   }
 
@@ -77,7 +77,7 @@ export default function Account(){
       setDisabled(true)
 
     } catch(error){
-      console.error("Erro ao atualizar dados: ", error)
+      console.error(translations.errorUpdatingData, error)
     }
   }
 
@@ -122,7 +122,7 @@ export default function Account(){
         <form onSubmit={(e) => e.preventDefault()}>
           <div>
             <label>{translations.avatar}</label>
-            {avatar ? <img src={avatar} alt="Avatar"/> : <img src='https://api.dicebear.com/8.x/bottts-neutral/svg?seed=Max' alt='Avatar' style={{opacity: '0'}}/>}
+            {avatar ? <img src={avatar} alt='Avatar'/> : <img src='https://api.dicebear.com/8.x/bottts-neutral/svg?seed=Max' alt='Avatar' style={{opacity: '0'}}/>}
             <button type="button" onClick={handleOpenModalAvatar}>{translations.editAvatar}</button>
           </div>
 
@@ -130,7 +130,7 @@ export default function Account(){
 
           <div>
             <label>{translations.name}</label>
-            <input type="text" value={name} placeholder="Digite seu nome..." disabled={disabled} onChange={(e) => setName(e.target.value)}/>
+            <input type="text" value={name} placeholder={translations.enterYourFullName} disabled={disabled} onChange={(e) => setName(e.target.value)}/>
           </div>
           <div>
             <label>{translations.dateOfBirth}</label>

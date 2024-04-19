@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import './carouseltopmovies.scss'
 import api from '../../services/api'
 import { useNavigate } from "react-router-dom"
+import useTranslations from "../../translations/useTranslations"
 
 import { register } from 'swiper/element/bundle'
 import 'swiper/css'
@@ -14,6 +15,7 @@ import { CgSpinner } from "react-icons/cg";
 register()
 
 export default function CarouselTopMovies(){
+  const translations = useTranslations()
   const navigate = useNavigate()
   const [slidesPerView, setSlidesPerView] = useState(4)
   const [movies, setMovies] = useState([])
@@ -30,7 +32,7 @@ export default function CarouselTopMovies(){
       setMovies(response.data.results.slice(0, 10))
       setLoading(false)
     } catch(error){
-      console.error(error)
+      console.error(translations.errorLoadingMovies, error)
       return
     }
   }
@@ -45,7 +47,7 @@ export default function CarouselTopMovies(){
         <div className="spinner"><CgSpinner/></div>
       :
         <div className="container-top">
-          <h1>TOP 10 FILMES</h1>
+          <h1>{translations.top10Movies}</h1>
           <Swiper className="carousel-top" slidesPerView={slidesPerView} navigation spaceBetween={30}>
             {movies.map((movie, index) => (
               <SwiperSlide className="item" key={movie.id}>

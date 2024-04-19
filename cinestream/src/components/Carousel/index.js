@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import './carousel.scss'
 import api from "../../services/api"
+import useTranslations from "../../translations/useTranslations"
 
 import CarouselTopMovies from "../CarouselTopMovies"
 
@@ -18,23 +19,24 @@ import { CgSpinner } from "react-icons/cg"
 register()
 
 export default function Carousel(){
+  const translations = useTranslations()
   const navigate = useNavigate()
   const [slidesPerView, setSlidesPerView] = useState(7)
   const [carouselData, setCarouselData] = useState([]);
   const [loading, setLoading] = useState(true)
 
   const data = [
-    { title: 'PRÓXIMAS ESTREIAS', route: 'movie/upcoming', page: '1'},
-    { title: 'FILMES DE ANIMAÇÃO', route: '/discover/movie', genreId: '16', page: '2'},
-    { title: 'SÉRIES DE TV MAIS BEM AVALIADAS', route: 'tv/top_rated', page: '1'},
-    { title: 'EM CARTAZ', route: 'movie/now_playing', page: '2'},
-    { title: 'SÉRIES DE TV PARA CRIANÇAS', route: '/discover/tv', genreId: '10762', page: '1'},
-    { title: 'DOCUMENTÁRIO', route: '/discover/movie', genreId: '99', page: '1'},
-    { title: 'MAIS BEM AVALIADOS', route: 'movie/top_rated', page: '1'},
-    { title: 'SÉRIES DE TV EM EXIBIÇÃO HOJE', route: 'tv/airing_today', page: '2'},
-    { title: 'FILMES DE TERROR', route: '/discover/movie', genreId: '27', page: '1'},
-    { title: 'SÉRIES DE TV POPULARES', route: 'tv/popular', page: '1'},
-    { title: 'SÉRIES DE TV NEWS', route: '/discover/tv', genreId: '10763', page: '1'},
+    { title: <h1>{translations.upcomingPremieres}</h1>, route: 'movie/upcoming', page: '1'},
+    { title: <h1>{translations.animationFilms}</h1>, route: '/discover/movie', genreId: '16', page: '2'},
+    { title: <h1>{translations.topRatedTvSeries}</h1>, route: 'tv/top_rated', page: '1'},
+    { title: <h1>{translations.inTheaters}</h1>, route: 'movie/now_playing', page: '2'},
+    { title: <h1>{translations.tvSeriesForChildren}</h1>, route: '/discover/tv', genreId: '10762', page: '1'},
+    { title: <h1>{translations.documentary}</h1>, route: '/discover/movie', genreId: '99', page: '1'},
+    { title: <h1>{translations.topRated}</h1>, route: 'movie/top_rated', page: '1'},
+    { title: <h1>{translations.tvSeriesShowingToday}</h1>, route: 'tv/airing_today', page: '2'},
+    { title: <h1>{translations.horrorMovies}</h1>, route: '/discover/movie', genreId: '27', page: '1'},
+    { title: <h1>{translations.popularTvSeries}</h1>, route: 'tv/popular', page: '1'},
+    { title: <h1>{translations.newsTvSeries}</h1>, route: '/discover/tv', genreId: '10763', page: '1'},
   ]
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function Carousel(){
         });
         return response.data.results.slice(0, 20);
       } catch(error){
-        console.error(error)
+        console.error(translations.errorFetchingData, error)
         return []
       }
     }
@@ -57,13 +59,15 @@ export default function Carousel(){
       const carousels = await Promise.all(data.map(async (item) => {
         const movies = await fetchData(item.route, item.genreId, item.page)
         return { title: item.title, movies: movies }
-      }));
-      setCarouselData(carousels);
+      }))
+      setCarouselData(carousels)
       setLoading(false)
     }
 
-    loadCarouselData();
-  }, []);
+    loadCarouselData()
+    
+  }, [translations])
+
 
   return(
     <>

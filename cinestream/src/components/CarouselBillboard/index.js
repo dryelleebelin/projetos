@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import './carouselbillboard.scss'
 import api from "../../services/api"
 import { Link } from "react-router-dom"
+import useTranslations from "../../translations/useTranslations"
 
 import FavoriteIcon from "../FavoriteIcon"
 
@@ -18,6 +19,7 @@ import { IoMdInformationCircleOutline } from "react-icons/io"
 register()
 
 export default function CarouselBillboard() {
+  const translations = useTranslations()
   const [like, setLike] = useState(false)
   const [dislike, setDislike] = useState(false)
   const [movies, setMovies] = useState([])
@@ -33,18 +35,18 @@ export default function CarouselBillboard() {
       setMovies(response.data.results.slice(0, 20))
       loadGenres()
     } catch (error) {
-      console.error('Erro ao carregar filmes: ', error)
+      console.error(translations.errorLoadingMovies, error)
       return
     }
   }
 
   async function loadGenres(){
     try{
-      const response = await api.get('genre/movie/list');
-      setGenres(response.data.genres);
+      const response = await api.get('genre/movie/list')
+      setGenres(response.data.genres)
     } catch(error){
-      console.error('Erro ao carregar gêneros: ', error);
-      return;
+      console.error(translations.errorLoadingGenres, error)
+      return
     }
   }
 
@@ -79,8 +81,8 @@ export default function CarouselBillboard() {
               <span>{getGenreNames(item.genre_ids).join(", ")}</span>
               <h1>{item.title}</h1>
               <div>
-                <a href={`https://www.youtube.com/results?search_query=${item.title} Trailer`} target="_blank" rel="noopener noreferrer"><button>VER TRAILER <FaRegCirclePlay/></button></a>
-                <Link to={`/detail/${item.id}`}><button>MAIS INFORMAÇÕES <IoMdInformationCircleOutline/></button></Link>
+                <a href={`https://www.youtube.com/results?search_query=${item.title} Trailer`} target="_blank" rel="noopener noreferrer"><button>{translations.seeTrailer} <FaRegCirclePlay/></button></a>
+                <Link to={`/detail/${item.id}`}><button>{translations.moreInformation} <IoMdInformationCircleOutline/></button></Link>
                 <FavoriteIcon id={item.id}/>
                 {like ? <BiSolidLike className="like" /> : <BiLike className="like" onClick={handleLike} />}
                 {dislike ? <BiSolidDislike className="dislike" /> : <BiDislike className="dislike" onClick={handleDislike} />}
