@@ -49,7 +49,7 @@ export default function Carousel(){
     else{
       setSlidesPerView(7)
     }
-}
+  }
 
   useEffect(() => {
     async function fetchData(route, genreId, page){

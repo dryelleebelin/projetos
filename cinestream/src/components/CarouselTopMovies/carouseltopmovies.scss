@@ -50,3 +50,50 @@
 .swiper-button-prev, .swiper-button-next{
   color: var(--white) !important;
 }
+
+
+// -- responsiveness for cell phones --
+@media only screen and (max-width: 480px){
+  .container-top{
+    h1{
+      font-size: 1.7rem;
+    }
+  
+    .carousel-top{
+      padding-top: 6vh;
+  
+      .item{
+        img{
+          border-radius: 6px;
+        }
+  
+        span {
+          right: 4%;
+          font-size: 7rem;
+        }
+      }
+    }
+  }
+}
+
+
+// -- tablet responsiveness --
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+  .container-top{
+    .carousel-top{
+      padding-top: 7vh;
+  
+      .item{
+        img{
+          border-radius: 6px;
+        }
+  
+        span {
+          top: -8vh;
+          right: 3%;
+          font-size: 7.5rem;
+        }
+      }
+    }
+  }
+}

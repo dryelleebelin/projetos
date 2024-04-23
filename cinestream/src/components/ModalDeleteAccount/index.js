@@ -7,6 +7,7 @@ import useTranslations from '../../translations/useTranslations'
 
 import { IoClose } from "react-icons/io5"
 import { CgSpinner } from "react-icons/cg"
+import { toast } from "react-toastify"
 
 export default function ModalDeleteAccount({ isOpen, closeModal }){
   const translations = useTranslations()
@@ -36,6 +37,7 @@ export default function ModalDeleteAccount({ isOpen, closeModal }){
       setLoading(false)
 
     } catch(error){
+      toast.error(translations.errorDeletingAccountTryAgainLater)
       console.error(translations.errorDeletingAccount, error)
       setLoading(false)
     }

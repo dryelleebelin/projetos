@@ -45,3 +45,49 @@
     }
   }
 }
+
+
+// -- responsiveness for cell phones --
+@media only screen and (max-width: 480px){
+  .container-filters{
+    gap: 3%;
+    height: 15vh;
+    flex-wrap: wrap;
+    padding: 2vh 0;
+    z-index: 8;
+  
+    select{
+      padding: 1vh 2vw;
+    }
+  
+    input{
+      display: none;
+    }
+  
+    button{
+      padding: 0.9vh 5vw;
+      margin-left: -5vw;
+    }
+  }
+}
+
+
+// -- tablet responsiveness --
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+  .container-filters{
+    flex-wrap: wrap;
+    z-index: 8;
+  
+    select{
+      padding: 0.8vh 1.5vw;
+    }
+  
+    input{
+      display: none;
+    }
+  
+    button{
+      padding: 0.8vh 3vw;
+    }
+  }
+}

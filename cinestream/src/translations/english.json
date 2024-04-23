@@ -105,5 +105,6 @@
   "errorSendingPasswordResetEmailTryAgainLater": "Error sending password reset email. Try again Later.",
   "underDevelopment": "Under development!",
   "errorLoadingMovieWithID": "Error loading movie with ID: ",
-  "details": "Details"
+  "details": "Details",
+  "errorDeletingAccountTryAgainLater": "Error deleting account, try again later!"
 }

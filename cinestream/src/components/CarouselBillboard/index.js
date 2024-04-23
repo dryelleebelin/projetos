@@ -55,8 +55,8 @@ export default function CarouselBillboard() {
     return genreIds.map(genreId => {
       const genre = genres.find(g => g.id === genreId);
       return genre ? genre.name : "";
-    });
-  };
+    })
+  }
 
   useEffect(() => {
     loadMovies()

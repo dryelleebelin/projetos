@@ -19,7 +19,6 @@ export default function CarouselTopMovies(){
   const navigate = useNavigate()
   const [slidesPerView, setSlidesPerView] = useState(4)
   const [movies, setMovies] = useState([])
-  const [idMovies, setIdMovies] = useState([])
   const [loading, setLoading] = useState(true)
   const top10 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 
@@ -37,8 +36,26 @@ export default function CarouselTopMovies(){
     }
   }
 
+  function handleResize(){
+    if(window.innerWidth < 480){
+      setSlidesPerView(1)
+    }
+    else if(window.innerWidth >= 481 && window.innerWidth <= 1023){
+      setSlidesPerView(2)
+    }
+    else{
+      setSlidesPerView(4)
+    }
+  }
+
   useEffect(() => {
     loadMovies()
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return() => {
+      window.removeEventListener("resize", handleResize)
+    }
   }, [])
 
   return (

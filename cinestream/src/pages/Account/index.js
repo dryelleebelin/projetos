@@ -54,6 +54,7 @@ export default function Account(){
         setBirthday(docSnap.data().birthday)
         setEmail(user.email)
         setLoading(false)
+        
       } else{
         setName('')
       }

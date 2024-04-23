@@ -7,7 +7,7 @@
   h1{
     font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: 3vh;
+    margin-bottom: 2vh;
   }
 
   div{
@@ -17,10 +17,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1%;
+    padding: 1% 0;
 
     img{
       width: 140px;
-      height: auto;
+      height: 210px;
       margin-bottom: 1%;
       border-radius: 3px;
       cursor: pointer;
