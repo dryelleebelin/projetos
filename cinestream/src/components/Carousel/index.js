@@ -26,17 +26,17 @@ export default function Carousel(){
   const [loading, setLoading] = useState(true)
 
   const data = [
-    { title: <h1>{translations.upcomingPremieres}</h1>, route: 'movie/upcoming', page: '1'},
-    { title: <h1>{translations.animationFilms}</h1>, route: '/discover/movie', genreId: '16', page: '2'},
-    { title: <h1>{translations.topRatedTvSeries}</h1>, route: 'tv/top_rated', page: '1'},
-    { title: <h1>{translations.inTheaters}</h1>, route: 'movie/now_playing', page: '2'},
-    { title: <h1>{translations.tvSeriesForChildren}</h1>, route: '/discover/tv', genreId: '10762', page: '1'},
-    { title: <h1>{translations.documentary}</h1>, route: '/discover/movie', genreId: '99', page: '1'},
-    { title: <h1>{translations.topRated}</h1>, route: 'movie/top_rated', page: '1'},
-    { title: <h1>{translations.tvSeriesShowingToday}</h1>, route: 'tv/airing_today', page: '2'},
-    { title: <h1>{translations.horrorMovies}</h1>, route: '/discover/movie', genreId: '27', page: '1'},
-    { title: <h1>{translations.popularTvSeries}</h1>, route: 'tv/popular', page: '1'},
-    { title: <h1>{translations.newsTvSeries}</h1>, route: '/discover/tv', genreId: '10763', page: '1'},
+    { title: <>{translations.upcomingPremieres}</>, route: 'movie/upcoming', page: '1'},
+    { title: <>{translations.animationFilms}</>, route: '/discover/movie', genreId: '16', page: '2'},
+    { title: <>{translations.topRatedTvSeries}</>, route: 'tv/top_rated', page: '1'},
+    { title: <>{translations.inTheaters}</>, route: 'movie/now_playing', page: '2'},
+    { title: <>{translations.tvSeriesForChildren}</>, route: '/discover/tv', genreId: '10762', page: '1'},
+    { title: <>{translations.documentary}</>, route: '/discover/movie', genreId: '99', page: '1'},
+    { title: <>{translations.topRated}</>, route: 'movie/top_rated', page: '1'},
+    { title: <>{translations.tvSeriesShowingToday}</>, route: 'tv/airing_today', page: '2'},
+    { title: <>{translations.horrorMovies}</>, route: '/discover/movie', genreId: '27', page: '1'},
+    { title: <>{translations.popularTvSeries}</>, route: 'tv/popular', page: '1'},
+    { title: <>{translations.newsTvSeries}</>, route: '/discover/tv', genreId: '10763', page: '1'}
   ]
 
   function handleResize(){
@@ -59,8 +59,9 @@ export default function Carousel(){
             with_genres: genreId,
             page: page
           }
-        });
-        return response.data.results.slice(0, 20);
+        })
+        return response.data.results.slice(0, 20)
+
       } catch(error){
         console.error(translations.errorFetchingData, error)
         return []
@@ -109,5 +110,5 @@ export default function Carousel(){
         </>
       }
     </>
-  );
+  )
 }

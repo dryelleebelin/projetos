@@ -48,6 +48,7 @@
       height: 20px;
       width: auto;
       cursor: pointer;
+      display: none;
     }
 
     input{
@@ -58,6 +59,7 @@
       right: 10.5vw;
       padding: 0.6vh 1vw;
       border-radius: 4px;
+      display: none;
     }
 
     img{
@@ -90,12 +92,14 @@
   
       svg{
         height: 24px;
+        display: flex;
       }
   
       input{
         right: 26vw;
         padding: 0.6vh 2vw;
         width: 50%;
+        display: flex;
       }
   
       img{
@@ -155,12 +159,14 @@
   
       svg{
         height: 24px;
+        display: flex;
       }
   
       input{
         right: 16vw;
         padding: 0.6vh 2vw;
         width: 45%;
+        display: flex;
       }
   
       img{

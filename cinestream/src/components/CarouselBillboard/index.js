@@ -13,16 +13,12 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper/modules'
 
 import { FaRegCirclePlay } from "react-icons/fa6"
-import { BiLike, BiDislike, BiSolidLike, BiSolidDislike } from "react-icons/bi"
 import { IoMdInformationCircleOutline } from "react-icons/io"
-import { toast } from "react-toastify"
 
 register()
 
 export default function CarouselBillboard() {
   const translations = useTranslations()
-  const [like, setLike] = useState(false)
-  const [dislike, setDislike] = useState(false)
   const [movies, setMovies] = useState([])
   const [genres, setGenres] = useState([])
 
@@ -61,19 +57,6 @@ export default function CarouselBillboard() {
   useEffect(() => {
     loadMovies()
   }, [])
-  
-
-  const handleLike = () => {
-    setLike(true)
-    setDislike(false)
-    toast.info(translations.underDevelopment)
-  }
-
-  const handleDislike = () => {
-    setDislike(true)
-    setLike(false)
-    toast.info(translations.underDevelopment)
-  }
 
   return (
     <Swiper className="billboard" modules={[EffectFade]} effect="fade" slidesPerView={1} autoplay={{ delay: 10000 }} allowTouchMove={false}>
@@ -87,8 +70,6 @@ export default function CarouselBillboard() {
                 <a href={`https://www.youtube.com/results?search_query=${item.title} Trailer`} target="_blank" rel="noopener noreferrer"><button>{translations.seeTrailer} <FaRegCirclePlay/></button></a>
                 <Link to={`/detail/${item.id}`}><button>{translations.moreInformation} <IoMdInformationCircleOutline/></button></Link>
                 <FavoriteIcon id={item.id}/>
-                {like ? <BiSolidLike className="like" /> : <BiLike className="like" onClick={handleLike} />}
-                {dislike ? <BiSolidDislike className="dislike" /> : <BiDislike className="dislike" onClick={handleDislike} />}
               </div>
             </div>
           </div>
