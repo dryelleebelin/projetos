@@ -12,6 +12,7 @@ import Private from "./private"
 export default function RoutesApp(){
   return(
     <Routes>
+      <Route path="*" element={<Home/>}/>
       <Route exact path="/" element={<Home/>}/>
       
       <Route path="/catalog" element={<Private><Catalog/></Private>}/>

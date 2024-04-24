@@ -13,6 +13,7 @@ import AvatarSelector from "../../components/AvatarSelector"
 
 import { IoIosLogOut } from "react-icons/io"
 import { MdDeleteOutline } from "react-icons/md"
+import { toast } from "react-toastify"
 
 export default function Account(){
   const translations = useTranslations()
@@ -76,6 +77,7 @@ export default function Account(){
         birthday: birthday
       })
       setDisabled(true)
+      toast.success(translations.updatedData)
 
     } catch(error){
       console.error(translations.errorUpdatingData, error)

@@ -106,5 +106,6 @@
   "underDevelopment": "Under development!",
   "errorLoadingMovieWithID": "Error loading movie with ID: ",
   "details": "Details",
-  "errorDeletingAccountTryAgainLater": "Error deleting account, try again later!"
+  "errorDeletingAccountTryAgainLater": "Error deleting account, try again later!",
+  "updatedData": "Updated data!"
 }
