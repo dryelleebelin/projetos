@@ -16,12 +16,14 @@ import Footer01 from "./components/footers/01/index.js"
 import Footer02 from "./components/footers/02/index.js"
 import Card02 from "./components/cards/02/index.js"
 import Footer03 from "./components/footers/03/index.js"
+import Skeleton from "./components/loading/Skeleton/index.js"
 
 export default function RoutesApp(){
   return(
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App/>}/>
+        <Route path="*" element={<App/>}/>
+        <Route exact path="/" element={<App/>}/>
         <Route path="/sidebar/01" element={<Sidebar01/>}/>
         <Route path="/button/darkmode" element={<DarkMode/>}/>
         <Route path="/button/download" element={<Download/>}/>
@@ -37,6 +39,7 @@ export default function RoutesApp(){
         <Route path="/footer/02" element={<Footer02/>}/>
         <Route path="/card/02" element={<Card02/>}/>
         <Route path="/footer/03" element={<Footer03/>}/>
+        <Route path="/loading/skeleton" element={<Skeleton/>}/>
       </Routes>
     </BrowserRouter>
   )
