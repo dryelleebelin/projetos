@@ -21,6 +21,13 @@ npm install
 
 Para executar qualquer um dos projetos incluídos neste repositório, siga as instruções específicas de cada um. Cada projeto terá um diretório separado com seu próprio README.md contendo informações detalhadas sobre como executá-lo.
 
+### Websites
+
+- [cinestream](https://cinestreamhub.netlify.app)  
+- [therickandmorty](https://therickandmortyhub.netlify.app)  
+- [landingpagebarber](https://landingpagebarber.netlify.app)
+- [chamadosclientes](https://chamadosclientes.netlify.app)
+
 ### Contribuição
 
 Contribuições são bem-vindas! Se você deseja contribuir para algum dos projetos deste repositório, siga as diretrizes abaixo:
