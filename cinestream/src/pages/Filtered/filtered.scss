@@ -1,9 +1,106 @@
 .filtered{
   color: var(--white);
   margin-top: 20vh;
-  height: 80vh;
+  height: 100%;
+  padding: 5vh 5vw 10vh 5vw;
+  
+  section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
 
-  img{
-    width: 100px;
+    img{
+      width: 160px;
+      height: 240px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+  
+      &:hover{
+        transform: scale(1.04);
+      }
+    }
+  }
+
+  .pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5vh;
+    gap: 1vw;
+
+    button{
+      padding: 0.6vh 0.8vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--white);
+      border: none;
+      border-radius: 2px;
+      opacity: 0.9;
+      transition: 0.3s ease-in-out;
+
+      &:hover{
+        opacity: 1;
+      }
+
+      svg{
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+
+// -- responsiveness for cell phones --
+@media only screen and (max-width: 480px){
+  .filtered{
+    margin-top: 25vh;
+    
+    section{
+      gap: 2.5vw;
+  
+      img{
+        width: 120px;
+        height: 180px;
+      }
+    }
+  
+    .pagination{
+      gap: 2vw;
+  
+      button{
+        padding: 0.6vh 2vw;
+  
+        svg{
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+
+// -- tablet responsiveness --
+@media only screen and (min-width: 481px) and (max-width: 1023px){
+  .filtered{
+    section{
+      img{
+        width: 170px;
+        height: 255px;
+      }
+    }
+  
+    .pagination{
+      gap: 2vw;
+  
+      button{
+        padding: 0.6vh 1vw;
+  
+        svg{
+          font-size: 20px;
+        }
+      }
+    }
   }
 }

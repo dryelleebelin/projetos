@@ -107,5 +107,7 @@
   "errorLoadingMovieWithID": "Erro ao carregar filme com ID: ",
   "details": "Detalhes",
   "errorDeletingAccountTryAgainLater": "Erro ao deletar conta, tente novamente mais tarde!",
-  "updatedData": "Dados atualizados!"
+  "updatedData": "Dados atualizados!",
+  "errorWhenFetchingFilterResults": "Erro ao buscar resultados do filtro: ",
+  "anErrorOccurredWhileFetchingTheResultsTryAgainLater": "Ocorreu um erro ao buscar os resultados. Tente novamente mais tarde."
 }

@@ -107,5 +107,7 @@
   "errorLoadingMovieWithID": "Error loading movie with ID: ",
   "details": "Details",
   "errorDeletingAccountTryAgainLater": "Error deleting account, try again later!",
-  "updatedData": "Updated data!"
+  "updatedData": "Updated data!",
+  "errorWhenFetchingFilterResults": "Error when fetching filter results: ",
+  "anErrorOccurredWhileFetchingTheResultsTryAgainLater": "An error occurred while fetching the results. Try again later."
 }
