@@ -22,6 +22,7 @@ export default function App(){
         <button><Link to={`/card/02`}>card</Link></button>
         <button><Link to={`/footer/03`}>footer</Link></button>
         <button><Link to={`/loading/skeleton`}>skeleton</Link></button>
+        <button><Link to={`/page/weather-app`}>weather app</Link></button>
       </main>
     </div>
   );

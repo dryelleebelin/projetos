@@ -17,6 +17,7 @@ import Footer02 from "./components/footers/02/index.js"
 import Card02 from "./components/cards/02/index.js"
 import Footer03 from "./components/footers/03/index.js"
 import Skeleton from "./components/loading/Skeleton/index.js"
+import WeatherApp from "./pages/WeatherApp/index.js"
 
 export default function RoutesApp(){
   return(
@@ -40,6 +41,7 @@ export default function RoutesApp(){
         <Route path="/card/02" element={<Card02/>}/>
         <Route path="/footer/03" element={<Footer03/>}/>
         <Route path="/loading/skeleton" element={<Skeleton/>}/>
+        <Route path="/page/weather-app" element={<WeatherApp/>}/>
       </Routes>
     </BrowserRouter>
   )
